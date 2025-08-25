@@ -1,0 +1,88 @@
+import React from "react";
+import { FaPhone, FaMapMarkerAlt, FaClock } from "react-icons/fa";
+
+const HeroSection = () => {
+  return (
+    <section className="relative bg-gradient-to-b from-green-50 to-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-20">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          {/* LEFT CONTENT */}
+          <div className="space-y-6">
+            <div className="space-y-4">
+              <h1 className="text-4xl lg:text-6xl font-black text-gray-900 leading-tight">
+                STONELEY&apos;S
+                <br />
+                <span className="text-green-600">GARAGE SERVICES</span>
+              </h1>
+              <p className="text-xl text-gray-700">
+                Family-run garage established 1973
+              </p>
+            </div>
+
+            <p className="text-lg text-gray-900 leading-relaxed">
+              Over 50 years of trusted automotive expertise in Mansfield. From
+              routine servicing to complex repairs, our qualified technicians
+              provide professional, reliable service for all makes and models.
+            </p>
+
+            {/* BUTTONS */}
+            <div className="flex flex-col sm:flex-row gap-4">
+              <button
+                className="inline-flex items-center justify-center gap-2 text-sm 
+                bg-green-600 text-white shadow hover:bg-green-700
+                h-10 rounded-md px-6 font-semibold"
+              >
+                <FaPhone className="h-4 w-4" />
+                Call 01623 623 759
+              </button>
+
+              <button
+                className="inline-flex items-center justify-center gap-2 text-sm 
+                border shadow hover:bg-gray-100 text-gray-900
+                h-10 rounded-md px-6 font-semibold bg-transparent"
+              >
+                View Our Services
+              </button>
+            </div>
+
+            {/* LOCATION & ESTABLISHED */}
+            <div className="grid sm:grid-cols-2 gap-4 pt-6">
+              <div className="flex items-center space-x-3">
+                <FaMapMarkerAlt className="h-5 w-5 text-green-600 flex-shrink-0" />
+                <div>
+                  <p className="font-semibold">Location</p>
+                  <p className="text-sm text-gray-600">
+                    Hamilton Way, Mansfield NG18 5BU
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-center space-x-3">
+                <FaClock className="h-5 w-5 text-green-600 flex-shrink-0" />
+                <div>
+                  <p className="font-semibold">Established</p>
+                  <p className="text-sm text-gray-600">
+                    Family-run since 1973
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* RIGHT IMAGE */}
+          <div className="relative">
+            <div className="aspect-[4/3] relative rounded-lg overflow-hidden shadow-2xl">
+              <img
+                alt="Stoneley's Garage Services - Professional car repair centre"
+                src="/images/garage-header.png"
+                className="object-cover absolute inset-0 h-full w-full"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default HeroSection;
