@@ -37,7 +37,7 @@ export default function GarageNav() {
       <a href="/services/car-service" className={itemClass}>
         Car Service &amp; MOT
       </a>
-      <a href="/services/engine-cleaning" className={itemClass}>
+      <a href="/services/cleaning" className={itemClass}>
         Engine Cleaning
       </a>
     </>

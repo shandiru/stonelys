@@ -3,11 +3,13 @@ import { Routes, Route } from "react-router-dom";
 import Header from "./components/Header.jsx";
 import Footer from "./components/Footer.jsx";
 
+// Page Components
 import Home from "./Page/Home.jsx";
 import About from "./Page/Contact.jsx";
 import Wheelalignment from "./Page/wheelalignmentpage.jsx";
 import AirConPage from "./Page/AirConPage.jsx";
 import CarServicePage from "./Page/CarServicePage.jsx";
+import CleaningPage from "./Page/CleaningPage.jsx";
 
 export default function App() {
   return (
@@ -18,11 +20,9 @@ export default function App() {
           <Route path="/" element={<Home />} />
           <Route path="/contact" element={<About />} />
           <Route path="/services/wheel-alignment" element={<Wheelalignment />} />
-           <Route path="/services/air-con" element={<  AirConPage />} />
-             <Route path="/services/car-service" element={<  CarServicePage />} />
-         
-      
-
+          <Route path="/services/air-con" element={<AirConPage />} />
+          <Route path="/services/car-service" element={<CarServicePage />} />
+          <Route path="/services/cleaning" element={<CleaningPage />} />
         </Routes>
       </main>
       <Footer />
