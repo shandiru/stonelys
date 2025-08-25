@@ -5,6 +5,8 @@ import Footer from "./components/Footer.jsx";
 
 import Home from "./Page/Home.jsx";
 import About from "./Page/Contact.jsx";
+import Wheelalignment from "./Page/wheelalignmentpage.jsx";
+
 
 
 export default function App() {
@@ -15,6 +17,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/contact" element={<About />} />
+          <Route path="/services/wheel-alignment" element={<Wheelalignment />} />
          
 
         </Routes>
