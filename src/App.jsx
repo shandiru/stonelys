@@ -7,7 +7,7 @@ import Home from "./Page/Home.jsx";
 import About from "./Page/Contact.jsx";
 import Wheelalignment from "./Page/wheelalignmentpage.jsx";
 import AirConPage from "./Page/AirConPage.jsx";
-
+import CarServicePage from "./Page/CarServicePage.jsx";
 
 export default function App() {
   return (
@@ -19,8 +19,9 @@ export default function App() {
           <Route path="/contact" element={<About />} />
           <Route path="/services/wheel-alignment" element={<Wheelalignment />} />
            <Route path="/services/air-con" element={<  AirConPage />} />
+             <Route path="/services/car-service" element={<  CarServicePage />} />
          
-       
+      
 
         </Routes>
       </main>
