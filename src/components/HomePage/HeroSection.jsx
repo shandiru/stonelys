@@ -83,7 +83,7 @@ const HeroSection = () => {
             <div className="aspect-[4/3] relative rounded-lg overflow-hidden shadow-2xl">
               <img
                 alt="Stoneley's Garage Services - Professional car repair centre"
-                src="/images/garage-header.png"
+                src="/stoneleys.jpg"
                 className="object-cover absolute inset-0 h-full w-full"
               />
             </div>
