@@ -3,11 +3,11 @@ import React from "react";
 import { FaPhone } from "react-icons/fa";
 
 const palette = {
-  primary: "#3F8D3A",          // solid green background from the screenshot
+  primary: "#3F8D3A",          // solid green background
   fgOnPrimary: "#FFFFFF",      // white text on green
-  secondaryBg: "#B9C26D",      // olive call button (left)
+  secondaryBg: "#B9C26D",      // olive call button
   secondaryText: "#1F2A10",    // dark text on olive
-  outline: "#FFFFFF",          // white outline for the right button
+  outline: "#FFFFFF",          // white outline for secondary button
 };
 
 export default function EmergencyCTA() {
@@ -18,16 +18,16 @@ export default function EmergencyCTA() {
     >
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h2 className="text-3xl lg:text-4xl font-bold mb-4">
-         Book Your Wheel Alignment Service Today
+          Book Your Wheel Alignment Service Today
         </h2>
 
         <p className="text-xl mb-8 opacity-90">
-        Professional service from qualified technicians using the latest alignment technology
+          Professional service from qualified technicians using the latest alignment technology
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           {/* Call button */}
-          <a href="tel:01623623759" className="inline-block">
+          <a href="tel:+441623623759" className="inline-block">
             <button
               className="inline-flex items-center justify-center gap-2 h-10 rounded-md px-6 font-semibold"
               style={{
@@ -36,11 +36,11 @@ export default function EmergencyCTA() {
               }}
             >
               <FaPhone className="h-5 w-5" />
-              Call 01623 623 759
+              Call +44 1623 623759
             </button>
           </a>
 
-          {/* Emergency Service (outline) */}
+          {/* Request Quote button */}
           <button
             className="inline-flex items-center justify-center gap-2 h-10 rounded-md px-6 font-semibold transition-colors"
             style={{
@@ -55,6 +55,10 @@ export default function EmergencyCTA() {
             onMouseLeave={(e) => {
               e.currentTarget.style.backgroundColor = "transparent";
               e.currentTarget.style.color = palette.fgOnPrimary;
+            }}
+            onClick={() => {
+              const el = document.getElementById("contact");
+              if (el) el.scrollIntoView({ behavior: "smooth" });
             }}
           >
             Request Quote

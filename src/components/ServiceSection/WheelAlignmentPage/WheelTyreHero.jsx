@@ -3,17 +3,25 @@ import React from "react";
 import { FaPhoneAlt } from "react-icons/fa";
 
 const palette = {
-  primary: "#2F7D33",     // brand green for highlight & primary button
-  gradTop: "#EAF5EA",     // very light green (top of gradient)
-  gradBottom: "#FFFFFF",  // white (bottom of gradient)
-  heading: "#111827",     // near-black
-  muted: "#374151",       // paragraph text
-  badgeBg: "#A4BE6A",     // olive badge bg
+  primary: "#2F7D33",     // brand green
+  gradTop: "#EAF5EA",     // light green
+  gradBottom: "#FFFFFF",  // white
+  heading: "#111827",     // dark text
+  muted: "#374151",       // paragraph
+  badgeBg: "#A4BE6A",     // badge bg
   badgeText: "#1F2A10",   // badge text
-  outlineBorder: "rgba(17,24,39,0.15)", // subtle outline button border
+  outlineBorder: "rgba(17,24,39,0.15)", // outline btn border
 };
 
 export default function WheelTyreHero() {
+  // Scroll to the quote form or contact section
+  const handleQuoteClick = () => {
+    const el = document.getElementById("contact");
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <section
       className="py-16"
@@ -23,7 +31,7 @@ export default function WheelTyreHero() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          {/* badge */}
+          {/* Badge */}
           <span
             className="inline-flex items-center justify-center rounded-md px-2 py-0.5 text-xs font-medium mb-4"
             style={{ backgroundColor: palette.badgeBg, color: palette.badgeText }}
@@ -31,16 +39,15 @@ export default function WheelTyreHero() {
             Professional Wheel Services
           </span>
 
-          {/* heading */}
+          {/* Heading */}
           <h1
             className="text-4xl lg:text-5xl font-black mb-6"
             style={{ color: palette.heading }}
           >
-            Wheel Alignment &amp;{" "}
-            <span style={{ color: palette.primary }}>Tyre Services</span>
+            Wheel Alignment &amp; <span style={{ color: palette.primary }}>Tyre Services</span>
           </h1>
 
-          {/* sub copy */}
+          {/* Sub Copy */}
           <p
             className="text-xl max-w-3xl mx-auto leading-relaxed"
             style={{ color: palette.muted }}
@@ -50,22 +57,23 @@ export default function WheelTyreHero() {
             and efficiently with our expert technicians.
           </p>
 
-          {/* actions */}
+          {/* Actions */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
-            {/* primary button */}
-            <a href="tel:01623623759" className="inline-block">
+            {/* Primary Button */}
+            <a href="tel:+441623623759" className="inline-block">
               <button
                 className="inline-flex items-center justify-center gap-2 h-10 rounded-md px-6 font-semibold"
                 style={{ backgroundColor: palette.primary, color: "#FFFFFF" }}
               >
                 <FaPhoneAlt className="h-5 w-5" />
-                Book Service: 01623 623 759
+                Book Service: +441623623759
               </button>
             </a>
 
-            {/* outline button */}
+            {/* Outline Button */}
             <button
-              className="inline-flex items-center justify-center gap-2 h-10 rounded-md px-6 font-semibold"
+              onClick={handleQuoteClick}
+              className="inline-flex items-center justify-center gap-2 h-10 rounded-md px-6 font-semibold transition-colors"
               style={{
                 backgroundColor: "#FFFFFF",
                 color: palette.heading,
