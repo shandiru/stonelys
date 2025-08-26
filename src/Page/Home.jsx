@@ -4,7 +4,7 @@ import React from "react";
 import HeroSection from "../components/HomePage/HeroSection.jsx";
 import ServicesSection from "../components/HomePage/ServicesSection.jsx";
 import WhyChooseSection from "../components/HomePage/WhyChooseSection.jsx";
-
+import Review from "../components/HomePage/Review.jsx";
 
 export default function Home() {
   return (
@@ -23,6 +23,13 @@ export default function Home() {
       <section id="process">
         <WhyChooseSection />
       </section>
+
+        <section>
+        <  Review />
+      </section>
+      
+
+    
 
    
     </div>

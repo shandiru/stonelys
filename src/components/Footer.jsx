@@ -33,12 +33,12 @@ export default function SiteFooter() {
             <div className="space-y-2">
               <div className="flex items-center gap-2">
                 <FaPhone className="h-4 w-4" style={{ color: palette.primary }} />
-                <span className="text-sm">01623 623 759</span>
+                <span className="text-sm">+44 1623 623759</span>
               </div>
               <div className="flex items-center gap-2">
                 <FaMapMarkerAlt className="h-4 w-4" style={{ color: palette.primary }} />
                 <span className="text-sm">
-                  Hamilton Way, Mansfield NG18 5BU
+                  Oakham Business Park, Hamilton Way, Mansfield NG18 5BU, United Kingdom
                 </span>
               </div>
             </div>
