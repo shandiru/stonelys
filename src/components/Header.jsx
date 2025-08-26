@@ -8,11 +8,16 @@ import {
 } from "react-icons/fa";
 
 export default function GarageNav() {
-  const brandGreen = "#458F3B"; // header bg
+  const brandGreen = "#458F3B";
   const hoverLite = "rgba(255,255,255,0.85)";
-  const [open, setOpen] = useState(false); // mobile menu
-  const [svcOpen, setSvcOpen] = useState(false); // desktop services dropdown
-  const [svcOpenMobile, setSvcOpenMobile] = useState(false); // mobile services dropdown
+  const [open, setOpen] = useState(false);
+  const [svcOpen, setSvcOpen] = useState(false);
+  const [svcOpenMobile, setSvcOpenMobile] = useState(false);
+
+  const phoneNumber = "+441623623759";
+  const phoneDisplay = "+44 1623 623759";
+  const mapAddress =
+    "https://www.google.com/maps/place/Stoneley's+Garage+Services/data=!4m2!3m1!1s0x0:0x5a644c3262063baf?sa=X&ved=1t:2428&hl=en-GB&ictx=111";
 
   const NavLink = ({ href, children }) => (
     <a
@@ -57,7 +62,7 @@ export default function GarageNav() {
             <NavLink href="/">Home</NavLink>
             <NavLink href="/contact">Contact</NavLink>
 
-            {/* Services (click to toggle) */}
+            {/* Services */}
             <div className="relative">
               <button
                 type="button"
@@ -68,21 +73,12 @@ export default function GarageNav() {
                 aria-expanded={svcOpen}
               >
                 <span>Services</span>
-                <FaChevronDown
-                  className={`h-4 w-4 transition-transform ${
-                    svcOpen ? "rotate-180" : ""
-                  }`}
-                />
+                <FaChevronDown className={`h-4 w-4 transition-transform ${svcOpen ? "rotate-180" : ""}`} />
               </button>
-
               {svcOpen && (
                 <div
                   className="absolute right-0 mt-2 w-64 rounded-md border shadow-lg z-50"
-                  style={{
-                    background: "#FFFFFF",
-                    color: "#111827",
-                    borderColor: "rgba(0,0,0,0.08)",
-                  }}
+                  style={{ background: "#FFFFFF", color: "#111827", borderColor: "rgba(0,0,0,0.08)" }}
                   role="menu"
                 >
                   <ServiceLinks itemClass="block px-4 py-2 hover:bg-gray-50" />
@@ -91,16 +87,21 @@ export default function GarageNav() {
             </div>
           </div>
 
-          {/* Right utilities */}
+          {/* Right utilities (Desktop) */}
           <div className="hidden lg:flex items-center space-x-4">
-            <div className="flex items-center space-x-1 text-sm">
+            <a href={`tel:${phoneNumber}`} className="flex items-center space-x-1 text-sm hover:underline">
               <FaPhoneAlt className="h-4 w-4" />
-              <span>01623 623 759</span>
-            </div>
-            <div className="flex items-center space-x-1 text-sm">
+              <span>{phoneDisplay}</span>
+            </a>
+            <a
+              href={mapAddress}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center space-x-1 text-sm hover:underline"
+            >
               <FaMapMarkerAlt className="h-4 w-4" />
-              <span>Mansfield NG18 5BU</span>
-            </div>
+              <span>Stoneley's Garage, NG18 5BU</span>
+            </a>
           </div>
 
           {/* Mobile toggle */}
@@ -126,7 +127,7 @@ export default function GarageNav() {
           <NavLink href="/">Home</NavLink>
           <NavLink href="/contact">Contact</NavLink>
 
-          {/* Services (mobile expandable) */}
+          {/* Services (Mobile) */}
           <button
             className="flex items-center justify-between text-left font-medium pr-2"
             style={{ color: "#FFFFFF" }}
@@ -134,11 +135,7 @@ export default function GarageNav() {
             aria-expanded={svcOpenMobile}
           >
             <span>Services</span>
-            <FaChevronDown
-              className={`h-4 w-4 transition-transform ${
-                svcOpenMobile ? "rotate-180" : ""
-              }`}
-            />
+            <FaChevronDown className={`h-4 w-4 transition-transform ${svcOpenMobile ? "rotate-180" : ""}`} />
           </button>
           <div
             className="overflow-hidden transition-[max-height] duration-300 ease-in-out pl-3"
@@ -149,16 +146,21 @@ export default function GarageNav() {
             </div>
           </div>
 
-          {/* Phone + Location */}
+          {/* Mobile Phone + Location */}
           <div className="pt-2 border-t border-white/20 flex flex-col gap-2 text-sm">
-            <div className="flex items-center space-x-1">
+            <a href={`tel:${phoneNumber}`} className="flex items-center space-x-1 hover:underline">
               <FaPhoneAlt className="h-4 w-4" />
-              <span>01623 623 759</span>
-            </div>
-            <div className="flex items-center space-x-1">
+              <span>{phoneDisplay}</span>
+            </a>
+            <a
+              href={mapAddress}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center space-x-1 hover:underline"
+            >
               <FaMapMarkerAlt className="h-4 w-4" />
-              <span>Mansfield NG18 5BU</span>
-            </div>
+              <span>Oakham Business Park, Hamilton Way</span>
+            </a>
           </div>
         </div>
       </div>

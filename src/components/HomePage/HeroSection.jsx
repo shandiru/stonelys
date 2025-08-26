@@ -8,6 +8,7 @@ const HeroSection = () => {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* LEFT CONTENT */}
           <div className="space-y-6">
+            {/* HEADLINE */}
             <div className="space-y-4">
               <h1 className="text-4xl lg:text-6xl font-black text-gray-900 leading-tight">
                 STONELEY&apos;S
@@ -19,6 +20,7 @@ const HeroSection = () => {
               </p>
             </div>
 
+            {/* DESCRIPTION */}
             <p className="text-lg text-gray-900 leading-relaxed">
               Over 50 years of trusted automotive expertise in Mansfield. From
               routine servicing to complex repairs, our qualified technicians
@@ -27,43 +29,50 @@ const HeroSection = () => {
 
             {/* BUTTONS */}
             <div className="flex flex-col sm:flex-row gap-4">
-              <button
+              <a
+                href="tel:+441623623759"
                 className="inline-flex items-center justify-center gap-2 text-sm 
                 bg-green-600 text-white shadow hover:bg-green-700
                 h-10 rounded-md px-6 font-semibold"
               >
                 <FaPhone className="h-4 w-4" />
-                Call 01623 623 759
-              </button>
+                Call +441623623759
+              </a>
 
-              <button
+              <a
+                href="#services"
                 className="inline-flex items-center justify-center gap-2 text-sm 
                 border shadow hover:bg-gray-100 text-gray-900
                 h-10 rounded-md px-6 font-semibold bg-transparent"
               >
                 View Our Services
-              </button>
+              </a>
             </div>
 
             {/* LOCATION & ESTABLISHED */}
             <div className="grid sm:grid-cols-2 gap-4 pt-6">
-              <div className="flex items-center space-x-3">
+              {/* Location */}
+              <a
+                href="https://www.google.com/maps/place/Stoneley's+Garage+Services/data=!4m2!3m1!1s0x0:0x5a644c3262063baf?sa=X&ved=1t:2428&hl=en-GB&ictx=111"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center space-x-3 hover:bg-green-50 p-2 rounded transition"
+              >
                 <FaMapMarkerAlt className="h-5 w-5 text-green-600 flex-shrink-0" />
                 <div>
                   <p className="font-semibold">Location</p>
                   <p className="text-sm text-gray-600">
-                    Hamilton Way, Mansfield NG18 5BU
+                    Oakham Business Park, Hamilton Way
                   </p>
                 </div>
-              </div>
+              </a>
 
+              {/* Established */}
               <div className="flex items-center space-x-3">
                 <FaClock className="h-5 w-5 text-green-600 flex-shrink-0" />
                 <div>
                   <p className="font-semibold">Established</p>
-                  <p className="text-sm text-gray-600">
-                    Family-run since 1973
-                  </p>
+                  <p className="text-sm text-gray-600">Family-run since 1973</p>
                 </div>
               </div>
             </div>
