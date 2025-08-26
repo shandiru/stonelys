@@ -13,7 +13,7 @@ export default function Home() {
   return (
     <div>
 
-      <section >
+{/*       <section >
        <MotHero />
       </section>
       <section >
@@ -33,7 +33,7 @@ export default function Home() {
       
         <section >
        <EmergencyCTA/>
-      </section>
+      </section> */}
       
 
     
