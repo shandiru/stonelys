@@ -1,13 +1,12 @@
-// File: EmergencyCTA.jsx
 import React from "react";
 import { FaPhone } from "react-icons/fa";
 
 const palette = {
-  primary: "#3F8D3A",          // solid green background from the screenshot
+  primary: "#3F8D3A",          // green background
   fgOnPrimary: "#FFFFFF",      // white text on green
-  secondaryBg: "#B9C26D",      // olive call button (left)
+  secondaryBg: "#B9C26D",      // olive green for call button
   secondaryText: "#1F2A10",    // dark text on olive
-  outline: "#FFFFFF",          // white outline for the right button
+  outline: "#FFFFFF",          // outline color
 };
 
 export default function EmergencyCTA() {
@@ -22,40 +21,33 @@ export default function EmergencyCTA() {
         </h2>
 
         <p className="text-xl mb-8 opacity-90">
-          Call us directly for urgent repairs, breakdown assistance, or same-day appointments
+          Call us directly for urgent repairs, breakdown assistance, or same-day appointments.
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          {/* Call button */}
-          <a href="tel:01623623759" className="inline-block">
+          {/* Call Now Button */}
+          <a href="tel:+441623623759" className="inline-block">
             <button
-              className="inline-flex items-center justify-center gap-2 h-10 rounded-md px-6 font-semibold"
+              className="inline-flex items-center justify-center gap-2 h-10 rounded-md px-6 font-semibold shadow transition-transform hover:scale-105"
               style={{
                 backgroundColor: palette.secondaryBg,
                 color: palette.secondaryText,
               }}
             >
               <FaPhone className="h-5 w-5" />
-              Call 01623 623 759
+              Call +44 1623 623759
             </button>
           </a>
 
-          {/* Emergency Service (outline) */}
+          {/* Emergency Service Button */}
           <button
-            className="inline-flex items-center justify-center gap-2 h-10 rounded-md px-6 font-semibold transition-colors"
+            className="inline-flex items-center justify-center gap-2 h-10 rounded-md px-6 font-semibold border transition duration-300 hover:bg-white hover:text-green-900"
             style={{
               backgroundColor: "transparent",
               color: palette.fgOnPrimary,
-              border: `1px solid ${palette.outline}`,
+              borderColor: palette.outline,
             }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = palette.fgOnPrimary;
-              e.currentTarget.style.color = palette.primary;
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = "transparent";
-              e.currentTarget.style.color = palette.fgOnPrimary;
-            }}
+            onClick={() => window.open("tel:+441623623759", "_self")}
           >
             Emergency Service
           </button>

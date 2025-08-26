@@ -8,6 +8,7 @@ import {
   FaCarSide,
   FaClock,
   FaMapMarkerAlt,
+  FaDirections,
 } from "react-icons/fa";
 
 const palette = {
@@ -15,7 +16,7 @@ const palette = {
   badge: "#E7F3E9",       // soft green for icon chips
   text: "#111827",        // headings
   muted: "#4B5563",       // body copy
-  sectionBg: "#F3F6F4",   // page light bg (muted/30 feel)
+  sectionBg: "#F3F6F4",   // page light bg
   cardBg: "#FFFFFF",      // cards
   border: "#E6EAE7",      // subtle borders
 };
@@ -145,36 +146,33 @@ export default function ContactSection() {
               <div className="space-y-1 mb-4">
                 <p className="font-semibold">Stoneley&apos;s Garage Services</p>
                 <p className="text-sm" style={{ color: palette.muted }}>
-                  Hamilton Way
+                  Oakham Business Park
                 </p>
                 <p className="text-sm" style={{ color: palette.muted }}>
-                  Mansfield NG18 5BU
+                  Hamilton Way, Mansfield NG18 5BU
                 </p>
                 <p className="text-sm" style={{ color: palette.muted }}>
                   United Kingdom
                 </p>
               </div>
 
-              <div
-                className="rounded-lg p-4 text-center"
-                style={{ backgroundColor: "#EDF2EE" }}
+              <a
+                href="https://www.google.com/maps/place/Stoneley's+Garage+Services/data=!4m2!3m1!1s0x0:0x5a644c3262063baf"
+                target="_blank"
+                rel="noopener noreferrer"
               >
-                <FaMapMarkerAlt
-                  className="mx-auto mb-2 h-8 w-8"
-                  style={{ color: palette.primary }}
-                />
-                <p className="text-sm" style={{ color: palette.muted }}>
-                  Interactive map coming soon
-                </p>
-              </div>
-
-              <button
-                className="mt-4 h-9 w-full rounded-md border px-4 py-2 text-sm font-medium"
-                style={{ borderColor: palette.border, color: palette.text, background: "transparent" }}
-              >
-                <FaMapMarkerAlt className="mr-2 inline h-4 w-4" />
-                Get Directions
-              </button>
+                <button
+                  className="h-9 w-full rounded-md border px-4 py-2 text-sm font-medium flex items-center justify-center"
+                  style={{
+                    borderColor: palette.border,
+                    color: palette.text,
+                    background: "#fff",
+                  }}
+                >
+                  <FaDirections className="mr-2 h-4 w-4" />
+                  View on Google Maps
+                </button>
+              </a>
             </SideCard>
 
             {/* About */}
@@ -193,7 +191,7 @@ export default function ContactSection() {
   );
 }
 
-/* ---------- small pieces ---------- */
+/* ---------- Components ---------- */
 
 function FormInput({ id, label, placeholder, icon, type = "text" }) {
   return (

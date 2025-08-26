@@ -1,4 +1,3 @@
-// File: ContactCards.jsx
 import React from "react";
 import { FaPhone, FaMapMarkerAlt, FaClock } from "react-icons/fa";
 
@@ -57,9 +56,9 @@ export default function ContactCards() {
             icon={<FaPhone className="h-6 w-6" />}
             title="Call Us"
             subtitle="Speak directly with our team"
-            body={"01623 623 759"}
+            body="+44 1623 623759"
             cta={
-              <a href="tel:01623623759">
+              <a href="tel:+441623623759">
                 <button
                   className="h-9 rounded-md border px-3 text-sm font-medium"
                   style={{ borderColor: palette.border, color: palette.text, background: "transparent" }}
@@ -75,12 +74,12 @@ export default function ContactCards() {
             icon={<FaMapMarkerAlt className="h-6 w-6" />}
             title="Visit Us"
             subtitle="Find us in Mansfield"
-            body={"Hamilton Way, Mansfield NG18 5BU"}
+            body={`Stoneley's Garage\nHamilton Way\nMansfield NG18 5BU`}
             cta={
               <a
-                href="https://maps.google.com/?q=Hamilton+Way,+Mansfield+NG18+5BU"
+                href="https://www.google.com/maps/place/Stoneley's+Garage+Services/data=!4m2!3m1!1s0x0:0x5a644c3262063baf?sa=X&ved=1t:2428&hl=en-GB&ictx=111"
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
               >
                 <button
                   className="h-9 rounded-md border px-3 text-sm font-medium"
@@ -97,14 +96,11 @@ export default function ContactCards() {
             icon={<FaClock className="h-6 w-6" />}
             title="Opening Hours"
             subtitle="We're here when you need us"
-            body={`Mon-Fri: 8:00 AM - 5:30 PM\nSat: 8:00 AM - 4:00 PM`}
+            body={`Mon–Fri: 8:00 AM – 5:30 PM\nSat: 8:00 AM – 4:00 PM\nSun: Closed`}
             cta={
-              <button
-                className="h-9 rounded-md border px-3 text-sm font-medium"
-                style={{ borderColor: palette.border, color: palette.text, background: "transparent" }}
-              >
-                View Hours
-              </button>
+              <span className="text-sm" style={{ color: palette.muted }}>
+                No appointment needed
+              </span>
             }
           />
         </div>
