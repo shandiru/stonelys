@@ -26,19 +26,23 @@ export default function GarageNav() {
     </a>
   );
 
-  const ServiceLinks = ({ itemClass = "block px-4 py-2" }) => (
+  // ✅ Added Diagnostics + hover style improved
+  const ServiceLinks = ({ itemClass = "block px-3 py-2 text-sm" }) => (
     <>
-      <a href="/services/wheel-alignment" className={`${itemClass} hover:bg-gray-50/80`}>
+      <a href="/services/wheel-alignment" className={`${itemClass} hover:bg-white/15`}>
         Wheel Alignment &amp; Tyres
       </a>
-      <a href="/services/air-con" className={`${itemClass} hover:bg-gray-50/80`}>
+      <a href="/services/air-con" className={`${itemClass} hover:bg-white/15`}>
         Air Conditioning
       </a>
-      <a href="/services/car-service" className={`${itemClass} hover:bg-gray-50/80`}>
+      <a href="/services/car-service" className={`${itemClass} hover:bg-white/15`}>
         Car Service &amp; MOT
       </a>
-      <a href="/services/cleaning" className={`${itemClass} hover:bg-gray-50/80`}>
+      <a href="/services/cleaning" className={`${itemClass} hover:bg-white/15`}>
         Engine Cleaning
+      </a>
+      <a href="/services/diagnostics" className={`${itemClass} hover:bg-white/15`}>
+        Diagnostics
       </a>
     </>
   );
@@ -54,13 +58,13 @@ export default function GarageNav() {
           {/* Left: Brand */}
           <a href="/" className="flex items-center gap-3">
             <img
-              src="/logo.jpg" // keep name as-is
+              src="/logo.jpg"
               alt="Stoneley's Garage Logo"
               className="h-12 md:h-16 w-auto object-contain rounded-md bg-black/70 p-1.5 shadow-sm"
             />
           </a>
 
-          {/* Center: Desktop Nav (absolute centered) */}
+          {/* Center: Desktop Nav */}
           <div className="hidden md:flex items-center gap-8 absolute left-1/2 -translate-x-1/2">
             <NavLink href="/">Home</NavLink>
             <NavLink href="/contact">Contact</NavLink>
@@ -81,11 +85,12 @@ export default function GarageNav() {
 
               {svcOpen && (
                 <div
-                  className="absolute left-1/2 -translate-x-1/2 mt-2 w-72 rounded-lg border border-black/10 bg-white text-gray-900 shadow-xl ring-1 ring-black/5 overflow-hidden z-50"
+                  className="absolute left-1/2 -translate-x-1/2 mt-2 w-56 rounded-md border border-white/20 shadow-xl overflow-hidden z-50"
+                  style={{ backgroundColor: brandGreen, color: "#FFFFFF" }} // ✅ Green background
                   role="menu"
                 >
                   <div className="py-2">
-                    <ServiceLinks itemClass="block px-4 py-2.5 text-sm" />
+                    <ServiceLinks />
                   </div>
                 </div>
               )}
@@ -114,7 +119,7 @@ export default function GarageNav() {
             </a>
           </div>
 
-          {/* Mobile toggle (right) */}
+          {/* Mobile toggle */}
           <div className="md:hidden ml-auto">
             <button
               className="inline-flex items-center justify-center h-10 w-10 rounded-md text-white/95 hover:bg-white/10 outline-none focus-visible:ring-2 focus-visible:ring-white/70"
@@ -149,7 +154,7 @@ export default function GarageNav() {
           </button>
           <div
             className="overflow-hidden transition-[max-height] duration-300 ease-in-out pl-2"
-            style={{ maxHeight: svcOpenMobile ? "260px" : "0px" }}
+            style={{ maxHeight: svcOpenMobile ? "300px" : "0px" }}
           >
             <div className="flex flex-col py-1 text-white/95">
               <ServiceLinks itemClass="py-2 text-sm" />
