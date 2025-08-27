@@ -1,5 +1,7 @@
-// File: ContactSection.jsx
-import React from "react";
+import React, { useState } from "react";
+import emailjs from "emailjs-com";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import {
   FaCommentDots,
   FaUser,
@@ -10,6 +12,11 @@ import {
   FaMapMarkerAlt,
   FaDirections,
 } from "react-icons/fa";
+
+// Your EmailJS Service ID, Template ID, and User ID
+const SERVICE_ID = "service_2u9sb2c"; // Replace with your EmailJS service ID
+const TEMPLATE_ID = "template_db0pgim"; // Replace with your EmailJS template ID
+const USER_ID = "ddjdtu50sL-rnwvZW"; // Replace with your EmailJS user ID
 
 const palette = {
   primary: "#2F7D33",     // brand green
@@ -22,6 +29,68 @@ const palette = {
 };
 
 export default function ContactSection() {
+  const [formData, setFormData] = useState({
+    name: "",
+    phone: "",
+    email: "",
+    vehicle: "",
+    service: "",
+    message: "",
+  });
+
+  const [formErrors, setFormErrors] = useState({
+    phone: "",
+    email: "",
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  // Phone number validation regex (for UK numbers)
+  const phoneRegex = /^(?:\+44|0)[1-9]\d{8,9}$/;
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    // Validate Phone
+    if (!phoneRegex.test(formData.phone)) {
+      setFormErrors({ ...formErrors, phone: "Invalid phone number" });
+      return;
+    } else {
+      setFormErrors({ ...formErrors, phone: "" });
+    }
+
+    // Validate Email
+    if (!emailRegex.test(formData.email)) {
+      setFormErrors({ ...formErrors, email: "Invalid email address" });
+      return;
+    } else {
+      setFormErrors({ ...formErrors, email: "" });
+    }
+
+    // Sending email using EmailJS
+    emailjs
+      .send(SERVICE_ID, TEMPLATE_ID, formData, USER_ID)
+      .then((response) => {
+        toast.success("Message sent successfully!");
+        // Clear form after successful submission
+        setFormData({
+          name: "",
+          phone: "",
+          email: "",
+          vehicle: "",
+          service: "",
+          message: "",
+        });
+      })
+      .catch((error) => {
+        toast.error("Failed to send message, please try again.");
+      });
+  };
+
   return (
     <section className="py-16" style={{ backgroundColor: palette.sectionBg }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -49,12 +118,17 @@ export default function ContactSection() {
                   label="Full Name *"
                   placeholder="Your full name"
                   icon={<FaUser className="h-4 w-4" />}
+                  value={formData.name}
+                  onChange={handleChange}
                 />
                 <FormInput
                   id="phone"
                   label="Phone Number *"
                   placeholder="Your phone number"
                   icon={<FaPhone className="h-4 w-4" />}
+                  value={formData.phone}
+                  onChange={handleChange}
+                  error={formErrors.phone}
                 />
               </div>
 
@@ -65,6 +139,9 @@ export default function ContactSection() {
                 label="Email Address"
                 placeholder="your.email@example.com"
                 icon={<FaEnvelope className="h-4 w-4" />}
+                value={formData.email}
+                onChange={handleChange}
+                error={formErrors.email}
               />
 
               {/* Vehicle */}
@@ -73,6 +150,8 @@ export default function ContactSection() {
                 label="Vehicle Details"
                 placeholder="Make, model, year (e.g., Ford Focus 2018)"
                 icon={<FaCarSide className="h-4 w-4" />}
+                value={formData.vehicle}
+                onChange={handleChange}
               />
 
               {/* Service select */}
@@ -82,9 +161,11 @@ export default function ContactSection() {
                 </label>
                 <select
                   id="service"
+                  name="service"
                   className="w-full px-3 py-2 rounded-md border bg-white"
                   style={{ borderColor: palette.border, color: palette.text }}
-                  defaultValue=""
+                  value={formData.service}
+                  onChange={handleChange}
                 >
                   <option value="">Select a service</option>
                   <option value="mot">MOT Test</option>
@@ -106,15 +187,19 @@ export default function ContactSection() {
                 </label>
                 <textarea
                   id="message"
+                  name="message"
                   rows={4}
                   placeholder="Please describe your requirements or any specific issues with your vehicle..."
                   className="w-full rounded-md border px-3 py-2"
                   style={{ borderColor: palette.border, color: palette.text }}
+                  value={formData.message}
+                  onChange={handleChange}
                 />
               </div>
 
               {/* Submit */}
               <button
+                onClick={handleSubmit}
                 className="inline-flex items-center justify-center gap-2 h-9 w-full rounded-md font-semibold shadow-xs transition-colors"
                 style={{ backgroundColor: palette.primary, color: "#FFFFFF" }}
               >
@@ -193,7 +278,7 @@ export default function ContactSection() {
 
 /* ---------- Components ---------- */
 
-function FormInput({ id, label, placeholder, icon, type = "text" }) {
+function FormInput({ id, label, placeholder, icon, value, onChange, type = "text", error }) {
   return (
     <div className="space-y-2">
       <label htmlFor={id} className="text-sm font-medium">
@@ -208,11 +293,15 @@ function FormInput({ id, label, placeholder, icon, type = "text" }) {
         </span>
         <input
           id={id}
+          name={id}
           type={type}
           placeholder={placeholder}
-          className="h-9 w-full rounded-md border bg-white px-3 pl-10"
-          style={{ borderColor: palette.border, color: palette.text }}
+          className={`h-9 w-full rounded-md border bg-white px-3 pl-10 ${error ? 'border-red-500' : ''}`}
+          style={{ borderColor: error ? 'red' : '#E6EAE7', color: '#111827' }}
+          value={value}
+          onChange={onChange}
         />
+        {error && <p className="text-xs text-red-500 mt-1">{error}</p>}
       </div>
     </div>
   );
