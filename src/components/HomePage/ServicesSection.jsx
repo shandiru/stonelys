@@ -1,3 +1,4 @@
+// File: ServicesSection.jsx
 import React from "react";
 import {
   FaTachometerAlt,
@@ -5,6 +6,7 @@ import {
   FaBolt,
   FaCog,
   FaArrowRight,
+  FaSearch,        // + Diagnostics icon
 } from "react-icons/fa";
 
 const brand = {
@@ -76,17 +78,28 @@ export default function ServicesSection() {
           <h2 className="text-3xl lg:text-4xl font-bold" style={{ color: brand.text }}>
             Our Professional Services
           </h2>
-          <p
-            className="text-lg max-w-2xl mx-auto mt-4"
-            style={{ color: brand.muted }}
-          >
+          <p className="text-lg max-w-2xl mx-auto mt-4" style={{ color: brand.muted }}>
             Comprehensive automotive services from qualified technicians with
             over 50 years of combined experience
           </p>
         </div>
 
         {/* Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-6">
+          {/* Diagnostics – NEW */}
+          <Card
+            icon={<FaSearch className="h-6 w-6" />}
+            title="Vehicle Diagnostics"
+            desc="Fault finding & system analysis for quick, accurate fixes using professional equipment."
+            bullets={[
+              "Engine management & sensors",
+              "ABS & airbag systems",
+              "Transmission & electrical",
+              "Climate control diagnostics",
+            ]}
+            href="/services/diagnostics"
+          />
+
           <Card
             icon={<FaTachometerAlt className="h-6 w-6" />}
             title="Wheel Alignment & Tyres"

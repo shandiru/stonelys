@@ -10,6 +10,8 @@ import Wheelalignment from "./Page/wheelalignmentpage.jsx";
 import AirConPage from "./Page/AirConPage.jsx";
 import CarServicePage from "./Page/CarServicePage.jsx";
 import CleaningPage from "./Page/CleaningPage.jsx";
+import DiagnosticsPage from "./Page/DiagnosticsPage.jsx";
+
 
 export default function App() {
   return (
@@ -23,6 +25,10 @@ export default function App() {
           <Route path="/services/air-con" element={<AirConPage />} />
           <Route path="/services/car-service" element={<CarServicePage />} />
           <Route path="/services/cleaning" element={<CleaningPage />} />
+           <Route path="/services/diagnostics" element={<DiagnosticsPage />} />
+        
+
+        
         </Routes>
       </main>
       <Footer />
