@@ -26,24 +26,14 @@ export default function GarageNav() {
     </a>
   );
 
-  // ✅ Added Diagnostics + hover style improved
+  // Service links: keep menu green, use a darker green on hover (no white overlay)
   const ServiceLinks = ({ itemClass = "block px-3 py-2 text-sm" }) => (
     <>
-      <a href="/services/wheel-alignment" className={`${itemClass} hover:bg-white/15`}>
-        Wheel Alignment &amp; Tyres
-      </a>
-      <a href="/services/air-con" className={`${itemClass} hover:bg-white/15`}>
-        Air Conditioning
-      </a>
-      <a href="/services/car-service" className={`${itemClass} hover:bg-white/15`}>
-        Car Service &amp; MOT
-      </a>
-      <a href="/services/cleaning" className={`${itemClass} hover:bg-white/15`}>
-        Engine Cleaning
-      </a>
-      <a href="/services/diagnostics" className={`${itemClass} hover:bg-white/15`}>
-        Diagnostics
-      </a>
+      <a href="/services/wheel-alignment" className={`${itemClass} hover:bg-green-700/80`}>Wheel Alignment &amp; Tyres</a>
+      <a href="/services/air-con" className={`${itemClass} hover:bg-green-700/80`}>Air Conditioning</a>
+      <a href="/services/car-service" className={`${itemClass} hover:bg-green-700/80`}>Car Service &amp; MOT</a>
+      <a href="/services/cleaning" className={`${itemClass} hover:bg-green-700/80`}>Engine Cleaning</a>
+      <a href="/services/diagnostics" className={`${itemClass} hover:bg-green-700/80`}>Diagnostics</a>
     </>
   );
 
@@ -58,13 +48,13 @@ export default function GarageNav() {
           {/* Left: Brand */}
           <a href="/" className="flex items-center gap-3">
             <img
-              src="/logo.jpg"
+              src="/logo.jpg" // keep name as-is
               alt="Stoneley's Garage Logo"
               className="h-12 md:h-16 w-auto object-contain rounded-md bg-black/70 p-1.5 shadow-sm"
             />
           </a>
 
-          {/* Center: Desktop Nav */}
+          {/* Center: Desktop Nav (absolute centered) */}
           <div className="hidden md:flex items-center gap-8 absolute left-1/2 -translate-x-1/2">
             <NavLink href="/">Home</NavLink>
             <NavLink href="/contact">Contact</NavLink>
@@ -86,7 +76,7 @@ export default function GarageNav() {
               {svcOpen && (
                 <div
                   className="absolute left-1/2 -translate-x-1/2 mt-2 w-56 rounded-md border border-white/20 shadow-xl overflow-hidden z-50"
-                  style={{ backgroundColor: brandGreen, color: "#FFFFFF" }} // ✅ Green background
+                  style={{ backgroundColor: brandGreen, color: "#FFFFFF" }}
                   role="menu"
                 >
                   <div className="py-2">
@@ -119,7 +109,7 @@ export default function GarageNav() {
             </a>
           </div>
 
-          {/* Mobile toggle */}
+          {/* Mobile toggle (right) */}
           <div className="md:hidden ml-auto">
             <button
               className="inline-flex items-center justify-center h-10 w-10 rounded-md text-white/95 hover:bg-white/10 outline-none focus-visible:ring-2 focus-visible:ring-white/70"
@@ -157,7 +147,8 @@ export default function GarageNav() {
             style={{ maxHeight: svcOpenMobile ? "300px" : "0px" }}
           >
             <div className="flex flex-col py-1 text-white/95">
-              <ServiceLinks itemClass="py-2 text-sm" />
+              {/* Mobile uses same green hover treatment */}
+              <ServiceLinks itemClass="py-2 px-3 text-sm hover:bg-green-700/80 rounded" />
             </div>
           </div>
 
