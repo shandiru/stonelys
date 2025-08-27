@@ -2,56 +2,51 @@
 import React from "react";
 
 const palette = {
-  black: "#000000",       // background dark
-  darkGrey: "#1C1C1C",    // secondary dark
-  neonGreen: "#00FF40",   // bright accent
-  softGreen: "#27AE60",   // softer green
-  white: "#FFFFFF",
-  muted: "rgba(255,255,255,0.85)", // muted text
-  dim: "rgba(255,255,255,0.65)",   // even softer
+  primary: "#2F7D33",     // brand green for highlighted text
+  gradTop: "#EAF5EA",     // very light green (top of gradient)
+  gradBottom: "#FFFFFF",  // white (bottom of gradient)
+  heading: "#111827",     // near-black
+  muted: "#4B5563",       // body copy
+  badgeBg: "#A4BE6A",     // olive-green badge background
+  badgeText: "#1F2A10",   // badge text
 };
 
 export default function ContactHero() {
   return (
     <section
-      className="py-20 text-center"
+      className="py-16"
       style={{
-        backgroundImage: `linear-gradient(to bottom, ${palette.darkGrey}, ${palette.black})`,
-        color: palette.white,
+        backgroundImage: `linear-gradient(to bottom, ${palette.gradTop}, ${palette.gradBottom})`,
       }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Badge */}
-        <span
-          className="inline-flex items-center justify-center rounded-md px-3 py-1 text-xs font-semibold tracking-wide uppercase mb-6"
-          style={{
-            backgroundColor: palette.neonGreen,
-            color: palette.black,
-          }}
-        >
-          Get In Touch
-        </span>
-
-        {/* Heading */}
-        <h1
-          className="text-4xl lg:text-5xl font-extrabold mb-6"
-          style={{ color: palette.white }}
-        >
-          Contact{" "}
-          <span style={{ color: palette.neonGreen }}>
-            Stoneley&apos;s Garage
+        <div className="text-center mb-12">
+          <span
+            className="inline-flex items-center justify-center rounded-md px-2 py-0.5 text-xs font-medium mb-4"
+            style={{ backgroundColor: palette.badgeBg, color: palette.badgeText }}
+          >
+            Get In Touch
           </span>
-        </h1>
 
-        {/* Paragraph */}
-        <p
-          className="text-lg max-w-3xl mx-auto leading-relaxed"
-          style={{ color: palette.muted }}
-        >
-          Family-run garage established 1973. Contact our friendly team for
-          professional automotive services, quotes, or to book your appointment.
-          We&apos;re here to help with all your vehicle needs.
-        </p>
+          <h1
+            className="text-4xl lg:text-5xl font-black mb-6"
+            style={{ color: palette.heading }}
+          >
+            Contact{" "}
+            <span style={{ color: palette.primary }}>
+              Stoneley&apos;s Garage
+            </span>
+          </h1>
+
+          <p
+            className="text-xl max-w-3xl mx-auto leading-relaxed"
+            style={{ color: palette.muted }}
+          >
+            Family-run garage established 1973. Contact our friendly team for
+            professional automotive services, quotes, or to book your
+            appointment. We&apos;re here to help with all your vehicle needs.
+          </p>
+        </div>
       </div>
     </section>
   );

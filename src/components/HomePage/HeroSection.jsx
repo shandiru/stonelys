@@ -1,45 +1,27 @@
-// File: HeroSection.jsx
 import React from "react";
 import { FaPhone, FaMapMarkerAlt, FaClock } from "react-icons/fa";
 
 const HeroSection = () => {
-  const colors = {
-    black: "#000000",
-    neonGreen: "#00FF40",
-    softGreen: "#27AE60",
-    white: "#FFFFFF",
-    darkGrey: "#1C1C1C",
-  };
-
   return (
-    <section
-      className="relative"
-      style={{
-        background: `linear-gradient(180deg, ${colors.black} 0%, ${colors.darkGrey} 100%)`,
-        color: colors.white,
-      }}
-    >
+    <section className="relative bg-gradient-to-b from-green-50 to-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-20">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* LEFT CONTENT */}
           <div className="space-y-6">
             {/* HEADLINE */}
             <div className="space-y-4">
-              <h1 className="text-4xl lg:text-6xl font-black leading-tight">
-                <span style={{ color: colors.white }}>STONELEY&apos;S</span>
+              <h1 className="text-4xl lg:text-6xl font-black text-gray-900 leading-tight">
+                STONELEY&apos;S
                 <br />
-                <span style={{ color: colors.neonGreen }}>GARAGE SERVICES</span>
+                <span className="text-green-600">GARAGE SERVICES</span>
               </h1>
-              <p className="text-xl" style={{ color: colors.softGreen }}>
+              <p className="text-xl text-gray-700">
                 Family-run garage established 1973
               </p>
             </div>
 
             {/* DESCRIPTION */}
-            <p
-              className="text-lg leading-relaxed"
-              style={{ color: colors.white }}
-            >
+            <p className="text-lg text-gray-900 leading-relaxed">
               Over 50 years of trusted automotive expertise in Mansfield. From
               routine servicing to complex repairs, our qualified technicians
               provide professional, reliable service for all makes and models.
@@ -50,11 +32,8 @@ const HeroSection = () => {
               <a
                 href="tel:+441623623759"
                 className="inline-flex items-center justify-center gap-2 text-sm 
-                font-semibold h-10 rounded-md px-6 shadow-md transition"
-                style={{
-                  backgroundColor: colors.neonGreen,
-                  color: colors.black,
-                }}
+                bg-green-600 text-white shadow hover:bg-green-700
+                h-10 rounded-md px-6 font-semibold"
               >
                 <FaPhone className="h-4 w-4" />
                 Call +441623623759
@@ -63,11 +42,8 @@ const HeroSection = () => {
               <a
                 href="#services"
                 className="inline-flex items-center justify-center gap-2 text-sm 
-                font-semibold h-10 rounded-md px-6 border transition"
-                style={{
-                  borderColor: colors.neonGreen,
-                  color: colors.white,
-                }}
+                border shadow hover:bg-gray-100 text-gray-900
+                h-10 rounded-md px-6 font-semibold bg-transparent"
               >
                 View Our Services
               </a>
@@ -80,41 +56,23 @@ const HeroSection = () => {
                 href="https://www.google.com/maps/place/Stoneley's+Garage+Services/data=!4m2!3m1!1s0x0:0x5a644c3262063baf?sa=X&ved=1t:2428&hl=en-GB&ictx=111"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center space-x-3 rounded p-2 transition"
-                style={{
-                  backgroundColor: colors.darkGrey,
-                  color: colors.white,
-                }}
+                className="flex items-center space-x-3 hover:bg-green-50 p-2 rounded transition"
               >
-                <FaMapMarkerAlt
-                  className="h-5 w-5 flex-shrink-0"
-                  style={{ color: colors.neonGreen }}
-                />
+                <FaMapMarkerAlt className="h-5 w-5 text-green-600 flex-shrink-0" />
                 <div>
                   <p className="font-semibold">Location</p>
-                  <p className="text-sm" style={{ color: colors.softGreen }}>
+                  <p className="text-sm text-gray-600">
                     Oakham Business Park, Hamilton Way
                   </p>
                 </div>
               </a>
 
               {/* Established */}
-              <div
-                className="flex items-center space-x-3 rounded p-2"
-                style={{
-                  backgroundColor: colors.darkGrey,
-                  color: colors.white,
-                }}
-              >
-                <FaClock
-                  className="h-5 w-5 flex-shrink-0"
-                  style={{ color: colors.neonGreen }}
-                />
+              <div className="flex items-center space-x-3">
+                <FaClock className="h-5 w-5 text-green-600 flex-shrink-0" />
                 <div>
                   <p className="font-semibold">Established</p>
-                  <p className="text-sm" style={{ color: colors.softGreen }}>
-                    Family-run since 1973
-                  </p>
+                  <p className="text-sm text-gray-600">Family-run since 1973</p>
                 </div>
               </div>
             </div>
@@ -122,9 +80,7 @@ const HeroSection = () => {
 
           {/* RIGHT IMAGE */}
           <div className="relative">
-            <div className="aspect-[4/3] relative rounded-lg overflow-hidden shadow-2xl border-4"
-              style={{ borderColor: colors.neonGreen }}
-            >
+            <div className="aspect-[4/3] relative rounded-lg overflow-hidden shadow-2xl">
               <img
                 alt="Stoneley's Garage Services - Professional car repair centre"
                 src="/stoneleys.jpg"
