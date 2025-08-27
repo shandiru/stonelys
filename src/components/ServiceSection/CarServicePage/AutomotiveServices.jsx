@@ -18,7 +18,7 @@ export default function AutomotiveServices() {
     {
       title: "Full Car Service",
       desc: "Comprehensive vehicle inspection and maintenance service",
-      price: "From £89.99",
+    
       icon: <FaCar className="h-5 w-5" style={{ color: ICON_FG }} />,
       points: [
         "Engine oil & filter change",
@@ -31,8 +31,8 @@ export default function AutomotiveServices() {
     },
     {
       title: "MOT Testing",
-      desc: "Official MOT testing by qualified MOT testers",
-      price: "£54.85",
+      desc: "Official MOT testing by qualified MOT testers . class 4 and class 7 ",
+   
       icon: <FaWrench className="h-5 w-5" style={{ color: ICON_FG }} />,
       points: [
         "Qualified MOT testers",
@@ -46,7 +46,7 @@ export default function AutomotiveServices() {
     {
       title: "Brake Service",
       desc: "Professional brake system maintenance and repair",
-      price: "From £49.99",
+    
       icon: <FaTools className="h-5 w-5" style={{ color: ICON_FG }} />,
       points: [
         "Brake pad replacement",
@@ -60,7 +60,7 @@ export default function AutomotiveServices() {
     {
       title: "Exhaust Systems",
       desc: "Complete exhaust system service and replacement",
-      price: "From £79.99",
+   
       icon: <FaClock className="h-5 w-5" style={{ color: ICON_FG }} />,
       points: [
         "Exhaust inspection",
@@ -107,9 +107,7 @@ export default function AutomotiveServices() {
                       {s.title}
                     </div>
                   </div>
-                  <div className="text-xs font-semibold border border-green-600 text-green-600 px-2 py-0.5 rounded-md whitespace-nowrap">
-                    {s.price}
-                  </div>
+                 
                 </div>
                 <div className="text-gray-600 font-body text-base">{s.desc}</div>
               </div>

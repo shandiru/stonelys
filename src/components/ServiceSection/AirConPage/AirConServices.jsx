@@ -18,31 +18,32 @@ export default function AirConServices() {
     {
       title: "Air-Con Re-Gas Service",
       desc: "Professional refrigerant replacement to restore cooling performance",
-      price: "From £49.99",
+     
       icon: <FaSnowflake className="h-5 w-5" style={{ color: ICON_FG }} />,
       points: [
         "Complete system evacuation",
         "Fresh refrigerant refill",
         "Leak detection check",
-        "Performance testing",
+        "Sanatisation cleaning",
       ],
     },
     {
       title: "System Diagnostics",
       desc: "Comprehensive air conditioning system health check and diagnosis",
-      price: "From £29.99",
+     
       icon: <FaThermometerHalf className="h-5 w-5" style={{ color: ICON_FG }} />,
       points: [
         "Temperature testing",
         "Pressure analysis",
         "Component inspection",
         "Fault code reading",
+        "Nitrogen leak down test",
       ],
     },
     {
       title: "Component Repair",
       desc: "Professional repair and replacement of air conditioning components",
-      price: "Quote on inspection",
+    
       icon: <FaTools className="h-5 w-5" style={{ color: ICON_FG }} />,
       points: [
         "Compressor service",
@@ -54,7 +55,7 @@ export default function AirConServices() {
     {
       title: "Preventive Maintenance",
       desc: "Regular maintenance to prevent costly air conditioning failures",
-      price: "From £39.99",
+     
       icon: <FaShieldAlt className="h-5 w-5" style={{ color: ICON_FG }} />,
       points: [
         "Filter replacement",
@@ -99,9 +100,7 @@ export default function AirConServices() {
                       {s.title}
                     </div>
                   </div>
-                  <div className="text-xs font-semibold border border-green-600 text-green-600 px-2 py-0.5 rounded-md whitespace-nowrap">
-                    {s.price}
-                  </div>
+                 
                 </div>
                 <div className="text-gray-600 font-body text-base">
                   {s.desc}

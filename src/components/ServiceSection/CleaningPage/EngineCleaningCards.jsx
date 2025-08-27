@@ -15,7 +15,7 @@ const services = [
     title: "Carbon Engine Cleaning",
     description:
       "Professional carbon deposit removal for improved engine performance",
-    price: "From £89.99",
+   
     duration: "45-60 minutes",
     items: [
       "Hydrogen carbon cleaning",
@@ -24,13 +24,14 @@ const services = [
       "Improved fuel efficiency",
       "Restored engine power",
       "Reduced emissions",
+      "War nut blasting "
     ],
   },
   {
     icon: <FaFilter className="text-primary w-5 h-5" />,
     title: "DPF Cleaning Service",
     description: "Diesel Particulate Filter cleaning and regeneration",
-    price: "From £149.99",
+   
     duration: "2-3 hours",
     items: [
       "DPF regeneration",
@@ -45,7 +46,7 @@ const services = [
     icon: <FaTachometerAlt className="text-primary w-5 h-5" />,
     title: "EGR Valve Cleaning",
     description: "Exhaust Gas Recirculation valve cleaning and service",
-    price: "From £79.99",
+  
     duration: "1-2 hours",
     items: [
       "EGR valve removal",
@@ -92,12 +93,8 @@ export default function EngineCleaningCards() {
                   {service.description}
                 </p>
                 <div className="flex justify-between mt-2">
-                  <span className="inline-flex items-center text-green-700 border border-green-600 rounded px-2 py-0.5 text-xs font-medium">
-                    {service.price}
-                  </span>
-                  <span className="text-sm text-gray-500">
-                    {service.duration}
-                  </span>
+                  
+                 
                 </div>
               </div>
               <div className="px-6">

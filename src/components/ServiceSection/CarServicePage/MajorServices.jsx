@@ -7,21 +7,21 @@ export default function MajorServices() {
       subtitle: "Critical timing belt replacement service",
       description:
         "Essential service to prevent catastrophic engine damage. Our qualified technicians use genuine parts and follow manufacturer specifications.",
-      price: "£299.99",
+     
     },
     {
       title: "Clutch Repair & Replacement",
       subtitle: "Complete clutch system service",
       description:
         "Professional clutch diagnosis, repair, and replacement. We service manual and automatic transmissions for all vehicle types.",
-      price: "£449.99",
+     
     },
     {
       title: "Welding Work",
       subtitle: "Professional automotive welding services",
       description:
         "Expert welding repairs for MOT failures, bodywork, and structural components. All work guaranteed and MOT compliant.",
-      price: "£39.99",
+     
     },
   ];
 
@@ -52,9 +52,7 @@ export default function MajorServices() {
               </p>
             </div>
             <div className="flex items-center justify-between">
-              <span className="text-green-600 font-semibold text-lg">
-                From {service.price}
-              </span>
+             
               <button className="flex items-center gap-2 text-sm px-4 py-1.5 border border-gray-300 rounded-md hover:bg-gray-100 transition">
                 Get Quote <FaQuoteRight className="text-gray-500" />
               </button>
