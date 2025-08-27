@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { FaPhoneAlt, FaMapMarkerAlt, FaChevronDown, FaBars } from "react-icons/fa";
 
 export default function GarageNav() {
-  const brandGreen = "#458F3B";
+  const brandGreen = "black";
   const hoverLite = "rgba(255,255,255,0.88)";
   const [open, setOpen] = useState(false);
   const [svcOpen, setSvcOpen] = useState(false);

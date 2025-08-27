@@ -6,45 +6,49 @@ import {
   FaBolt,
   FaCog,
   FaArrowRight,
-  FaSearch,        // + Diagnostics icon
+  FaSearch,
 } from "react-icons/fa";
 
-const brand = {
-  green: "#2F7D33",      // primary green (icons, bullets, hover)
-  greenSoft: "#E7F3E9",  // soft green badge background
-  bgSoft: "#F3F8F4",     // section light background
-  text: "#111827",       // heading
-  muted: "#4B5563",      // body copy
-  border: "#E6EAE7",     // card border
+const colors = {
+  black: "#000000",
+  darkGrey: "#1C1C1C",
+  white: "#FFFFFF",
+  neon: "#00FF40",
+  softGreen: "#27AE60",
 };
 
 const Card = ({ icon, title, desc, bullets = [], href = "#" }) => (
   <div
-    className="flex flex-col gap-6 rounded-2xl border py-6 shadow-sm group hover:shadow-lg transition-all duration-300"
-    style={{ borderColor: brand.border, backgroundColor: "#FFFFFF", color: brand.text }}
+    className="flex flex-col gap-6 rounded-2xl p-6 shadow-lg transition-all duration-300 hover:-translate-y-0.5"
+    style={{
+      backgroundColor: colors.darkGrey,
+      border: `1px solid ${colors.neon}33`, // 20% neon
+    }}
   >
-    <div className="grid auto-rows-min items-start gap-1.5 px-6 text-center pb-4">
+    <div className="grid auto-rows-min items-start gap-1.5 text-center">
       <div
-        className="mx-auto w-12 h-12 rounded-lg flex items-center justify-center mb-4 transition-colors"
-        style={{ backgroundColor: brand.greenSoft, color: brand.green }}
+        className="mx-auto w-12 h-12 rounded-lg flex items-center justify-center mb-3 ring-2"
+        style={{ color: colors.neon, ringColor: colors.neon + "66" }} // 40% neon ring
       >
         {icon}
       </div>
-      <div className="text-lg font-bold">{title}</div>
+      <div className="text-lg font-bold" style={{ color: colors.white }}>
+        {title}
+      </div>
     </div>
 
-    <div className="px-6 space-y-4">
-      <p className="text-sm leading-relaxed" style={{ color: brand.muted }}>
+    <div className="space-y-4">
+      <p className="text-sm leading-relaxed" style={{ color: "#D1D5DB" }}>
         {desc}
       </p>
 
       {bullets.length > 0 && (
         <ul className="space-y-1">
           {bullets.map((b, i) => (
-            <li key={i} className="text-xs flex items-center" style={{ color: brand.muted }}>
+            <li key={i} className="text-xs flex items-center" style={{ color: "#BFC6CF" }}>
               <span
-                className="w-1 h-1 rounded-full mr-2 flex-shrink-0"
-                style={{ backgroundColor: brand.green }}
+                className="w-1.5 h-1.5 rounded-full mr-2 flex-shrink-0"
+                style={{ backgroundColor: colors.neon }}
               />
               {b}
             </li>
@@ -52,13 +56,21 @@ const Card = ({ icon, title, desc, bullets = [], href = "#" }) => (
         </ul>
       )}
 
-      <a href={href}>
+      <a href={href} className="block">
         <button
-          className="inline-flex items-center justify-center w-full h-10 rounded-md gap-2 text-sm font-medium border transition-colors"
+          className="inline-flex items-center justify-center w-full h-10 rounded-md gap-2 text-sm font-semibold transition-colors"
           style={{
-            borderColor: brand.border,
             backgroundColor: "transparent",
-            color: brand.text,
+            color: colors.white,
+            border: `1px solid ${colors.neon}`,
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.backgroundColor = colors.neon;
+            e.currentTarget.style.color = colors.black;
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.backgroundColor = "transparent";
+            e.currentTarget.style.color = colors.white;
           }}
         >
           Learn More
@@ -71,14 +83,22 @@ const Card = ({ icon, title, desc, bullets = [], href = "#" }) => (
 
 export default function ServicesSection() {
   return (
-    <section className="py-16" style={{ backgroundColor: brand.bgSoft }}>
+    <section
+      className="py-16"
+      style={{
+        background: `linear-gradient(180deg, ${colors.black} 0%, ${colors.darkGrey} 60%, ${colors.black} 100%)`,
+      }}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-12">
-          <h2 className="text-3xl lg:text-4xl font-bold" style={{ color: brand.text }}>
+          <h2 className="text-3xl lg:text-4xl font-bold" style={{ color: colors.white }}>
             Our Professional Services
           </h2>
-          <p className="text-lg max-w-2xl mx-auto mt-4" style={{ color: brand.muted }}>
+          <p
+            className="text-lg max-w-2xl mx-auto mt-4"
+            style={{ color: colors.softGreen }}
+          >
             Comprehensive automotive services from qualified technicians with
             over 50 years of combined experience
           </p>
@@ -103,7 +123,7 @@ export default function ServicesSection() {
           <Card
             icon={<FaTachometerAlt className="h-6 w-6" />}
             title="Wheel Alignment & Tyres"
-            desc="4-wheel laser alignment, 3D wheel alignment, castor & camber adjustment, tyre fitting and balancing"
+            desc="4-wheel laser alignment, 3D alignment, castor & camber adjustment, tyre fitting and balancing."
             bullets={[
               "Laser precision alignment",
               "Professional tyre fitting",
@@ -115,7 +135,7 @@ export default function ServicesSection() {
           <Card
             icon={<FaCarSide className="h-6 w-6" />}
             title="Car Service & MOT"
-            desc="Full car servicing, MOT testing, brakes, exhausts, cambelts, clutches, and welding work"
+            desc="Full servicing, MOT testing, brakes, exhausts, cambelts, clutches, welding & more."
             bullets={["Qualified MOT testers", "Complete servicing", "Commercial vehicles"]}
             href="/services/car-service"
           />
@@ -123,7 +143,7 @@ export default function ServicesSection() {
           <Card
             icon={<FaBolt className="h-6 w-6" />}
             title="Engine Cleaning"
-            desc="Carbon engine cleaning, DPF cleaning, EGR cleaning for optimal engine performance"
+            desc="Carbon engine cleaning, DPF & EGR cleaning for optimal performance and longevity."
             bullets={["Carbon cleaning", "DPF regeneration", "EGR valve cleaning"]}
             href="/services/cleaning"
           />
@@ -131,7 +151,7 @@ export default function ServicesSection() {
           <Card
             icon={<FaCog className="h-6 w-6" />}
             title="Air Conditioning"
-            desc="Professional air-con re-gas and service to keep your vehicle comfortable year-round"
+            desc="Professional re-gas & servicing to keep your vehicle comfortable year-round."
             bullets={["Re-gas service", "System diagnostics", "Leak detection"]}
             href="/services/air-con"
           />
