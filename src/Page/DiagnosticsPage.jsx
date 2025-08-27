@@ -20,10 +20,7 @@ export default function DiagnosticsPage() {
            <section >
           <DiagnosticServices/>
          </section>
-           <section >
-          <EmergencyCTA/>
-         </section>
-
+        
            <section >
           < EcuRemapExplained/>
          </section>
@@ -32,7 +29,10 @@ export default function DiagnosticsPage() {
           <WhenDoYouNeedDiagnostics/>
          </section>
 
-        
+           <section >
+          <EmergencyCTA/>
+         </section>
+
          
 
 
