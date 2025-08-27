@@ -1,5 +1,5 @@
 import React from "react";
-import { FaClock, FaUsers, FaAward, FaShieldAlt } from "react-icons/fa";
+import { FaClock, FaUsers, FaAward, FaShieldAlt, FaCarSide } from "react-icons/fa";
 
 export default function WhyChooseSection() {
   return (
@@ -19,7 +19,7 @@ export default function WhyChooseSection() {
         </div>
 
         {/* Feature Cards */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+        <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-6 mb-12">
           <Card
             icon={<FaClock className="h-6 w-6 text-green-700" />}
             title="Established 1973"
@@ -39,6 +39,12 @@ export default function WhyChooseSection() {
             icon={<FaShieldAlt className="h-6 w-6 text-green-700" />}
             title="All Vehicles"
             text="Cars, commercial vehicles, and motorhomes"
+          />
+          {/* New Courtesy Car card */}
+          <Card
+            icon={<FaCarSide className="h-6 w-6 text-green-700" />}
+            title="Courtesy Car"
+            text="Stay on the road while we look after your vehicle"
           />
         </div>
 
