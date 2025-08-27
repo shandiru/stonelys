@@ -6,34 +6,36 @@ import {
   FaBolt,
   FaCog,
   FaArrowRight,
-  FaSearch,        // + Diagnostics icon
+  FaSearch,
 } from "react-icons/fa";
 
 const brand = {
-  green: "#2F7D33",      // primary green (icons, bullets, hover)
-  greenSoft: "#E7F3E9",  // soft green badge background
-  bgSoft: "#F3F8F4",     // section light background
+  green: "#2F7D33",      // primary green
+  greenSoft: "#E7F3E9",  // soft badge background
+  bgSoft: "#F3F8F4",     // section background
   text: "#111827",       // heading
-  muted: "#4B5563",      // body copy
-  border: "#E6EAE7",     // card border
+  muted: "#4B5563",      // body
+  border: "#E6EAE7",     // subtle border
 };
 
 const Card = ({ icon, title, desc, bullets = [], href = "#" }) => (
   <div
-    className="flex flex-col gap-6 rounded-2xl border py-6 shadow-sm group hover:shadow-lg transition-all duration-300"
+    className="flex flex-col h-full rounded-2xl border shadow-sm hover:shadow-lg transition-all duration-300"
     style={{ borderColor: brand.border, backgroundColor: "#FFFFFF", color: brand.text }}
   >
-    <div className="grid auto-rows-min items-start gap-1.5 px-6 text-center pb-4">
+    {/* Header */}
+    <div className="px-6 pt-6 text-center">
       <div
-        className="mx-auto w-12 h-12 rounded-lg flex items-center justify-center mb-4 transition-colors"
+        className="mx-auto w-12 h-12 rounded-lg flex items-center justify-center mb-4"
         style={{ backgroundColor: brand.greenSoft, color: brand.green }}
       >
         {icon}
       </div>
-      <div className="text-lg font-bold">{title}</div>
+      <div className="text-lg font-bold mb-2">{title}</div>
     </div>
 
-    <div className="px-6 space-y-4">
+    {/* Body */}
+    <div className="px-6 flex-grow space-y-4">
       <p className="text-sm leading-relaxed" style={{ color: brand.muted }}>
         {desc}
       </p>
@@ -51,10 +53,13 @@ const Card = ({ icon, title, desc, bullets = [], href = "#" }) => (
           ))}
         </ul>
       )}
+    </div>
 
+    {/* Footer with button */}
+    <div className="px-6 pt-6 pb-6 mt-auto">
       <a href={href}>
         <button
-          className="inline-flex items-center justify-center w-full h-10 rounded-md gap-2 text-sm font-medium border transition-colors"
+          className="inline-flex items-center justify-center w-full h-10 rounded-md gap-2 text-sm font-medium border transition-colors hover:bg-green-600 hover:text-white"
           style={{
             borderColor: brand.border,
             backgroundColor: "transparent",
@@ -84,9 +89,8 @@ export default function ServicesSection() {
           </p>
         </div>
 
-        {/* Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-6">
-          {/* Diagnostics – NEW */}
+        {/* Grid - ✅ now 3 per row on desktop */}
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 items-stretch">
           <Card
             icon={<FaSearch className="h-6 w-6" />}
             title="Vehicle Diagnostics"
