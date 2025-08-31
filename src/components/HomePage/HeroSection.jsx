@@ -81,12 +81,15 @@ const HeroSection = () => {
           {/* RIGHT IMAGE */}
           <div className="relative">
             <div className="aspect-[4/3] relative rounded-lg overflow-hidden shadow-2xl">
-              <img
-                alt="Stoneley's Garage Services - Professional car repair centre"
-                src="/stoneleys.jpg"
-                className="object-cover absolute inset-0 h-full w-full"
-              />
-            </div>
+            <video
+              src="/stoneleysvideo.mp4"   // your video file here
+              autoPlay
+              muted
+              loop
+              playsInline
+              className="object-cover absolute inset-0 h-full w-full"
+            />
+          </div>
           </div>
         </div>
       </div>
