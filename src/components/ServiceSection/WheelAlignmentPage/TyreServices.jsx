@@ -16,22 +16,22 @@ const services = [
   {
     title: "Professional Tyre Fitting",
     desc: "Expert tyre installation with proper mounting and sealing",
-    price: "From £15 per tyre",
+   
   },
   {
     title: "Wheel Balancing",
     desc: "Precision wheel balancing to eliminate vibration and ensure smooth driving",
-    price: "From £10 per wheel",
+   
   },
   {
     title: "Tyre Pressure Check",
     desc: "Free tyre pressure monitoring and adjustment service",
-    price: "Complimentary",
+   
   },
   {
     title: "Tyre Condition Assessment",
     desc: "Professional inspection for wear patterns and safety concerns",
-    price: "Free with service",
+   
   },
 ];
 
@@ -103,7 +103,7 @@ export default function TyreServices() {
                   className="text-xl font-semibold mb-5 text-center"
                   style={{ color: PRICE_CLR }}
                 >
-                  {s.price}
+                
                 </div>
 
                 <button
