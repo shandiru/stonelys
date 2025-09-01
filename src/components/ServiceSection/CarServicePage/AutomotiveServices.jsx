@@ -12,7 +12,6 @@ const CARD_BG = "#F5F5F5";
 const ICON_BOX_BG = "#E8F3EC";
 const ICON_FG = "#6AA874";
 const CHECK_FG = "#2E7D32";
-const GREEN_GLOW = "0 0 12px rgba(106, 168, 116, 0.6)";
 
 export default function AutomotiveServices() {
   const services = [
@@ -88,17 +87,10 @@ export default function AutomotiveServices() {
           {services.map((s, i) => (
             <div
               key={i}
-              className="flex flex-col gap-6 rounded-xl py-6 px-6 shadow-sm transition-all duration-300 hover:shadow-xl"
-              style={{
-                backgroundColor: CARD_BG,
-                boxShadow: `0 0 0 transparent`,
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.boxShadow = GREEN_GLOW;
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.boxShadow = "0 0 0 transparent";
-              }}
+              className="flex flex-col gap-6 rounded-xl py-6 px-6 shadow-sm border border-gray-200
+                         transition-all duration-300 
+                         hover:shadow-[0_8px_24px_rgba(47,125,51,0.35)] hover:ring-2 hover:ring-green-600 hover:ring-offset-2"
+              style={{ backgroundColor: CARD_BG }}
             >
               <div className="grid auto-rows-min items-start gap-1.5">
                 <div className="flex items-center justify-between mb-2">

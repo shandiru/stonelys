@@ -80,8 +80,9 @@ export default function AirConServices() {
           {services.map((s, i) => (
             <div
               key={i}
-              className="flex flex-col gap-6 rounded-xl py-6 px-6 transition-all duration-300 shadow-sm hover:shadow-[0_0_12px_2px_rgba(46,125,50,0.4)]"
-              style={{ backgroundColor: CARD_BG }}
+              className="flex flex-col gap-6 rounded-xl py-6 px-6 transition-all duration-300 shadow-sm 
+                         hover:shadow-[0_8px_24px_rgba(47,125,51,0.35)] hover:ring-2 hover:ring-green-600 hover:ring-offset-2"
+              style={{ backgroundColor: CARD_BG, border: "1px solid #E5E7EB" }}
             >
               <div className="grid auto-rows-min items-start gap-1.5">
                 <div className="flex items-center justify-between mb-2">

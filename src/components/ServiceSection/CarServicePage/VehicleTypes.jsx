@@ -2,22 +2,20 @@ import { FaCarSide, FaTools, FaShieldAlt } from "react-icons/fa";
 
 const vehicleCards = [
   {
-    icon: <FaCarSide className="text-primary text-2xl" />,
+    icon: <FaCarSide className="text-green-600 text-2xl" />,
     title: "Cars & Light Vehicles",
     description:
       "All makes and models of cars and light commercial vehicles",
   },
   {
-    icon: <FaTools className="text-primary text-2xl" />,
+    icon: <FaTools className="text-green-600 text-2xl" />,
     title: "Commercial Vehicles",
-    description:
-      "Vans, trucks, and commercial fleet maintenance",
+    description: "Vans, trucks, and commercial fleet maintenance",
   },
   {
-    icon: <FaShieldAlt className="text-primary text-2xl" />,
+    icon: <FaShieldAlt className="text-green-600 text-2xl" />,
     title: "Motorhomes",
-    description:
-      "Specialist motorhome and campervan services",
+    description: "Specialist motorhome and campervan services",
   },
 ];
 
@@ -38,7 +36,9 @@ export default function VehicleTypes() {
           {vehicleCards.map((card, index) => (
             <div
               key={index}
-              className="bg-gray-50 text-black flex flex-col gap-4 rounded-xl border border-gray-200 py-8 px-6 shadow-sm text-center"
+              className="bg-gray-50 text-black flex flex-col gap-4 rounded-xl border border-gray-200 py-8 px-6 shadow-sm text-center 
+                         transition-all duration-300 
+                         hover:shadow-[0_8px_24px_rgba(47,125,51,0.35)] hover:ring-2 hover:ring-green-600 hover:ring-offset-2"
             >
               <div className="mx-auto w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-2">
                 {card.icon}
