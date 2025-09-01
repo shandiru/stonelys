@@ -8,14 +8,16 @@ const palette = {
   muted: "#4B5563",       // body copy
   cardBg: "#F7F7F7",      // very light card bg
   border: "#E6EAE7",      // subtle border
-  shadow: "0 10px 20px rgba(0,0,0,0.06)",
 };
 
 function InfoCard({ icon, title, subtitle, body, cta }) {
   return (
     <div
-      className="flex flex-col gap-6 rounded-xl border py-6 text-center transition-shadow"
-      style={{ backgroundColor: palette.cardBg, borderColor: palette.border, boxShadow: palette.shadow }}
+      className="flex flex-col gap-6 rounded-xl border py-6 text-center transition-all duration-300 hover:shadow-[0_8px_24px_rgba(47,125,51,0.35)] hover:ring-2 hover:ring-green-600 hover:ring-offset-2"
+      style={{
+        backgroundColor: palette.cardBg,
+        borderColor: palette.border,
+      }}
     >
       <div className="px-6">
         <div
@@ -48,7 +50,7 @@ function InfoCard({ icon, title, subtitle, body, cta }) {
 
 export default function ContactCards() {
   return (
-    <section className="py-16" style={{ backgroundColor: "#FFFFFF" }}>
+    <section className="py-16 bg-white">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid gap-8 md:grid-cols-3 mb-16">
           {/* Call Us */}
@@ -60,8 +62,12 @@ export default function ContactCards() {
             cta={
               <a href="tel:+441623623759">
                 <button
-                  className="h-9 rounded-md border px-3 text-sm font-medium"
-                  style={{ borderColor: palette.border, color: palette.text, background: "transparent" }}
+                  className="h-9 rounded-md border px-3 text-sm font-medium transition-all duration-300 hover:border-green-600 hover:text-green-700 hover:shadow-[0_6px_18px_rgba(47,125,51,0.35)]"
+                  style={{
+                    borderColor: palette.border,
+                    color: palette.text,
+                    background: "transparent",
+                  }}
                 >
                   Call Now
                 </button>
@@ -82,8 +88,12 @@ export default function ContactCards() {
                 rel="noopener noreferrer"
               >
                 <button
-                  className="h-9 rounded-md border px-3 text-sm font-medium"
-                  style={{ borderColor: palette.border, color: palette.text, background: "transparent" }}
+                  className="h-9 rounded-md border px-3 text-sm font-medium transition-all duration-300 hover:border-green-600 hover:text-green-700 hover:shadow-[0_6px_18px_rgba(47,125,51,0.35)]"
+                  style={{
+                    borderColor: palette.border,
+                    color: palette.text,
+                    background: "transparent",
+                  }}
                 >
                   Get Directions
                 </button>
