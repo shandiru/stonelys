@@ -1,7 +1,10 @@
 import { FaExclamationTriangle, FaCircle } from "react-icons/fa";
 
 const SectionCard = ({ title, description, items }) => (
-  <div className="bg-white text-gray-800 flex flex-col gap-6 rounded-xl border py-6 shadow-sm border-gray-200">
+  <div
+    className="bg-white text-gray-800 flex flex-col gap-6 rounded-xl border py-6 shadow-sm border-gray-200 
+               transition-all duration-300 hover:shadow-[0_8px_24px_rgba(47,125,51,0.35)] hover:ring-2 hover:ring-green-600 hover:ring-offset-2"
+  >
     <div className="px-6">
       <div className="flex items-center space-x-2 mb-2">
         <FaExclamationTriangle className="h-5 w-5 text-green-600" />

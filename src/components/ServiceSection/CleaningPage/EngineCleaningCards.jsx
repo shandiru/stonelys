@@ -11,11 +11,10 @@ const cardBgColor = "#F7F7F7";
 
 const services = [
   {
-    icon: <FaBolt className="text-primary w-5 h-5" />,
+    icon: <FaBolt className="text-green-600 w-5 h-5" />,
     title: "Carbon Engine Cleaning",
     description:
       "Professional carbon deposit removal for improved engine performance",
-   
     duration: "45-60 minutes",
     items: [
       "Hydrogen carbon cleaning",
@@ -24,14 +23,13 @@ const services = [
       "Improved fuel efficiency",
       "Restored engine power",
       "Reduced emissions",
-      "War nut blasting "
+      "War nut blasting ",
     ],
   },
   {
-    icon: <FaFilter className="text-primary w-5 h-5" />,
+    icon: <FaFilter className="text-green-600 w-5 h-5" />,
     title: "DPF Cleaning Service",
     description: "Diesel Particulate Filter cleaning and regeneration",
-   
     duration: "2-3 hours",
     items: [
       "DPF regeneration",
@@ -43,10 +41,9 @@ const services = [
     ],
   },
   {
-    icon: <FaTachometerAlt className="text-primary w-5 h-5" />,
+    icon: <FaTachometerAlt className="text-green-600 w-5 h-5" />,
     title: "EGR Valve Cleaning",
     description: "Exhaust Gas Recirculation valve cleaning and service",
-  
     duration: "1-2 hours",
     items: [
       "EGR valve removal",
@@ -77,8 +74,9 @@ export default function EngineCleaningCards() {
           {services.map((service, idx) => (
             <div
               key={idx}
-              className="flex flex-col gap-6 rounded-xl border py-6 shadow-sm border-gray-200 hover:shadow-lg transition-shadow"
-              style={{ backgroundColor: cardBgColor }}
+              className="flex flex-col gap-6 rounded-xl border py-6 text-center transition-all duration-300 
+                         hover:shadow-[0_8px_24px_rgba(47,125,51,0.35)] hover:ring-2 hover:ring-green-600 hover:ring-offset-2"
+              style={{ backgroundColor: cardBgColor, borderColor: "#E6EAE7" }}
             >
               <div className="px-6">
                 <div className="flex items-center space-x-3 mb-2">
@@ -92,10 +90,6 @@ export default function EngineCleaningCards() {
                 <p className="text-gray-600 text-base mb-2">
                   {service.description}
                 </p>
-                <div className="flex justify-between mt-2">
-                  
-                 
-                </div>
               </div>
               <div className="px-6">
                 <ul className="space-y-2">
@@ -104,7 +98,7 @@ export default function EngineCleaningCards() {
                       key={index}
                       className="flex items-center text-sm text-gray-700"
                     >
-                      <FaCheckCircle className="text-primary mr-2 h-4 w-4" />{" "}
+                      <FaCheckCircle className="text-green-600 mr-2 h-4 w-4" />{" "}
                       {item}
                     </li>
                   ))}
