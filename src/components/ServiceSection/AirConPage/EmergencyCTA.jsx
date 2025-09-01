@@ -41,7 +41,8 @@ export default function EmergencyCTA() {
           </a>
 
           {/* Book Air-Con Button */}
-          <button
+          <a
+            href="/contact"
             className="inline-flex items-center justify-center gap-2 h-10 rounded-md px-6 font-semibold transition-colors"
             style={{
               backgroundColor: "transparent",
@@ -58,7 +59,7 @@ export default function EmergencyCTA() {
             }}
           >
             Book Air-Con Service
-          </button>
+          </a>
         </div>
       </div>
     </section>

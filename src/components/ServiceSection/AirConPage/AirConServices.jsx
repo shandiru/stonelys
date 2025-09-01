@@ -18,7 +18,6 @@ export default function AirConServices() {
     {
       title: "Air-Con Re-Gas Service",
       desc: "Professional refrigerant replacement to restore cooling performance",
-     
       icon: <FaSnowflake className="h-5 w-5" style={{ color: ICON_FG }} />,
       points: [
         "Complete system evacuation",
@@ -30,7 +29,6 @@ export default function AirConServices() {
     {
       title: "System Diagnostics",
       desc: "Comprehensive air conditioning system health check and diagnosis",
-     
       icon: <FaThermometerHalf className="h-5 w-5" style={{ color: ICON_FG }} />,
       points: [
         "Temperature testing",
@@ -43,7 +41,6 @@ export default function AirConServices() {
     {
       title: "Component Repair",
       desc: "Professional repair and replacement of air conditioning components",
-    
       icon: <FaTools className="h-5 w-5" style={{ color: ICON_FG }} />,
       points: [
         "Compressor service",
@@ -55,7 +52,6 @@ export default function AirConServices() {
     {
       title: "Preventive Maintenance",
       desc: "Regular maintenance to prevent costly air conditioning failures",
-     
       icon: <FaShieldAlt className="h-5 w-5" style={{ color: ICON_FG }} />,
       points: [
         "Filter replacement",
@@ -84,10 +80,10 @@ export default function AirConServices() {
           {services.map((s, i) => (
             <div
               key={i}
-              className="flex flex-col gap-6 rounded-xl py-6 shadow-sm hover:shadow-lg transition-shadow"
+              className="flex flex-col gap-6 rounded-xl py-6 px-6 transition-all duration-300 shadow-sm hover:shadow-[0_0_12px_2px_rgba(46,125,50,0.4)]"
               style={{ backgroundColor: CARD_BG }}
             >
-              <div className="grid auto-rows-min items-start gap-1.5 px-6">
+              <div className="grid auto-rows-min items-start gap-1.5">
                 <div className="flex items-center justify-between mb-2">
                   <div className="flex items-center space-x-3">
                     <div
@@ -100,14 +96,11 @@ export default function AirConServices() {
                       {s.title}
                     </div>
                   </div>
-                 
                 </div>
-                <div className="text-gray-600 font-body text-base">
-                  {s.desc}
-                </div>
+                <div className="text-gray-600 font-body text-base">{s.desc}</div>
               </div>
 
-              <div className="px-6">
+              <div>
                 <ul className="space-y-2">
                   {s.points.map((p, j) => (
                     <li key={j} className="flex items-center text-sm font-body">

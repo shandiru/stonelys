@@ -61,23 +61,26 @@ export default function AirConHero() {
               </button>
             </a>
 
-            {/* Quote Button */}
-            <button
-              className="inline-flex items-center justify-center gap-2 h-10 rounded-md px-6 font-semibold"
+            {/* Quote Button using <a href="/contact"> */}
+            <a
+              href="/contact"
+              className="inline-flex items-center justify-center gap-2 h-10 rounded-md px-6 font-semibold transition-all duration-300"
               style={{
                 backgroundColor: "#FFFFFF",
                 color: palette.heading,
                 border: `1px solid ${palette.outlineBorder}`,
+                textDecoration: "none",
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.backgroundColor = "#F9FAFB";
+                e.currentTarget.style.boxShadow =
+                  "0 0 0 3px rgba(47,125,51,0.4)";
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.backgroundColor = "#FFFFFF";
+                e.currentTarget.style.boxShadow = "none";
               }}
             >
               Get Free Quote
-            </button>
+            </a>
           </div>
         </div>
       </div>
