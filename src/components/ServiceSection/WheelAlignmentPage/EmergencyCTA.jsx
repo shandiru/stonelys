@@ -1,4 +1,5 @@
 // File: EmergencyCTA.jsx
+"use client";
 import React from "react";
 import { FaPhone } from "react-icons/fa";
 
@@ -29,10 +30,16 @@ export default function EmergencyCTA() {
           {/* Call button */}
           <a href="tel:+441623623759" className="inline-block">
             <button
-              className="inline-flex items-center justify-center gap-2 h-10 rounded-md px-6 font-semibold"
+              className="inline-flex items-center justify-center gap-2 h-10 rounded-md px-6 font-semibold transition-all duration-300"
               style={{
                 backgroundColor: palette.secondaryBg,
                 color: palette.secondaryText,
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.boxShadow = "0 6px 20px rgba(47,125,51,0.45)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.boxShadow = "none";
               }}
             >
               <FaPhone className="h-5 w-5" />
@@ -42,23 +49,24 @@ export default function EmergencyCTA() {
 
           {/* Request Quote button */}
           <button
-            className="inline-flex items-center justify-center gap-2 h-10 rounded-md px-6 font-semibold transition-colors"
+            className="inline-flex items-center justify-center gap-2 h-10 rounded-md px-6 font-semibold border transition-all duration-300"
             style={{
               backgroundColor: "transparent",
               color: palette.fgOnPrimary,
-              border: `1px solid ${palette.outline}`,
+              borderColor: palette.outline,
+            }}
+            onClick={() => {
+              window.location.href = "/contact";
             }}
             onMouseEnter={(e) => {
               e.currentTarget.style.backgroundColor = palette.fgOnPrimary;
               e.currentTarget.style.color = palette.primary;
+              e.currentTarget.style.boxShadow = "0 6px 20px rgba(47,125,51,0.35)";
             }}
             onMouseLeave={(e) => {
               e.currentTarget.style.backgroundColor = "transparent";
               e.currentTarget.style.color = palette.fgOnPrimary;
-            }}
-            onClick={() => {
-              const el = document.getElementById("contact");
-              if (el) el.scrollIntoView({ behavior: "smooth" });
+              e.currentTarget.style.boxShadow = "none";
             }}
           >
             Request Quote

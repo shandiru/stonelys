@@ -63,12 +63,26 @@ export default function TyreServices() {
           {services.map((s) => (
             <div
               key={s.title}
-              className="text-center rounded-2xl py-8 shadow-sm"
+              className="text-center rounded-2xl py-8 transition-all duration-300 border"
               style={{
                 backgroundColor: CARD_BG,
-                border: `1px solid ${CARD_BR}`,
-                boxShadow:
-                  "0 1px 2px rgba(0,0,0,0.04), 0 8px 24px rgba(0,0,0,0.04)",
+                borderColor: CARD_BR,
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.classList.add(
+                  "shadow-[0_8px_24px_rgba(47,125,51,0.35)]",
+                  "ring-2",
+                  "ring-[#2E7D32]",
+                  "ring-offset-2"
+                );
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.classList.remove(
+                  "shadow-[0_8px_24px_rgba(47,125,51,0.35)]",
+                  "ring-2",
+                  "ring-[#2E7D32]",
+                  "ring-offset-2"
+                );
               }}
             >
               <div className="px-6">
@@ -95,7 +109,7 @@ export default function TyreServices() {
                 </div>
 
                 <button
-                  className="w-full h-11 rounded-md text-sm font-semibold"
+                  className="w-full h-11 rounded-md text-sm font-semibold transition-all duration-300 hover:shadow-[0_6px_18px_rgba(47,125,51,0.35)] hover:ring-1 hover:ring-[#2E7D32] hover:ring-offset-1"
                   style={{
                     backgroundColor: BTN_BG,
                     color: HEADING,

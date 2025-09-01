@@ -14,12 +14,8 @@ const palette = {
 };
 
 export default function WheelTyreHero() {
-  // Scroll to the quote form or contact section
   const handleQuoteClick = () => {
-    const el = document.getElementById("contact");
-    if (el) {
-      el.scrollIntoView({ behavior: "smooth" });
-    }
+    window.location.href = "/contact";
   };
 
   return (
@@ -62,7 +58,7 @@ export default function WheelTyreHero() {
             {/* Primary Button */}
             <a href="tel:+441623623759" className="inline-block">
               <button
-                className="inline-flex items-center justify-center gap-2 h-10 rounded-md px-6 font-semibold"
+                className="inline-flex items-center justify-center gap-2 h-10 rounded-md px-6 font-semibold transition-all duration-300 hover:shadow-[0_6px_20px_rgba(47,125,51,0.45)]"
                 style={{ backgroundColor: palette.primary, color: "#FFFFFF" }}
               >
                 <FaPhoneAlt className="h-5 w-5" />
@@ -73,7 +69,7 @@ export default function WheelTyreHero() {
             {/* Outline Button */}
             <button
               onClick={handleQuoteClick}
-              className="inline-flex items-center justify-center gap-2 h-10 rounded-md px-6 font-semibold transition-colors"
+              className="inline-flex items-center justify-center gap-2 h-10 rounded-md px-6 font-semibold transition-all duration-300 hover:shadow-[0_6px_20px_rgba(47,125,51,0.35)]"
               style={{
                 backgroundColor: "#FFFFFF",
                 color: palette.heading,

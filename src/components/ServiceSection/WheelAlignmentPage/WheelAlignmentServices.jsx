@@ -81,7 +81,7 @@ export default function WheelAlignmentServices() {
           {services.map((s, i) => (
             <div
               key={i}
-              className="flex flex-col gap-6 rounded-xl py-6 shadow-sm hover:shadow-lg transition-shadow"
+              className="flex flex-col gap-6 rounded-xl py-6 shadow-sm hover:shadow-[0_8px_24px_rgba(47,125,51,0.35)] hover:ring-2 hover:ring-[#2F7D33] hover:ring-offset-2 transition-all duration-300"
               style={{ backgroundColor: CARD_BG }}
             >
               <div className="grid auto-rows-min items-start gap-1.5 px-6">
