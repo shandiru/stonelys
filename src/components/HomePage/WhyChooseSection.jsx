@@ -67,7 +67,11 @@ export default function WhyChooseSection() {
 
 function Card({ icon, title, text }) {
   return (
-    <div className="bg-white flex flex-col gap-6 rounded-xl border py-6 shadow-sm text-center border-gray-200">
+    <div
+      className="bg-white flex flex-col gap-6 rounded-xl border py-6 shadow-sm text-center border-gray-200
+                 transition-all duration-300
+                 hover:shadow-[0_8px_24px_rgba(47,125,51,0.35)] hover:ring-2 hover:ring-green-600 hover:ring-offset-2"
+    >
       <div className="px-6 pt-6">
         <div className="mx-auto w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
           {icon}

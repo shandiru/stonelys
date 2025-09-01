@@ -20,7 +20,10 @@ const brand = {
 
 const Card = ({ icon, title, desc, bullets = [], href = "#" }) => (
   <div
-    className="flex flex-col h-full rounded-2xl border shadow-sm hover:shadow-lg transition-all duration-300"
+    className="group flex flex-col h-full rounded-2xl border shadow-sm transition-all duration-300
+               hover:shadow-lg hover:border-green-600
+               hover:ring-2 hover:ring-[#2F7D33] hover:ring-offset-2 hover:ring-offset-[#F3F8F4]
+               hover:shadow-[0_8px_24px_rgba(47,125,51,0.25)]"
     style={{ borderColor: brand.border, backgroundColor: "#FFFFFF", color: brand.text }}
   >
     {/* Header */}
@@ -59,7 +62,11 @@ const Card = ({ icon, title, desc, bullets = [], href = "#" }) => (
     <div className="px-6 pt-6 pb-6 mt-auto">
       <a href={href}>
         <button
-          className="inline-flex items-center justify-center w-full h-10 rounded-md gap-2 text-sm font-medium border transition-colors hover:bg-green-600 hover:text-white"
+          className="inline-flex items-center justify-center w-full h-10 rounded-md gap-2 text-sm font-medium border
+                     transition-all duration-300
+                     hover:bg-[#2F7D33] hover:text-white hover:border-[#2F7D33]
+                     hover:shadow-[0_6px_18px_rgba(47,125,51,0.35)]
+                     focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2F7D33] focus-visible:ring-offset-2"
           style={{
             borderColor: brand.border,
             backgroundColor: "transparent",
