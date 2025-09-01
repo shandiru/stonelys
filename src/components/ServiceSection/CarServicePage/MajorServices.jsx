@@ -7,21 +7,18 @@ export default function MajorServices() {
       subtitle: "Critical timing belt replacement service",
       description:
         "Essential service to prevent catastrophic engine damage. Our qualified technicians use genuine parts and follow manufacturer specifications.",
-     
     },
     {
       title: "Clutch Repair & Replacement",
       subtitle: "Complete clutch system service",
       description:
         "Professional clutch diagnosis, repair, and replacement. We service manual and automatic transmissions for all vehicle types.",
-     
     },
     {
       title: "Welding Work",
       subtitle: "Professional automotive welding services",
       description:
         "Expert welding repairs for MOT failures, bodywork, and structural components. All work guaranteed and MOT compliant.",
-     
     },
   ];
 
@@ -40,7 +37,7 @@ export default function MajorServices() {
         {services.map((service, idx) => (
           <div
             key={idx}
-            className="bg-white rounded-xl shadow-md border border-gray-200 p-6 flex flex-col justify-between hover:shadow-lg transition-shadow"
+            className="bg-white rounded-xl border border-gray-200 p-6 flex flex-col justify-between shadow-md transition-all duration-300 hover:shadow-xl hover:shadow-green-200"
           >
             <div>
               <h3 className="text-xl font-bold text-gray-900 mb-1">
@@ -51,11 +48,13 @@ export default function MajorServices() {
                 {service.description}
               </p>
             </div>
+
             <div className="flex items-center justify-between">
-             
-              <button className="flex items-center gap-2 text-sm px-4 py-1.5 border border-gray-300 rounded-md hover:bg-gray-100 transition">
-                Get Quote <FaQuoteRight className="text-gray-500" />
-              </button>
+              <a href="/contact" className="inline-block">
+                <button className="flex items-center gap-2 text-sm px-4 py-1.5 border border-gray-300 rounded-md hover:bg-green-100 hover:border-green-300 transition-colors duration-200">
+                  Get Quote <FaQuoteRight className="text-gray-500" />
+                </button>
+              </a>
             </div>
           </div>
         ))}

@@ -61,9 +61,10 @@ export default function MotHero() {
               </button>
             </a>
 
-            {/* MOT Booking Button */}
-            <button
-              className="inline-flex items-center justify-center gap-2 h-10 rounded-md px-6 font-semibold"
+            {/* MOT Booking Button as link */}
+            <a
+              href="/contact"
+              className="inline-flex items-center justify-center gap-2 h-10 rounded-md px-6 font-semibold transition-colors"
               style={{
                 backgroundColor: "#FFFFFF",
                 color: palette.heading,
@@ -77,7 +78,7 @@ export default function MotHero() {
               }}
             >
               MOT Booking
-            </button>
+            </a>
           </div>
         </div>
       </div>

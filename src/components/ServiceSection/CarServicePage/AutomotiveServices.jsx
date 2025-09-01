@@ -12,13 +12,13 @@ const CARD_BG = "#F5F5F5";
 const ICON_BOX_BG = "#E8F3EC";
 const ICON_FG = "#6AA874";
 const CHECK_FG = "#2E7D32";
+const GREEN_GLOW = "0 0 12px rgba(106, 168, 116, 0.6)";
 
 export default function AutomotiveServices() {
   const services = [
     {
       title: "Full Car Service",
       desc: "Comprehensive vehicle inspection and maintenance service",
-    
       icon: <FaCar className="h-5 w-5" style={{ color: ICON_FG }} />,
       points: [
         "Engine oil & filter change",
@@ -32,7 +32,6 @@ export default function AutomotiveServices() {
     {
       title: "MOT Testing",
       desc: "Official MOT testing by qualified MOT testers . class 4 and class 7 ",
-   
       icon: <FaWrench className="h-5 w-5" style={{ color: ICON_FG }} />,
       points: [
         "Qualified MOT testers",
@@ -46,7 +45,6 @@ export default function AutomotiveServices() {
     {
       title: "Brake Service",
       desc: "Professional brake system maintenance and repair",
-    
       icon: <FaTools className="h-5 w-5" style={{ color: ICON_FG }} />,
       points: [
         "Brake pad replacement",
@@ -60,7 +58,6 @@ export default function AutomotiveServices() {
     {
       title: "Exhaust Systems",
       desc: "Complete exhaust system service and replacement",
-   
       icon: <FaClock className="h-5 w-5" style={{ color: ICON_FG }} />,
       points: [
         "Exhaust inspection",
@@ -91,10 +88,19 @@ export default function AutomotiveServices() {
           {services.map((s, i) => (
             <div
               key={i}
-              className="flex flex-col gap-6 rounded-xl py-6 shadow-sm hover:shadow-lg transition-shadow"
-              style={{ backgroundColor: CARD_BG }}
+              className="flex flex-col gap-6 rounded-xl py-6 px-6 shadow-sm transition-all duration-300 hover:shadow-xl"
+              style={{
+                backgroundColor: CARD_BG,
+                boxShadow: `0 0 0 transparent`,
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.boxShadow = GREEN_GLOW;
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.boxShadow = "0 0 0 transparent";
+              }}
             >
-              <div className="grid auto-rows-min items-start gap-1.5 px-6">
+              <div className="grid auto-rows-min items-start gap-1.5">
                 <div className="flex items-center justify-between mb-2">
                   <div className="flex items-center space-x-3">
                     <div
@@ -107,12 +113,11 @@ export default function AutomotiveServices() {
                       {s.title}
                     </div>
                   </div>
-                 
                 </div>
                 <div className="text-gray-600 font-body text-base">{s.desc}</div>
               </div>
 
-              <div className="px-6">
+              <div>
                 <ul className="space-y-2">
                   {s.points.map((p, j) => (
                     <li key={j} className="flex items-center text-sm font-body">
