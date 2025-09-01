@@ -4,7 +4,7 @@ import React from "react";
 import { FaPhone } from "react-icons/fa";
 
 const palette = {
-  primary: "#4C9A45",           // Green background from screenshot
+  primary: "#4C9A45",           // Green background
   fgOnPrimary: "#FFFFFF",       // White text
   secondaryBg: "#C2C97A",       // Call button background
   secondaryText: "#1F2A10",     // Dark button text
@@ -42,24 +42,26 @@ export default function EmergencyCTA() {
           </a>
 
           {/* Book Engine Clean Button */}
-          <button
-            className="inline-flex items-center justify-center gap-2 h-10 rounded-md px-6 font-semibold transition-colors"
-            style={{
-              backgroundColor: "transparent",
-              color: palette.fgOnPrimary,
-              border: `1px solid ${palette.outline}`,
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = palette.fgOnPrimary;
-              e.currentTarget.style.color = palette.primary;
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = "transparent";
-              e.currentTarget.style.color = palette.fgOnPrimary;
-            }}
-          >
-            Book Engine Clean
-          </button>
+          <a href="/contact" className="inline-block">
+            <button
+              className="inline-flex items-center justify-center gap-2 h-10 rounded-md px-6 font-semibold transition-colors"
+              style={{
+                backgroundColor: "transparent",
+                color: palette.fgOnPrimary,
+                border: `1px solid ${palette.outline}`,
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.backgroundColor = palette.fgOnPrimary;
+                e.currentTarget.style.color = palette.primary;
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.backgroundColor = "transparent";
+                e.currentTarget.style.color = palette.fgOnPrimary;
+              }}
+            >
+              Book Engine Clean
+            </button>
+          </a>
         </div>
       </div>
     </section>

@@ -31,7 +31,10 @@ export default function EngineCleaningHero() {
           </span>
 
           {/* Heading */}
-          <h1 className="text-4xl lg:text-5xl font-black mb-6" style={{ color: palette.heading }}>
+          <h1
+            className="text-4xl lg:text-5xl font-black mb-6"
+            style={{ color: palette.heading }}
+          >
             Engine <span style={{ color: palette.primary }}>Cleaning Services</span>
           </h1>
 
@@ -59,22 +62,24 @@ export default function EngineCleaningHero() {
             </a>
 
             {/* Quote Button */}
-            <button
-              className="inline-flex items-center justify-center gap-2 h-10 rounded-md px-6 font-semibold"
-              style={{
-                backgroundColor: "#FFFFFF",
-                color: palette.heading,
-                border: `1px solid ${palette.outlineBorder}`,
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.backgroundColor = "#F9FAFB";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.backgroundColor = "#FFFFFF";
-              }}
-            >
-              Get Free Quote
-            </button>
+            <a href="/contact">
+              <button
+                className="inline-flex items-center justify-center gap-2 h-10 rounded-md px-6 font-semibold"
+                style={{
+                  backgroundColor: "#FFFFFF",
+                  color: palette.heading,
+                  border: `1px solid ${palette.outlineBorder}`,
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.backgroundColor = "#F9FAFB";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.backgroundColor = "#FFFFFF";
+                }}
+              >
+                Get Free Quote
+              </button>
+            </a>
           </div>
         </div>
       </div>
