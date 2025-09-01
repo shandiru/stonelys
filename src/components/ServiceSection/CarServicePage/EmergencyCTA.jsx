@@ -41,29 +41,27 @@ export default function EmergencyCTA() {
             </button>
           </a>
 
-          {/* Book MOT Button */}
-          <button
-            className="inline-flex items-center justify-center gap-2 h-10 rounded-md px-6 font-semibold transition-colors"
-            style={{
-              backgroundColor: "transparent",
-              color: palette.fgOnPrimary,
-              border: `1px solid ${palette.outline}`,
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = palette.fgOnPrimary;
-              e.currentTarget.style.color = palette.primary;
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = "transparent";
-              e.currentTarget.style.color = palette.fgOnPrimary;
-            }}
-            onClick={() => {
-              const el = document.getElementById("booking");
-              if (el) el.scrollIntoView({ behavior: "smooth" });
-            }}
-          >
-            Book MOT Test
-          </button>
+          {/* Book MOT Button with href added */}
+          <a href="/contact" className="inline-block">
+            <button
+              className="inline-flex items-center justify-center gap-2 h-10 rounded-md px-6 font-semibold transition-colors"
+              style={{
+                backgroundColor: "transparent",
+                color: palette.fgOnPrimary,
+                border: `1px solid ${palette.outline}`,
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.backgroundColor = palette.fgOnPrimary;
+                e.currentTarget.style.color = palette.primary;
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.backgroundColor = "transparent";
+                e.currentTarget.style.color = palette.fgOnPrimary;
+              }}
+            >
+              Book MOT Test
+            </button>
+          </a>
         </div>
       </div>
     </section>
