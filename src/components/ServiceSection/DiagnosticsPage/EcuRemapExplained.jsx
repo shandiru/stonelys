@@ -38,10 +38,10 @@ export default function EcuRemapExplained() {
         {/* Stage 1 / Stage 2 */}
         <div className="grid lg:grid-cols-2 gap-12 mb-16">
           {/* Stage 1 */}
-          <div className="bg-white text-gray-900 flex flex-col gap-6 rounded-xl py-6 shadow-sm border-2 border-blue-200">
+          <div className="bg-white text-gray-900 flex flex-col gap-6 rounded-xl py-6 shadow-sm border-2 border-green-200">
             <div className="grid auto-rows-min items-start gap-1.5 px-6">
               <div className="flex items-center gap-3 mb-2">
-                <FaCogs className="h-8 w-8 text-blue-600" />
+                <FaCogs className="h-8 w-8 text-green-600" />
                 <div className="font-semibold text-2xl">Stage 1 Remap</div>
               </div>
               <p className="text-base text-gray-600">
@@ -52,7 +52,7 @@ export default function EcuRemapExplained() {
 
             <div className="px-6 space-y-6">
               <div>
-                <h4 className="font-semibold mb-3 text-blue-700">
+                <h4 className="font-semibold mb-3 text-green-700">
                   How Does Stage 1 Remap Work?
                 </h4>
                 <p className="text-sm text-gray-600 mb-4">
@@ -70,7 +70,7 @@ export default function EcuRemapExplained() {
               </div>
 
               <div>
-                <h4 className="font-semibold mb-3 text-blue-700">
+                <h4 className="font-semibold mb-3 text-green-700">
                   Benefits of Stage 1 Remap
                 </h4>
                 <div className="grid grid-cols-1 gap-2">
@@ -95,10 +95,7 @@ export default function EcuRemapExplained() {
 
               <div className="pt-4 border-t">
                 <div className="flex items-center justify-between">
-                  {/* ✅ Changed to green background */}
-                  <span className="inline-flex items-center justify-center rounded-md text-base px-4 py-2 bg-green-600 text-white font-semibold">
-                    £250 - £350
-                  </span>
+                  {/* Note text only */}
                   <span className="text-sm text-gray-600">
                     Software only - no hardware changes
                   </span>
@@ -108,10 +105,10 @@ export default function EcuRemapExplained() {
           </div>
 
           {/* Stage 2 */}
-          <div className="bg-white text-gray-900 flex flex-col gap-6 rounded-xl py-6 shadow-sm border-2 border-red-200">
+          <div className="bg-white text-gray-900 flex flex-col gap-6 rounded-xl py-6 shadow-sm border-2 border-green-200">
             <div className="grid auto-rows-min items-start gap-1.5 px-6">
               <div className="flex items-center gap-3 mb-2">
-                <FaWrench className="h-8 w-8 text-red-600" />
+                <FaWrench className="h-8 w-8 text-green-600" />
                 <div className="font-semibold text-2xl">Stage 2 Remap</div>
               </div>
               <p className="text-base text-gray-600">
@@ -122,7 +119,7 @@ export default function EcuRemapExplained() {
 
             <div className="px-6 space-y-6">
               <div>
-                <h4 className="font-semibold mb-3 text-red-700">
+                <h4 className="font-semibold mb-3 text-green-700">
                   What Does Stage 2 Involve?
                 </h4>
                 <p className="text-sm text-gray-600 mb-4">
@@ -141,32 +138,32 @@ export default function EcuRemapExplained() {
               </div>
 
               <div>
-                <h4 className="font-semibold mb-3 text-red-700">
+                <h4 className="font-semibold mb-3 text-green-700">
                   Stage 2 Features
                 </h4>
                 <div className="grid grid-cols-1 gap-2">
                   <Item
-                    icon={<FaChartBar className="text-red-600" />}
+                    icon={<FaChartBar className="text-green-600" />}
                     text="Maximum performance gains"
                   />
                   <Item
-                    icon={<FaWrench className="text-red-600" />}
+                    icon={<FaWrench className="text-green-600" />}
                     text="Hardware upgrades included"
                   />
                   <Item
-                    icon={<FaCogs className="text-red-600" />}
+                    icon={<FaCogs className="text-green-600" />}
                     text="Fine-tuning of engine parameters"
                   />
                   <Item
-                    icon={<FaSearch className="text-red-600" />}
+                    icon={<FaSearch className="text-green-600" />}
                     text="Significantly improved performance"
                   />
                   <Item
-                    icon={<FaCheckCircle className="text-red-600" />}
+                    icon={<FaCheckCircle className="text-green-600" />}
                     text="Maintains safety and reliability"
                   />
                   <Item
-                    icon={<FaTachometerAlt className="text-red-600" />}
+                    icon={<FaTachometerAlt className="text-green-600" />}
                     text="Tailored approach for optimal results"
                   />
                 </div>
@@ -174,10 +171,7 @@ export default function EcuRemapExplained() {
 
               <div className="pt-4 border-t">
                 <div className="flex items-center justify-between">
-                  {/* ✅ Changed to green background */}
-                  <span className="inline-flex items-center justify-center rounded-md text-base px-4 py-2 bg-green-600 text-white font-semibold">
-                    From £400
-                  </span>
+                  {/* Note text only */}
                   <span className="text-sm text-gray-600">
                     + hardware modifications
                   </span>
@@ -203,7 +197,7 @@ export default function EcuRemapExplained() {
             badge="Professional Equipment"
           />
           <InfoCard
-            icon={<FaSearch className="h-6 w-6 text-blue-600" />}
+            icon={<FaSearch className="h-6 w-6 text-green-600" />}
             title="Professional Process"
             items={[
               "Read existing ECU data",

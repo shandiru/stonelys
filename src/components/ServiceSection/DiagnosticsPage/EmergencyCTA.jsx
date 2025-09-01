@@ -19,9 +19,12 @@ export default function EmergencyCTA() {
         {/* Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           {/* Book Button */}
-          <button className="bg-[#C2C97A] text-[#1F2A10] font-semibold px-6 py-3 rounded-md hover:bg-[#b5bd6a] transition">
+          <a
+            href="/contact"
+            className="bg-[#C2C97A] text-[#1F2A10] font-semibold px-6 py-3 rounded-md hover:bg-[#b5bd6a] transition"
+          >
             Book Your Service
-          </button>
+          </a>
 
           {/* Call Button */}
           <a

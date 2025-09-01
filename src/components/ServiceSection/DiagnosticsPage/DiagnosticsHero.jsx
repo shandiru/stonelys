@@ -22,11 +22,13 @@ export default function EngineCleaningHero() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-        
-
           {/* Heading */}
-          <h1 className="text-4xl lg:text-5xl font-black mb-6" style={{ color: palette.heading }}>
-            Vehicle Diagnostics  <span style={{ color: palette.primary }}>& ECU Remapping</span>
+          <h1
+            className="text-4xl lg:text-5xl font-black mb-6"
+            style={{ color: palette.heading }}
+          >
+            Vehicle Diagnostics{" "}
+            <span style={{ color: palette.primary }}>& ECU Remapping</span>
           </h1>
 
           {/* Subheading */}
@@ -34,29 +36,32 @@ export default function EngineCleaningHero() {
             className="text-xl max-w-3xl mx-auto leading-relaxed"
             style={{ color: palette.muted }}
           >
-           Advanced fault finding and performance enhancement services using the latest diagnostic equipment
+            Advanced fault finding and performance enhancement services using the latest
+            diagnostic equipment
           </p>
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
+            {/* Book Diagnostic Button */}
+            <a href="/contact" className="inline-block">
+              <button
+                className="inline-flex items-center justify-center gap-2 h-10 rounded-md px-6 font-semibold"
+                style={{
+                  backgroundColor: "#FFFFFF",
+                  color: palette.heading,
+                  border: `1px solid ${palette.outlineBorder}`,
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.backgroundColor = "#F9FAFB";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.backgroundColor = "#FFFFFF";
+                }}
+              >
+                Book Diagnostic
+              </button>
+            </a>
 
-             {/* Quote Button */}
-            <button
-              className="inline-flex items-center justify-center gap-2 h-10 rounded-md px-6 font-semibold"
-              style={{
-                backgroundColor: "#FFFFFF",
-                color: palette.heading,
-                border: `1px solid ${palette.outlineBorder}`,
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.backgroundColor = "#F9FAFB";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.backgroundColor = "#FFFFFF";
-              }}
-            >
-              Book Diagnostic
-            </button>
             {/* Call Button */}
             <a href="tel:+441623623759" className="inline-block">
               <button
@@ -67,8 +72,6 @@ export default function EngineCleaningHero() {
                 Call +44 1623 623 759
               </button>
             </a>
-
-           
           </div>
         </div>
       </div>

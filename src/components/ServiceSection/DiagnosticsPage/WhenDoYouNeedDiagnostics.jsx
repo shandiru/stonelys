@@ -1,10 +1,10 @@
 // File: WhenDoYouNeedDiagnostics.jsx
 import React from "react";
 import {
-  FaExclamationTriangle, // orange
-  FaChartLine,           // red
-  FaGasPump,             // green
-  FaSearch,              // blue
+  FaExclamationTriangle,
+  FaChartLine,
+  FaGasPump,
+  FaSearch,
 } from "react-icons/fa";
 
 export default function WhenDoYouNeedDiagnostics() {
@@ -25,7 +25,7 @@ export default function WhenDoYouNeedDiagnostics() {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {/* Warning Lights */}
           <div className="text-center p-6 bg-white rounded-lg border shadow-sm">
-            <FaExclamationTriangle className="h-12 w-12 text-orange-600 mx-auto mb-4" />
+            <FaExclamationTriangle className="h-12 w-12 text-green-600 mx-auto mb-4" />
             <h3 className="font-semibold mb-2">Warning Lights</h3>
             <p className="text-sm text-gray-600">
               Engine management, ABS, or other dashboard warning lights
@@ -34,7 +34,7 @@ export default function WhenDoYouNeedDiagnostics() {
 
           {/* Poor Performance */}
           <div className="text-center p-6 bg-white rounded-lg border shadow-sm">
-            <FaChartLine className="h-12 w-12 text-red-600 mx-auto mb-4" />
+            <FaChartLine className="h-12 w-12 text-green-600 mx-auto mb-4" />
             <h3 className="font-semibold mb-2">Poor Performance</h3>
             <p className="text-sm text-gray-600">
               Reduced power, poor acceleration, or rough running
@@ -52,7 +52,7 @@ export default function WhenDoYouNeedDiagnostics() {
 
           {/* Strange Noises */}
           <div className="text-center p-6 bg-white rounded-lg border shadow-sm">
-            <FaSearch className="h-12 w-12 text-blue-600 mx-auto mb-4" />
+            <FaSearch className="h-12 w-12 text-green-600 mx-auto mb-4" />
             <h3 className="font-semibold mb-2">Strange Noises</h3>
             <p className="text-sm text-gray-600">
               Unusual sounds from engine, transmission, or other systems
