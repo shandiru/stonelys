@@ -34,7 +34,11 @@ export default function DiagnosticServices() {
         {/* Cards */}
         <div className="grid md:grid-cols-2 gap-8">
           {/* Vehicle Diagnostics */}
-          <div className="bg-white text-gray-900 flex flex-col gap-6 rounded-xl py-6 shadow-sm border-2 border-gray-200 hover:border-green-600/60 transition-colors">
+          <div
+            className="bg-white text-gray-900 flex flex-col gap-6 rounded-xl py-6 shadow-sm border-2 border-gray-200 
+                       transition-all duration-300 
+                       hover:shadow-[0_8px_24px_rgba(47,125,51,0.35)] hover:ring-2 hover:ring-green-600 hover:ring-offset-2"
+          >
             {/* Header */}
             <div className="grid auto-rows-min items-start gap-1.5 px-6">
               <div className="flex items-center gap-3 mb-2">
@@ -75,7 +79,11 @@ export default function DiagnosticServices() {
           </div>
 
           {/* ECU Remapping */}
-          <div className="bg-white text-gray-900 flex flex-col gap-6 rounded-xl py-6 shadow-sm border-2 border-gray-200 hover:border-green-600/60 transition-colors">
+          <div
+            className="bg-white text-gray-900 flex flex-col gap-6 rounded-xl py-6 shadow-sm border-2 border-gray-200 
+                       transition-all duration-300 
+                       hover:shadow-[0_8px_24px_rgba(47,125,51,0.35)] hover:ring-2 hover:ring-green-600 hover:ring-offset-2"
+          >
             {/* Header */}
             <div className="grid auto-rows-min items-start gap-1.5 px-6">
               <div className="flex items-center gap-3 mb-2">
