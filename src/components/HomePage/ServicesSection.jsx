@@ -100,13 +100,13 @@ export default function ServicesSection() {
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 items-stretch">
           <Card
             icon={<FaSearch className="h-6 w-6" />}
-            title="Vehicle Diagnostics"
-            desc="Fault finding & system analysis for quick, accurate fixes using professional equipment."
+            title="Vehicle Diagnostics & ECU Remapping"
+            desc="Fault finding, system analysis, and performance tuning for quick, accurate fixes and improved efficiency using professional equipment."
             bullets={[
-              "Engine management & sensors",
-              "ABS & airbag systems",
+              "Engine Management",
+              "Performance Tune",
               "Transmission & electrical",
-              "Climate control diagnostics",
+              "Stage 1 Remap",
             ]}
             href="/services/diagnostics"
           />
