@@ -156,6 +156,9 @@ export default function ContactSection() {
                   <option value="exhaust">Exhaust Repair</option>
                   <option value="aircon">Air Conditioning</option>
                   <option value="cleaning">Engine Cleaning</option>
+                   <option value="ECU">ECU Remapping and Diagnostics</option>
+
+              
                   <option value="other">Other</option>
                 </select>
               </div>
