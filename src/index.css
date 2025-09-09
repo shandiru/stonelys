@@ -1,31 +1,72 @@
-/* ------------------------------
-   Tailwind v4 entry
----------------------------------*/
 @import "tailwindcss";
 
-/* Enable `.dark` class anywhere in subtree */
+/* Enable `.dark` anywhere in subtree */
 @custom-variant dark (&:where(.dark, .dark *));
 
-/* ------------------------------
-   Global base + transitions
----------------------------------*/
+/* =========================================
+   Base + Smooth Theme Transitions
+========================================= */
 html, body {
   width: 100%;
   min-height: 100%;
   scroll-behavior: smooth;
 
-  /* Light theme defaults */
-  background-color: var(--aircon-bg);
-  color: var(--aircon-text);
+  /* Light defaults (brand) */
+  background-color: var(--brand-bg);
+  color: var(--brand-text);
 
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Smooth theme transitions everywhere */
+/* Smooth transitions app-wide */
 * {
   transition-property: background-color, border-color, color, fill, stroke, box-shadow;
   transition-duration: 300ms;
   transition-timing-function: ease-in-out;
+}
+
+/* =========================================
+   BRAND TOKENS (used by ServicesSection)
+   - Cards, rings, shadows, surfaces
+========================================= */
+:root {
+  /* Surfaces & text */
+  --brand-bg: #F7F8FA;          /* page background */
+  --brand-bgSoft: #F0F2F5;      /* section background */
+  --brand-text: #0F172A;        /* headings/body on light */
+  --brand-muted: #475569;       /* subtle text */
+
+  /* Cards & borders */
+  --card-bg: #FFFFFF;
+  --brand-border: #E5E7EB;
+
+  /* Accent color family */
+  --brand-green: #2F7D33;         /* primary accent */
+  --brand-greenSoft: #E8F3EC;     /* icon chip bg */
+
+  /* Shadows (safe defaults) */
+  --shadow-green: 0 10px 24px rgba(47, 125, 51, 0.15);
+  --hover-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+}
+
+html.dark {
+  /* Surfaces & text */
+  --brand-bg: #0B0F0C;
+  --brand-bgSoft: #0F1411;
+  --brand-text: #E5E7EB;
+  --brand-muted: #A3A3A3;
+
+  /* Cards & borders */
+  --card-bg: #121212;
+  --brand-border: rgba(255, 255, 255, 0.12);
+
+  /* Accent color family */
+  --brand-green: #6EE7B7;         /* brighter green in dark */
+  --brand-greenSoft: rgba(110, 231, 183, 0.12);
+
+  /* Shadows */
+  --shadow-green: 0 10px 24px rgba(110, 231, 183, 0.20);
+  --hover-shadow: 0 12px 28px rgba(0, 0, 0, 0.40);
 }
 
 /* ------------------------------
