@@ -1,55 +1,38 @@
 "use client";
 import React from "react";
 
-// --- Colors tuned to your screenshot ---
-const SECTION_BG = "#FFFFFF"; // whole section
-const CARD_BG = "#F5F5F5"; // soft grey card fill
-const CARD_BR = "#E5E7EB"; // subtle border
-const HEADING = "#0B0B0B"; // near-black h2/card titles
-const BODY_TXT = "#222222"; // body (slightly softer than pure black)
-const MUTED_TXT = "#5F6368"; // secondary paragraph
-const PRICE_CLR = "#2E7D32"; // green price
-const BTN_BG = "#F6F7F9"; // light grey button
-const BTN_BR = "#DADDE1"; // button border
-
-const services = [
-  {
-    title: "Professional Tyre Fitting",
-    desc: "Expert tyre installation with proper mounting and sealing",
-   
-  },
-  {
-    title: "Wheel Balancing",
-    desc: "Precision wheel balancing to eliminate vibration and ensure smooth driving",
-   
-  },
-  {
-    title: "Tyre Pressure Check",
-    desc: "Free tyre pressure monitoring and adjustment service",
-   
-  },
-  {
-    title: "Tyre Condition Assessment",
-    desc: "Professional inspection for wear patterns and safety concerns",
-   
-  },
-];
-
 export default function TyreServices() {
+  const services = [
+    {
+      title: "Professional Tyre Fitting",
+      desc: "Expert tyre installation with proper mounting and sealing",
+    },
+    {
+      title: "Wheel Balancing",
+      desc: "Precision wheel balancing to eliminate vibration and ensure smooth driving",
+    },
+    {
+      title: "Tyre Pressure Check",
+      desc: "Free tyre pressure monitoring and adjustment service",
+    },
+    {
+      title: "Tyre Condition Assessment",
+      desc: "Professional inspection for wear patterns and safety concerns",
+    },
+  ];
+
   return (
-    <section className="py-16" style={{ backgroundColor: SECTION_BG }}>
+    <section className="py-16 bg-[var(--aircon-section-bg)] transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Title + Subhead */}
         <div className="text-center mb-12">
           <h2
-            className="font-heading font-bold tracking-tight mb-3 text-4xl md:text-5xl"
-            style={{ color: HEADING }}
+            className="font-heading font-bold tracking-tight mb-3 text-4xl md:text-5xl text-[var(--aircon-heading)]"
           >
             Professional Tyre Services
           </h2>
           <p
-            className="text-base md:text-lg font-body max-w-3xl mx-auto"
-            style={{ color: MUTED_TXT }}
+            className="text-base md:text-lg font-body max-w-3xl mx-auto text-[var(--aircon-muted)]"
           >
             Expert tyre fitting, balancing, and maintenance services for all
             vehicle types
@@ -61,58 +44,37 @@ export default function TyreServices() {
           {services.map((s) => (
             <div
               key={s.title}
-              className="flex flex-col justify-between rounded-2xl border transition-all duration-300 px-6 py-8"
-              style={{
-                backgroundColor: CARD_BG,
-                borderColor: CARD_BR,
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.classList.add(
-                  "shadow-[0_8px_24px_rgba(47,125,51,0.35)]",
-                  "ring-2",
-                  "ring-[#2E7D32]",
-                  "ring-offset-2"
-                );
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.classList.remove(
-                  "shadow-[0_8px_24px_rgba(47,125,51,0.35)]",
-                  "ring-2",
-                  "ring-[#2E7D32]",
-                  "ring-offset-2"
-                );
-              }}
+              className="
+                flex flex-col justify-between rounded-2xl border px-6 py-8 shadow-sm
+                bg-[var(--aircon-card-bg)] border-[var(--aircon-card-border)]
+                transition-all duration-300
+                hover:shadow-[0_8px_24px_rgba(47,125,51,0.35)]
+                hover:ring-2 hover:ring-[var(--aircon-primary)] hover:ring-offset-2
+              "
             >
               <div>
-                <h3
-                  className="text-2xl font-heading font-bold mb-3 text-center"
-                  style={{ color: HEADING }}
-                >
+                <h3 className="text-2xl font-heading font-bold mb-3 text-center text-[var(--aircon-heading)]">
                   {s.title}
                 </h3>
-                <p
-                  className="text-[15px] leading-6 text-center"
-                  style={{ color: BODY_TXT }}
-                >
+                <p className="text-[15px] leading-6 text-center text-[var(--aircon-heading)]/90 dark:text-[var(--aircon-muted)]">
                   {s.desc}
                 </p>
               </div>
 
               <div className="mt-8">
-                <div
-                  className="text-xl font-semibold mb-5 text-center"
-                  style={{ color: PRICE_CLR }}
-                >
-                
-                </div>
+                {/* Use primary/check token for any price/accent text if needed later */}
+                <div className="text-xl font-semibold mb-5 text-center text-[var(--aircon-primary)]"></div>
 
                 <button
-                  className="w-full h-11 rounded-md text-sm font-semibold transition-all duration-300 hover:shadow-[0_6px_18px_rgba(47,125,51,0.35)] hover:ring-1 hover:ring-[#2E7D32] hover:ring-offset-1"
-                  style={{
-                    backgroundColor: BTN_BG,
-                    color: HEADING,
-                    border: `1px solid ${BTN_BR}`,
-                  }}
+                  className="
+                    w-full h-11 rounded-md text-sm font-semibold
+                    border bg-[var(--aircon-button-bg)] text-[var(--aircon-heading)] border-[var(--aircon-outline)]
+                    transition-all duration-300
+                    hover:bg-[var(--aircon-grad-bottom)] hover:shadow-[0_6px_18px_rgba(47,125,51,0.35)]
+                    hover:ring-1 hover:ring-[var(--aircon-primary)] hover:ring-offset-1
+                    focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--aircon-primary)]
+                    focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--aircon-section-bg)]
+                  "
                 >
                   Learn More
                 </button>

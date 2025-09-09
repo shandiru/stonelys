@@ -1,17 +1,7 @@
 // File: WheelTyreHero.jsx
+'use client'
 import React from "react";
 import { FaPhoneAlt } from "react-icons/fa";
-
-const palette = {
-  primary: "#2F7D33",     // brand green
-  gradTop: "#EAF5EA",     // light green
-  gradBottom: "#FFFFFF",  // white
-  heading: "#111827",     // dark text
-  muted: "#374151",       // paragraph
-  badgeBg: "#A4BE6A",     // badge bg
-  badgeText: "#1F2A10",   // badge text
-  outlineBorder: "rgba(17,24,39,0.15)", // outline btn border
-};
 
 export default function WheelTyreHero() {
   const handleQuoteClick = () => {
@@ -19,34 +9,40 @@ export default function WheelTyreHero() {
   };
 
   return (
-    <section
-      className="py-16"
-      style={{
-        backgroundImage: `linear-gradient(to bottom, ${palette.gradTop}, ${palette.gradBottom})`,
-      }}
-    >
+    <section className="py-16 aircon-grad transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           {/* Badge */}
           <span
-            className="inline-flex items-center justify-center rounded-md px-2 py-0.5 text-xs font-medium mb-4"
-            style={{ backgroundColor: palette.badgeBg, color: palette.badgeText }}
+            className="
+              inline-flex items-center justify-center rounded-md px-2 py-0.5
+              text-xs font-medium mb-4
+            "
+            style={{
+              backgroundColor: "var(--aircon-badge-bg)",
+              color: "var(--aircon-badge-text)",
+            }}
           >
             Professional Wheel Services
           </span>
 
           {/* Heading */}
           <h1
-            className="text-4xl lg:text-5xl font-black mb-6"
-            style={{ color: palette.heading }}
+            className="
+              text-4xl lg:text-5xl font-black mb-6
+              text-[var(--aircon-heading)]
+            "
           >
-            Wheel Alignment &amp; <span style={{ color: palette.primary }}>Tyre Services</span>
+            Wheel Alignment &amp;{" "}
+            <span className="text-[var(--aircon-primary)]">Tyre Services</span>
           </h1>
 
           {/* Sub Copy */}
           <p
-            className="text-xl max-w-3xl mx-auto leading-relaxed"
-            style={{ color: palette.muted }}
+            className="
+              text-xl max-w-3xl mx-auto leading-relaxed
+              text-[var(--aircon-muted)]
+            "
           >
             Precision wheel alignment and professional tyre services using
             advanced laser and 3D technology. Keep your vehicle running safely
@@ -58,8 +54,15 @@ export default function WheelTyreHero() {
             {/* Primary Button */}
             <a href="tel:+441623623759" className="inline-block">
               <button
-                className="inline-flex items-center justify-center gap-2 h-10 rounded-md px-6 font-semibold transition-all duration-300 hover:shadow-[0_6px_20px_rgba(47,125,51,0.45)]"
-                style={{ backgroundColor: palette.primary, color: "#FFFFFF" }}
+                className="
+                  inline-flex items-center justify-center gap-2 h-10 rounded-md px-6 font-semibold
+                  bg-[var(--aircon-primary)] text-white
+                  transition-all duration-300
+                  hover:shadow-[0_6px_20px_rgba(47,125,51,0.45)]
+                  focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--aircon-primary)]
+                  focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--aircon-grad-top)]
+                  dark:focus-visible:ring-offset-[var(--aircon-grad-top-dark)]
+                "
               >
                 <FaPhoneAlt className="h-5 w-5" />
                 Book Service: +441623623759
@@ -69,18 +72,17 @@ export default function WheelTyreHero() {
             {/* Outline Button */}
             <button
               onClick={handleQuoteClick}
-              className="inline-flex items-center justify-center gap-2 h-10 rounded-md px-6 font-semibold transition-all duration-300 hover:shadow-[0_6px_20px_rgba(47,125,51,0.35)]"
-              style={{
-                backgroundColor: "#FFFFFF",
-                color: palette.heading,
-                border: `1px solid ${palette.outlineBorder}`,
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.backgroundColor = "#F9FAFB";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.backgroundColor = "#FFFFFF";
-              }}
+              className="
+                inline-flex items-center justify-center gap-2 h-10 rounded-md px-6 font-semibold
+                border border-[var(--aircon-outline)]
+                bg-[var(--aircon-button-bg)] text-[var(--aircon-heading)]
+                transition-all duration-300
+                hover:bg-[var(--aircon-grad-bottom)]
+                hover:shadow-[0_6px_20px_rgba(47,125,51,0.35)]
+                focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--aircon-primary)]
+                focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--aircon-grad-top)]
+                dark:focus-visible:ring-offset-[var(--aircon-grad-top-dark)]
+              "
             >
               Get Free Quote
             </button>

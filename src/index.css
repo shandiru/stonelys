@@ -199,3 +199,40 @@ html.dark {
 .dark .mot-grad-dark {
   background: linear-gradient(180deg, var(--mot-grad-top-dark, #0f0f0f) 0%, var(--mot-grad-bottom-dark, #000000) 100%);
 }
+
+/* =========== WHEEL / TYRE HERO TOKENS =========== */
+:root {
+  --wheel-page-bg: #FFFFFF;
+  --wheel-grad-top: #EAF5EA;
+  --wheel-grad-bottom: #FFFFFF;
+  --wheel-heading: #111827;
+  --wheel-muted: #374151;
+  --wheel-primary: #2F7D33;
+  --wheel-badge-bg: #A4BE6A;
+  --wheel-badge-text: #1F2A10;
+  --wheel-outline: rgba(17, 24, 39, 0.15);
+  --wheel-button-bg: #FFFFFF;
+  --wheel-button-hover: #F9FAFB;
+}
+
+html.dark {
+  --wheel-page-bg: #0B0F0C;
+  --wheel-grad-top: #121512;
+  --wheel-grad-bottom: #0B0F0C;
+  --wheel-heading: #E5E7EB;
+  --wheel-muted: #A3A3A3;
+  --wheel-primary: #6EE7B7;
+  --wheel-badge-bg: rgba(110, 231, 183, 0.18);
+  --wheel-badge-text: #D1FAE5;
+  --wheel-outline: rgba(255, 255, 255, 0.18);
+  --wheel-button-bg: #1F2937;
+  --wheel-button-hover: #111827;
+}
+
+/* =========== GRADIENT CLASS =========== */
+.wheel-grad {
+  background-image: linear-gradient(to bottom, var(--wheel-grad-top), var(--wheel-grad-bottom));
+}
+
+/* Optional Utility Helpers */
+.wheel-surface { background: var(--wheel-page-bg); color: var(--wheel-heading); }

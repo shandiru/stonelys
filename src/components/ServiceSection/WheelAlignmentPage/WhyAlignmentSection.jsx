@@ -3,16 +3,16 @@ import { FaCheckCircle } from 'react-icons/fa';
 
 const WhyWheelAlignment = () => {
   return (
-    <section className="bg-white py-16">
+    <section className="py-16 bg-[var(--aircon-section-bg)] transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 items-start">
           
           {/* Left Column */}
           <div>
-            <h2 className="text-4xl font-bold text-black mb-6 leading-snug">
+            <h2 className="text-4xl font-bold mb-6 leading-snug text-[var(--aircon-heading)]">
               Why Choose Professional <br /> Wheel Alignment?
             </h2>
-            <p className="text-lg text-gray-700 mb-8">
+            <p className="text-lg mb-8 text-[var(--aircon-muted)]">
               Proper wheel alignment is essential for vehicle safety, performance, and cost savings.
               Our advanced equipment and experienced technicians ensure your wheels are perfectly
               aligned for optimal driving.
@@ -29,19 +29,19 @@ const WhyWheelAlignment = () => {
                 'Smoother driving experience',
               ].map((text, i) => (
                 <div key={i} className="flex items-center gap-2">
-                  <FaCheckCircle className="text-[#4CAF50] w-5 h-5" />
-                  <span className="text-black">{text}</span>
+                  <FaCheckCircle className="w-5 h-5 text-[var(--aircon-check-icon)]" />
+                  <span className="text-[var(--aircon-heading)]">{text}</span>
                 </div>
               ))}
             </div>
           </div>
 
           {/* Right Column */}
-          <div className="bg-[#f9f9f9] rounded-xl p-8 shadow-sm">
-            <h3 className="text-2xl font-bold text-black mb-4">
+          <div className="rounded-xl p-8 shadow-sm border bg-[var(--aircon-card-bg)] border-[var(--aircon-card-border)]">
+            <h3 className="text-2xl font-bold mb-4 text-[var(--aircon-heading)]">
               Signs You Need Alignment
             </h3>
-            <ul className="space-y-4 text-gray-700">
+            <ul className="space-y-4 text-[var(--aircon-muted)]">
               {[
                 'Vehicle pulls to one side while driving',
                 'Steering wheel is off-center when driving straight',
@@ -50,12 +50,13 @@ const WhyWheelAlignment = () => {
                 'Squealing tyres during normal driving',
               ].map((sign, i) => (
                 <li key={i} className="flex items-start gap-3">
-                  <div className="w-2 h-2 mt-2 bg-[#4CAF50] rounded-full flex-shrink-0" />
+                  <div className="w-2 h-2 mt-2 rounded-full flex-shrink-0 bg-[var(--aircon-check-icon)]" />
                   <span>{sign}</span>
                 </li>
               ))}
             </ul>
           </div>
+
         </div>
       </div>
     </section>
