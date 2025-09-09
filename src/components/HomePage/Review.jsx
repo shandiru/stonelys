@@ -60,14 +60,14 @@ export default function Review() {
   ];
 
   return (
-    <section id="testimonials" className="py-20 bg-white">
+    <section id="testimonials" className="py-20 bg-white dark:bg-neutral-900">
       <div className="container mx-auto px-4 md:px-12">
         {/* Heading */}
         <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-black">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-black dark:text-white">
             What Our Customers Say
           </h2>
-          <p className="text-lg text-gray-700">
+          <p className="text-lg text-gray-700 dark:text-gray-300">
             Real feedback from clients who trust <strong>STONELEY</strong>.
           </p>
         </div>
@@ -92,9 +92,9 @@ export default function Review() {
         >
           {testimonials.map((t, i) => (
             <SwiperSlide key={i} className="!h-auto">
-              <div className="flex flex-col h-full min-h-[250px] bg-green-600 text-white p-6 rounded-2xl shadow hover:shadow-lg transition-shadow">
+              <div className="flex flex-col h-full min-h-[250px] bg-green-600 text-white p-6 rounded-2xl shadow hover:shadow-xl transition-shadow duration-300 dark:bg-green-700">
                 <p className="mb-4 flex-grow">"{t.quote}"</p>
-                <div className="text-sm font-semibold mt-auto">– {t.name}</div>
+                <div className="text-sm font-semibold mt-auto">&ndash; {t.name}</div>
               </div>
             </SwiperSlide>
           ))}
@@ -104,11 +104,11 @@ export default function Review() {
       {/* Custom pagination color */}
       <style jsx global>{`
         .swiper-pagination-bullet {
-          background: #16a34a; /* Tailwind green-600 */
+          background: #16a34a;
           opacity: 0.4;
         }
         .swiper-pagination-bullet-active {
-          background: #16a34a; /* Active green */
+          background: #16a34a;
           opacity: 1;
         }
       `}</style>

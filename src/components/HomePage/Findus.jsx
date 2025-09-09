@@ -2,13 +2,16 @@ import React from "react";
 
 const FindUs = () => {
   const directionsUrl =
-    "https://www.google.com/maps/dir/53.1691559,-1.2471979/Oakham+Business+Park,+Hamilton+Way,+Mansfield+NG18+5BU,+United+Kingdom/@53.1318888,-1.2938898,16720m/data=!3m1!1e3!4m8!4m7!1m0!1m5!1m1!1s0x48799602343e5541:0x5a644c3262063baf!2m2!1d-1.2114897!2d53.1319172?hl=en-GB&entry=ttu&g_ep=EgoyMDI1MDkwNy4wIKXMDSoASAFQAw%3D%3D";
+    "https://www.google.com/maps/dir/53.1691559,-1.2471979/Oakham+Business+Park,+Hamilton+Way,+Mansfield+NG18+5BU,+United+Kingdom/@53.1318888,-1.2938898,16720m/data=!3m1!1e3!4m8!4m7!1m0!1m5!1m1!1s0x48799602343e5541:0x5a644c3262063baf!2m2!1d-1.2114897!2d53.1319172?hl=en-GB&entry=ttu";
 
   return (
-    <section className="py-10 px-4 bg-background">
+    <section className="py-10 px-4 bg-[var(--brand-bgSoft)] transition-colors duration-300">
       <div className="max-w-7xl mx-auto text-center">
-        <h2 className="text-2xl md:text-3xl font-bold mb-10 text-black">Find Us</h2>
+        <h2 className="text-2xl md:text-3xl font-bold mb-10 text-[var(--brand-text)]">
+          Find Us
+        </h2>
 
+        {/* Google Maps Embed */}
         <div className="rounded-lg overflow-hidden shadow-lg w-full h-[400px]">
           <iframe
             title="Google Map - Oakham Business Park"
@@ -23,20 +26,22 @@ const FindUs = () => {
         </div>
 
         {/* Address */}
-        <p className="mt-6 text-lg font-medium text-gray-800">
+        <p className="mt-6 text-lg font-medium text-[var(--brand-muted)]">
           Stoneley's Garage Services,<br />
           Oakham Business Park, Hamilton Way,<br />
           Mansfield NG18 5BU, United Kingdom
         </p>
 
-        {/* Directions CTA */}
+        {/* Directions Button */}
         <div className="mt-6">
           <a
             href={directionsUrl}
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Open Google Maps directions to Oakham Business Park, Hamilton Way, Mansfield"
-            className="inline-flex items-center gap-2 rounded-md bg-black text-white px-5 py-3 text-sm md:text-base font-semibold hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-black"
+            className="inline-flex items-center gap-2 rounded-md bg-black text-white px-5 py-3 text-sm md:text-base font-semibold 
+                       hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-black 
+                       dark:bg-white dark:text-black dark:hover:opacity-90 dark:focus:ring-white"
           >
             Open Directions in Google Maps
             <svg
@@ -47,7 +52,12 @@ const FindUs = () => {
               stroke="currentColor"
               aria-hidden="true"
             >
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h6m0 0v6m0-6L10 16" />
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M13 7h6m0 0v6m0-6L10 16"
+              />
             </svg>
           </a>
         </div>

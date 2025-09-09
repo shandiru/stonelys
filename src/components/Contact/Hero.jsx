@@ -1,23 +1,18 @@
-// File: ContactHero.jsx
 import React from "react";
 
 const palette = {
-  primary: "#2F7D33",     // brand green for highlighted text
-  gradTop: "#EAF5EA",     // very light green (top of gradient)
-  gradBottom: "#FFFFFF",  // white (bottom of gradient)
-  heading: "#111827",     // near-black
-  muted: "#4B5563",       // body copy
-  badgeBg: "#A4BE6A",     // olive-green badge background
-  badgeText: "#1F2A10",   // badge text
+  primary: "#2F7D33",     // green accent
+  heading: "#111827",     // dark heading
+  muted: "#4B5563",       // muted body text
+  badgeBg: "#A4BE6A",
+  badgeText: "#1F2A10",
 };
 
 export default function ContactHero() {
   return (
     <section
-      className="py-16"
-      style={{
-        backgroundImage: `linear-gradient(to bottom, ${palette.gradTop}, ${palette.gradBottom})`,
-      }}
+      className="py-16 transition-colors duration-300 bg-gradient-to-b 
+                 from-[var(--contact-grad-top)] to-[var(--contact-grad-bottom)] dark:from-[var(--contact-grad-top-dark)] dark:to-[var(--contact-grad-bottom-dark)]"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
@@ -29,8 +24,7 @@ export default function ContactHero() {
           </span>
 
           <h1
-            className="text-4xl lg:text-5xl font-black mb-6"
-            style={{ color: palette.heading }}
+            className="text-4xl lg:text-5xl font-black mb-6 text-[var(--contact-heading)]"
           >
             Contact{" "}
             <span style={{ color: palette.primary }}>
@@ -38,10 +32,7 @@ export default function ContactHero() {
             </span>
           </h1>
 
-          <p
-            className="text-xl max-w-3xl mx-auto leading-relaxed"
-            style={{ color: palette.muted }}
-          >
+          <p className="text-xl max-w-3xl mx-auto leading-relaxed text-[var(--contact-muted)]">
             Family-run garage established 1973. Contact our friendly team for
             professional automotive services, quotes, or to book your
             appointment. We&apos;re here to help with all your vehicle needs.

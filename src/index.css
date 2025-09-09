@@ -1,11 +1,49 @@
-/* index.css */
 @import "tailwindcss";
 
-/* make `dark:` respond to .dark on <html> */
-@custom-variant dark (&:where(.dark, .dark *));  /* <-- add this line */
+/* Enable `dark:` to respond to <html class="dark"> */
+@custom-variant dark (&:where(.dark, .dark *));
 
+/* Global layout */
 html, body {
   width: 100%;
   overflow-x: hidden;
   scroll-behavior: smooth;
+  background-color: var(--brand-bgSoft);
+  color: var(--brand-text);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* === THEME VARIABLES === */
+
+/* LIGHT MODE */
+:root {
+  --brand-green: #2F7D33;                /* primary brand green */
+  --brand-greenSoft: #E7F3E9;            /* badge bg */
+  --brand-bgSoft: #F3F8F4;               /* page section background */
+  --brand-text: #111827;                 /* heading */
+  --brand-muted: #4B5563;                /* paragraph / muted text */
+  --brand-border: #E6EAE7;               /* light border */
+  --card-bg: #FFFFFF;                    /* card background */
+  --shadow-green: 0 8px 24px rgba(47,125,51,0.25);
+  --hover-shadow: 0 6px 18px rgba(47,125,51,0.35);
+}
+
+/* DARK MODE */
+html.dark {
+  --brand-green: #2F7D33;                              /* keep green the same */
+  --brand-greenSoft: rgba(47,125,51,0.12);             /* soft bg for icons */
+  --brand-bgSoft: #0B0F0C;                             /* section bg dark */
+  --brand-text: #E5E7EB;                               /* heading/text */
+  --brand-muted: #A3A3A3;                              /* muted */
+  --brand-border: rgba(255, 255, 255, 0.12);           /* low-opacity border */
+  --card-bg: #0F1115;                                  /* dark card background */
+  --shadow-green: 0 8px 24px rgba(0, 0, 0, 0.45);
+  --hover-shadow: 0 6px 18px rgba(0, 0, 0, 0.45);
+}
+
+/* Optional – smoother transitions on theme change */
+* {
+  transition-property: background-color, border-color, color, fill, stroke, box-shadow;
+  transition-duration: 300ms;
+  transition-timing-function: ease-in-out;
 }

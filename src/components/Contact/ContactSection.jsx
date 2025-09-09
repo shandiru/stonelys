@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useState } from "react";
 import emailjs from "emailjs-com";
 import { toast } from "react-toastify";
@@ -13,20 +15,10 @@ import {
   FaDirections,
 } from "react-icons/fa";
 
-// Your EmailJS Service ID, Template ID, and User ID
-const SERVICE_ID = "service_2u9sb2c"; // Replace with your EmailJS service ID
-const TEMPLATE_ID = "template_db0pgim"; // Replace with your EmailJS template ID
-const USER_ID = "ddjdtu50sL-rnwvZW"; // Replace with your EmailJS user ID
-
-const palette = {
-  primary: "#2F7D33",     // brand green
-  badge: "#E7F3E9",       // soft green for icon chips
-  text: "#111827",        // headings
-  muted: "#4B5563",       // body copy
-  sectionBg: "#F3F6F4",   // page light bg
-  cardBg: "#FFFFFF",      // cards
-  border: "#E6EAE7",      // subtle borders
-};
+// EmailJS credentials
+const SERVICE_ID = "service_2u9sb2c";
+const TEMPLATE_ID = "template_db0pgim";
+const USER_ID = "ddjdtu50sL-rnwvZW";
 
 export default function ContactSection() {
   const [formData, setFormData] = useState({
@@ -48,14 +40,12 @@ export default function ContactSection() {
     setFormData({ ...formData, [name]: value });
   };
 
-  // Phone number validation regex (for UK numbers)
   const phoneRegex = /^(?:\+44|0)[1-9]\d{8,9}$/;
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Validate Phone
     if (!phoneRegex.test(formData.phone)) {
       setFormErrors({ ...formErrors, phone: "Invalid phone number" });
       return;
@@ -63,7 +53,6 @@ export default function ContactSection() {
       setFormErrors({ ...formErrors, phone: "" });
     }
 
-    // Validate Email
     if (!emailRegex.test(formData.email)) {
       setFormErrors({ ...formErrors, email: "Invalid email address" });
       return;
@@ -71,12 +60,10 @@ export default function ContactSection() {
       setFormErrors({ ...formErrors, email: "" });
     }
 
-    // Sending email using EmailJS
     emailjs
       .send(SERVICE_ID, TEMPLATE_ID, formData, USER_ID)
-      .then((response) => {
+      .then(() => {
         toast.success("Message sent successfully!");
-        // Clear form after successful submission
         setFormData({
           name: "",
           phone: "",
@@ -86,32 +73,28 @@ export default function ContactSection() {
           message: "",
         });
       })
-      .catch((error) => {
+      .catch(() => {
         toast.error("Failed to send message, please try again.");
       });
   };
 
   return (
-    <section className="py-16" style={{ backgroundColor: palette.sectionBg }}>
+    <section className="py-16 bg-[#F3F6F4] dark:bg-[#0B0F0C]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12">
-          {/* FORM CARD */}
-          <div
-            className="flex flex-col gap-6 rounded-xl border py-6 shadow-sm"
-            style={{ backgroundColor: palette.cardBg, borderColor: palette.border }}
-          >
+          {/* FORM */}
+          <div className="flex flex-col gap-6 rounded-xl border border-brand-border dark:border-white/10 bg-white dark:bg-[#0F1115] py-6 shadow-sm">
             <div className="px-6">
-              <div className="text-2xl font-bold flex items-center" style={{ color: palette.text }}>
-                <FaCommentDots className="mr-2 h-5 w-5" style={{ color: palette.primary }} />
+              <div className="text-2xl font-bold flex items-center text-[#111827] dark:text-gray-100">
+                <FaCommentDots className="mr-2 h-5 w-5 text-[#2F7D33]" />
                 Send Us a Message
               </div>
-              <p className="text-sm mt-1" style={{ color: palette.muted }}>
+              <p className="text-sm mt-1 text-muted dark:text-gray-400">
                 Get in touch for quotes, bookings, or any questions about our services
               </p>
             </div>
 
             <div className="px-6 space-y-6">
-              {/* Name + Phone */}
               <div className="grid sm:grid-cols-2 gap-4">
                 <FormInput
                   id="name"
@@ -132,7 +115,6 @@ export default function ContactSection() {
                 />
               </div>
 
-              {/* Email */}
               <FormInput
                 id="email"
                 type="email"
@@ -144,26 +126,24 @@ export default function ContactSection() {
                 error={formErrors.email}
               />
 
-              {/* Vehicle */}
               <FormInput
                 id="vehicle"
                 label="Vehicle Details"
-                placeholder="Make, model, year (e.g., Ford Focus 2018)"
+                placeholder="Make, model, year"
                 icon={<FaCarSide className="h-4 w-4" />}
                 value={formData.vehicle}
                 onChange={handleChange}
               />
 
-              {/* Service select */}
+              {/* ✅ UPDATED: SERVICE DROPDOWN WITH GREEN HOVER */}
               <div className="space-y-2">
-                <label htmlFor="service" className="text-sm font-medium">
+                <label htmlFor="service" className="text-sm font-medium dark:text-gray-200">
                   Service Required
                 </label>
                 <select
                   id="service"
                   name="service"
-                  className="w-full px-3 py-2 rounded-md border bg-white"
-                  style={{ borderColor: palette.border, color: palette.text }}
+                  className="w-full px-3 py-2 rounded-md border bg-white dark:bg-[#1B1E24] text-[#111827] dark:text-white border-brand-border dark:border-white/10 hover:border-[#2F7D33] focus:border-[#2F7D33] focus:ring-[#2F7D33]"
                   value={formData.service}
                   onChange={handleChange}
                 >
@@ -180,64 +160,52 @@ export default function ContactSection() {
                 </select>
               </div>
 
-              {/* Message */}
               <div className="space-y-2">
-                <label htmlFor="message" className="text-sm font-medium">
+                <label htmlFor="message" className="text-sm font-medium dark:text-gray-200">
                   Message *
                 </label>
                 <textarea
                   id="message"
                   name="message"
                   rows={4}
-                  placeholder="Please describe your requirements or any specific issues with your vehicle..."
-                  className="w-full rounded-md border px-3 py-2"
-                  style={{ borderColor: palette.border, color: palette.text }}
+                  placeholder="Please describe your requirements..."
+                  className="w-full rounded-md border px-3 py-2 bg-white dark:bg-[#1B1E24] text-[#111827] dark:text-white dark:border-white/10"
                   value={formData.message}
                   onChange={handleChange}
                 />
               </div>
 
-              {/* Submit */}
               <button
                 onClick={handleSubmit}
-                className="inline-flex items-center justify-center gap-2 h-9 w-full rounded-md font-semibold shadow-xs transition-colors"
-                style={{ backgroundColor: palette.primary, color: "#FFFFFF" }}
+                className="inline-flex items-center justify-center gap-2 h-9 w-full rounded-md font-semibold transition-colors bg-[#2F7D33] text-white hover:shadow-md"
               >
                 <FaCommentDots className="h-4 w-4" />
                 Send Message
               </button>
 
-              <p className="text-xs" style={{ color: palette.muted }}>
-                * Required fields. We&apos;ll get back to you within 24 hours during business days.
+              <p className="text-xs text-muted dark:text-gray-400">
+                * Required fields. We'll get back to you within 24 hours.
               </p>
             </div>
           </div>
 
-          {/* RIGHT COLUMN CARDS */}
+          {/* SIDEBAR */}
           <div className="space-y-8">
-            {/* Opening Hours */}
             <SideCard title="Opening Hours" icon={<FaClock className="h-5 w-5" />}>
-              <HoursRow day="Monday" time="8:00 AM - 5:30 PM" />
-              <HoursRow day="Tuesday" time="8:00 AM - 5:30 PM" />
-              <HoursRow day="Wednesday" time="8:00 AM - 5:30 PM" />
-              <HoursRow day="Thursday" time="8:00 AM - 5:30 PM" />
-              <HoursRow day="Friday" time="8:00 AM - 5:30 PM" />
-              <HoursRow day="Saturday" time="8:00 AM - 4:00 PM" />
+              <HoursRow day="Monday" time="8:00 AM – 5:30 PM" />
+              <HoursRow day="Tuesday" time="8:00 AM – 5:30 PM" />
+              <HoursRow day="Wednesday" time="8:00 AM – 5:30 PM" />
+              <HoursRow day="Thursday" time="8:00 AM – 5:30 PM" />
+              <HoursRow day="Friday" time="8:00 AM – 5:30 PM" />
+              <HoursRow day="Saturday" time="8:00 AM – 4:00 PM" />
               <HoursRow day="Sunday" time="Closed" muted />
             </SideCard>
 
-            {/* Find Us */}
             <SideCard title="Find Us" icon={<FaMapMarkerAlt className="h-5 w-5" />}>
               <div className="space-y-1 mb-4">
-                <p className="font-semibold">Stoneley&apos;s Garage Services</p>
-                <p className="text-sm" style={{ color: palette.muted }}>
-                  Oakham Business Park
-                </p>
-                <p className="text-sm" style={{ color: palette.muted }}>
-                  Hamilton Way, Mansfield NG18 5BU
-                </p>
-                <p className="text-sm" style={{ color: palette.muted }}>
-                  United Kingdom
+                <p className="font-semibold">Stoneley's Garage Services</p>
+                <p className="text-sm text-muted dark:text-gray-400">
+                  Oakham Business Park, Hamilton Way, Mansfield NG18 5BU, UK
                 </p>
               </div>
 
@@ -246,27 +214,18 @@ export default function ContactSection() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <button
-                  className="h-9 w-full rounded-md border px-4 py-2 text-sm font-medium flex items-center justify-center"
-                  style={{
-                    borderColor: palette.border,
-                    color: palette.text,
-                    background: "#fff",
-                  }}
-                >
+                <button className="h-9 w-full rounded-md border px-4 py-2 text-sm font-medium flex items-center justify-center bg-white dark:bg-[#1B1E24] text-[#111827] dark:text-white border-brand-border dark:border-white/10 hover:shadow">
                   <FaDirections className="mr-2 h-4 w-4" />
                   View on Google Maps
                 </button>
               </a>
             </SideCard>
 
-            {/* About */}
-            <SideCard title="About Stoneley&apos;s Garage">
-              <p className="text-sm leading-relaxed" style={{ color: palette.muted }}>
-                Family-run garage established in 1973, serving Mansfield and surrounding
-                areas for over 50 years. Our qualified technicians and MOT testers provide
-                professional, reliable service for all makes and models of cars, commercial
-                vehicles, and motorhomes.
+            <SideCard title="About Stoneley's Garage">
+              <p className="text-sm text-muted dark:text-gray-400 leading-relaxed">
+                Family-run garage established in 1973, serving Mansfield and surrounding areas.
+                Our certified technicians provide reliable service for cars, commercial vehicles,
+                and motorhomes.
               </p>
             </SideCard>
           </div>
@@ -276,28 +235,24 @@ export default function ContactSection() {
   );
 }
 
-/* ---------- Components ---------- */
+/* ----- Subcomponents ----- */
 
 function FormInput({ id, label, placeholder, icon, value, onChange, type = "text", error }) {
   return (
     <div className="space-y-2">
-      <label htmlFor={id} className="text-sm font-medium">
+      <label htmlFor={id} className="text-sm font-medium dark:text-gray-200">
         {label}
       </label>
       <div className="relative">
-        <span
-          className="absolute left-3 top-1/2 -translate-y-1/2"
-          style={{ color: "#6B7280" }}
-        >
-          {icon}
-        </span>
+        <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">{icon}</span>
         <input
           id={id}
           name={id}
           type={type}
           placeholder={placeholder}
-          className={`h-9 w-full rounded-md border bg-white px-3 pl-10 ${error ? 'border-red-500' : ''}`}
-          style={{ borderColor: error ? 'red' : '#E6EAE7', color: '#111827' }}
+          className={`h-9 w-full rounded-md border bg-white dark:bg-[#1B1E24] px-3 pl-10 text-[#111827] dark:text-white ${
+            error ? "border-red-500" : "border-brand-border dark:border-white/10"
+          }`}
           value={value}
           onChange={onChange}
         />
@@ -309,13 +264,10 @@ function FormInput({ id, label, placeholder, icon, value, onChange, type = "text
 
 function SideCard({ title, icon, children }) {
   return (
-    <div
-      className="rounded-xl border py-6 shadow-sm"
-      style={{ backgroundColor: palette.cardBg, borderColor: palette.border }}
-    >
+    <div className="rounded-xl border border-brand-border dark:border-white/10 bg-white dark:bg-[#0F1115] py-6 shadow-sm">
       <div className="px-6 mb-2">
-        <div className="text-xl font-bold flex items-center" style={{ color: palette.text }}>
-          {icon && <span className="mr-2" style={{ color: palette.primary }}>{icon}</span>}
+        <div className="text-xl font-bold flex items-center text-[#111827] dark:text-white">
+          {icon && <span className="mr-2 text-[#2F7D33]">{icon}</span>}
           {title}
         </div>
       </div>
@@ -327,11 +279,8 @@ function SideCard({ title, icon, children }) {
 function HoursRow({ day, time, muted }) {
   return (
     <div className="flex items-center justify-between py-1">
-      <span className="font-medium">{day}</span>
-      <span
-        className="text-sm"
-        style={{ color: muted ? "#6B7280" : palette.text }}
-      >
+      <span className="font-medium text-[#111827] dark:text-white">{day}</span>
+      <span className={`text-sm ${muted ? "text-gray-400" : "text-[#111827] dark:text-white"}`}>
         {time}
       </span>
     </div>
