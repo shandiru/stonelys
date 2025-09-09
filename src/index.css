@@ -1,80 +1,160 @@
+/* ------------------------------
+   Tailwind v4 entry
+---------------------------------*/
 @import "tailwindcss";
 
-/* Enable dark mode */
+/* Enable `.dark` class anywhere in subtree */
 @custom-variant dark (&:where(.dark, .dark *));
 
-/* Base layout */
+/* ------------------------------
+   Global base + transitions
+---------------------------------*/
 html, body {
   width: 100%;
+  min-height: 100%;
   scroll-behavior: smooth;
-  transition: background-color 0.3s ease, color 0.3s ease;
+
+  /* Light theme defaults */
   background-color: var(--aircon-bg);
   color: var(--aircon-text);
+
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* === THEME VARIABLES (LIGHT MODE) === */
-:root {
-  /* Brand & Primary */
-  --aircon-primary: #2F7D33;
-
-  /* Backgrounds */
-  --aircon-bg: #F9FAFB;
-  --aircon-section-bg: #FFFFFF;
-  --aircon-grad-top: #EAF5EA;
-  --aircon-grad-bottom: #FFFFFF;
-
-  /* Text Colors */
-  --aircon-heading: #111827;
-  --aircon-muted: #4B5563;
-  --aircon-text: #111827;
-
-  /* Buttons & Badges */
-  --aircon-button-bg: #FFFFFF;
-  --aircon-badge-bg: #A4BE6A;
-  --aircon-badge-text: #1F2A10;
-  --aircon-outline: rgba(17, 24, 39, 0.15);
-
-  /* Cards & Icons */
-  --aircon-card-bg: #F5F5F5;
-  --aircon-card-border: #E5E7EB;
-  --aircon-icon: #6AA874;
-  --aircon-icon-bg: #E8F3EC;
-  --aircon-check-icon: #2E7D32;
-}
-
-/* === THEME VARIABLES (DARK MODE) === */
-html.dark {
-  /* Brand & Primary */
-  --aircon-primary: #2F7D33;
-
-  /* Backgrounds */
-  --aircon-bg: #0B0F0C;
-  --aircon-section-bg: #0B0F0C;
-  --aircon-grad-top-dark: #1A1F1A;
-  --aircon-grad-bottom-dark: #0C0F0C;
-
-  /* Text Colors */
-  --aircon-heading: #E5E7EB;
-  --aircon-muted: #A3A3A3;
-  --aircon-text: #E5E7EB;
-
-  /* Buttons & Badges */
-  --aircon-button-bg: #1F2937;
-  --aircon-badge-bg: rgba(164, 190, 106, 0.2);
-  --aircon-badge-text: #D1FAE5;
-  --aircon-outline: rgba(255, 255, 255, 0.15);
-
-  /* Cards & Icons */
-  --aircon-card-bg: #121212;
-  --aircon-card-border: rgba(255, 255, 255, 0.12);
-  --aircon-icon: #A4EBC5;
-  --aircon-icon-bg: rgba(106, 168, 116, 0.1);
-  --aircon-check-icon: #6EE7B7;
-}
-
-/* Smooth transitions for theme switching */
+/* Smooth theme transitions everywhere */
 * {
   transition-property: background-color, border-color, color, fill, stroke, box-shadow;
   transition-duration: 300ms;
   transition-timing-function: ease-in-out;
+}
+
+/* ------------------------------
+   AIRCON — tokens
+---------------------------------*/
+:root {
+  --aircon-primary: #2F7D33;
+  --aircon-grad-top: #EAF5EA;
+  --aircon-grad-bottom: #FFFFFF;
+  --aircon-heading: #111827;
+  --aircon-muted: #374151;
+  --aircon-badge-bg: #A4BE6A;
+  --aircon-badge-text: #1F2A10;
+  --aircon-outline: rgba(17, 24, 39, 0.15);
+  --aircon-button-bg: #FFFFFF;
+
+  /* Global page surface + text for light mode */
+  --aircon-bg: #F9FAFB;
+  --aircon-text: #111827;
+}
+
+html.dark {
+  --aircon-grad-top-dark: #1A1F1A;
+  --aircon-grad-bottom-dark: #0C0F0C;
+  --aircon-heading: #E5E7EB;
+  --aircon-muted: #A3A3A3;
+  --aircon-badge-bg: rgba(164, 190, 106, 0.2);
+  --aircon-badge-text: #D1FAE5;
+  --aircon-outline: rgba(255, 255, 255, 0.15);
+  --aircon-button-bg: #1F2937;
+
+  /* Global page surface + text for dark mode */
+  --aircon-bg: #0B0F0C;
+  --aircon-text: #E5E7EB;
+}
+
+/* ------------------------------
+   AIRCON — Services / Why Service
+---------------------------------*/
+:root {
+  --aircon-section-bg: #FFFFFF;
+  --aircon-icon: #6AA874;
+  --aircon-icon-bg: #E8F3EC;
+  --aircon-check-icon: #2E7D32;
+  --aircon-card-bg: #F5F5F5;
+  --aircon-card-border: #E5E7EB;
+}
+
+html.dark {
+  --aircon-section-bg: #0B0F0C;
+  --aircon-icon: #A4EBC5;
+  --aircon-icon-bg: rgba(106, 168, 116, 0.1);
+  --aircon-check-icon: #6EE7B7;
+  --aircon-card-bg: #121212;
+  --aircon-card-border: rgba(255, 255, 255, 0.12);
+}
+
+/* ------------------------------
+   MOT — tokens
+---------------------------------*/
+:root {
+  --mot-primary: #2F7D33;
+  --mot-grad-top: #EAF5EA;
+  --mot-grad-bottom: #FFFFFF;
+  --mot-heading: #111827;
+  --mot-muted: #374151;
+  --mot-badge-bg: #A4BE6A;
+  --mot-badge-text: #1F2A10;
+  --mot-outline-border: rgba(17, 24, 39, 0.15);
+  --mot-button-bg: #FFFFFF;
+}
+
+html.dark {
+  --mot-grad-top-dark: #1A1F1A;
+  --mot-grad-bottom-dark: #0C0F0C;
+  --mot-heading: #E5E7EB;
+  --mot-muted: #A3A3A3;
+  --mot-badge-bg: rgba(164, 190, 106, 0.2);
+  --mot-badge-text: #D1FAE5;
+  --mot-outline-border: rgba(255, 255, 255, 0.15);
+  --mot-button-bg: #1F2937;
+}
+
+/* ------------------------------
+   AUTOMOTIVE — tokens
+---------------------------------*/
+:root {
+  --auto-section-bg: #FFFFFF;
+  --auto-heading: #111827;
+  --auto-muted: #4B5563;
+  --auto-icon: #6AA874;
+  --auto-icon-bg: #E8F3EC;
+  --auto-check-icon: #2E7D32;
+  --auto-card-bg: #F5F5F5;
+  --auto-card-border: #E5E7EB;
+}
+
+html.dark {
+  --auto-section-bg: #0B0F0C;
+  --auto-heading: #E5E7EB;
+  --auto-muted: #A3A3A3;
+  --auto-icon: #A4EBC5;
+  --auto-icon-bg: rgba(106, 168, 116, 0.1);
+  --auto-check-icon: #6EE7B7;
+  --auto-card-bg: #121212;
+  --auto-card-border: rgba(255, 255, 255, 0.12);
+}
+
+/* ------------------------------
+   Optional helpers (use in JSX)
+   (purely utility; keep if handy)
+---------------------------------*/
+.aircon-surface { background: var(--aircon-bg); color: var(--aircon-text); }
+.section-surface { background: var(--aircon-section-bg); }
+.card-surface    { background: var(--aircon-card-bg); border: 1px solid var(--aircon-card-border); }
+.auto-card       { background: var(--auto-card-bg); border: 1px solid var(--auto-card-border); }
+.heading-color   { color: var(--auto-heading); }
+.muted-color     { color: var(--auto-muted); }
+
+/* Example gradient helpers (optional) */
+.aircon-grad-light {
+  background: linear-gradient(180deg, var(--aircon-grad-top) 0%, var(--aircon-grad-bottom) 100%);
+}
+.dark .aircon-grad-dark {
+  background: linear-gradient(180deg, var(--aircon-grad-top-dark, #0f0f0f) 0%, var(--aircon-grad-bottom-dark, #000000) 100%);
+}
+.mot-grad-light {
+  background: linear-gradient(180deg, var(--mot-grad-top) 0%, var(--mot-grad-bottom) 100%);
+}
+.dark .mot-grad-dark {
+  background: linear-gradient(180deg, var(--mot-grad-top-dark, #0f0f0f) 0%, var(--mot-grad-bottom-dark, #000000) 100%);
 }

@@ -1,49 +1,36 @@
-// File: MotHero.jsx
+"use client";
+
 import React from "react";
 import { FaPhoneAlt } from "react-icons/fa";
-
-const palette = {
-  primary: "#2F7D33",     // brand green
-  gradTop: "#EAF5EA",     // light green gradient top
-  gradBottom: "#FFFFFF",  // gradient bottom
-  heading: "#111827",     // heading color
-  muted: "#374151",       // paragraph color
-  badgeBg: "#A4BE6A",     // olive badge background
-  badgeText: "#1F2A10",   // badge text
-  outlineBorder: "rgba(17,24,39,0.15)", // outline border
-};
 
 export default function MotHero() {
   return (
     <section
-      className="py-16"
-      style={{
-        backgroundImage: `linear-gradient(to bottom, ${palette.gradTop}, ${palette.gradBottom})`,
-      }}
+      className="py-16 transition-colors duration-300 bg-gradient-to-b 
+                 from-[var(--mot-grad-top)] to-[var(--mot-grad-bottom)] 
+                 dark:from-[var(--mot-grad-top-dark)] dark:to-[var(--mot-grad-bottom-dark)]"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           {/* Badge */}
           <span
             className="inline-flex items-center justify-center rounded-md px-2 py-0.5 text-xs font-medium mb-4"
-            style={{ backgroundColor: palette.badgeBg, color: palette.badgeText }}
+            style={{
+              backgroundColor: "var(--mot-badge-bg)",
+              color: "var(--mot-badge-text)",
+            }}
           >
             Qualified Technicians
           </span>
 
           {/* Heading */}
-          <h1
-            className="text-4xl lg:text-5xl font-black mb-6"
-            style={{ color: palette.heading }}
-          >
-            Car Service & <span style={{ color: palette.primary }}>MOT Testing</span>
+          <h1 className="text-4xl lg:text-5xl font-black mb-6 text-[color:var(--mot-heading)]">
+            Car Service &{" "}
+            <span style={{ color: "var(--mot-primary)" }}>MOT Testing</span>
           </h1>
 
           {/* Subheading */}
-          <p
-            className="text-xl max-w-3xl mx-auto leading-relaxed"
-            style={{ color: palette.muted }}
-          >
+          <p className="text-xl max-w-3xl mx-auto leading-relaxed text-[color:var(--mot-muted)]">
             Professional car servicing and MOT testing from qualified motor technicians and MOT testers.
             Comprehensive maintenance for cars, commercial vehicles, and motorhomes.
           </p>
@@ -53,28 +40,32 @@ export default function MotHero() {
             {/* Call Button */}
             <a href="tel:+441623623759" className="inline-block">
               <button
-                className="inline-flex items-center justify-center gap-2 h-10 rounded-md px-6 font-semibold"
-                style={{ backgroundColor: palette.primary, color: "#FFFFFF" }}
+                className="inline-flex items-center justify-center gap-2 h-10 rounded-md px-6 font-semibold transition-all"
+                style={{
+                  backgroundColor: "var(--mot-primary)",
+                  color: "#FFFFFF",
+                }}
               >
                 <FaPhoneAlt className="h-5 w-5" />
                 Book Service: +44 1623 623 759
               </button>
             </a>
 
-            {/* MOT Booking Button as link */}
+            {/* MOT Booking Button */}
             <a
               href="/contact"
-              className="inline-flex items-center justify-center gap-2 h-10 rounded-md px-6 font-semibold transition-colors"
+              className="inline-flex items-center justify-center gap-2 h-10 rounded-md px-6 font-semibold transition-all duration-300"
               style={{
-                backgroundColor: "#FFFFFF",
-                color: palette.heading,
-                border: `1px solid ${palette.outlineBorder}`,
+                backgroundColor: "var(--mot-button-bg)",
+                color: "var(--mot-heading)",
+                border: "1px solid var(--mot-outline-border)",
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.backgroundColor = "#F9FAFB";
+                e.currentTarget.style.boxShadow =
+                  "0 0 0 3px rgba(47,125,51,0.4)";
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.backgroundColor = "#FFFFFF";
+                e.currentTarget.style.boxShadow = "none";
               }}
             >
               MOT Booking
