@@ -1,4 +1,5 @@
 "use client";
+
 import {
   FaSnowflake,
   FaThermometerHalf,
@@ -7,18 +8,14 @@ import {
   FaRegCheckCircle,
 } from "react-icons/fa";
 
-const SECTION_BG = "#FFFFFF";
-const CARD_BG = "#F5F5F5";
-const ICON_BOX_BG = "#E8F3EC";
-const ICON_FG = "#6AA874";
-const CHECK_FG = "#2E7D32";
-
 export default function AirConServices() {
   const services = [
     {
       title: "Air-Con Re-Gas Service",
       desc: "Professional refrigerant replacement to restore cooling performance",
-      icon: <FaSnowflake className="h-5 w-5" style={{ color: ICON_FG }} />,
+      icon: (
+        <FaSnowflake className="h-5 w-5 text-[color:var(--aircon-icon)]" />
+      ),
       points: [
         "Complete system evacuation",
         "Fresh refrigerant refill",
@@ -29,7 +26,9 @@ export default function AirConServices() {
     {
       title: "System Diagnostics",
       desc: "Comprehensive air conditioning system health check and diagnosis",
-      icon: <FaThermometerHalf className="h-5 w-5" style={{ color: ICON_FG }} />,
+      icon: (
+        <FaThermometerHalf className="h-5 w-5 text-[color:var(--aircon-icon)]" />
+      ),
       points: [
         "Temperature testing",
         "Pressure analysis",
@@ -41,7 +40,7 @@ export default function AirConServices() {
     {
       title: "Component Repair",
       desc: "Professional repair and replacement of air conditioning components",
-      icon: <FaTools className="h-5 w-5" style={{ color: ICON_FG }} />,
+      icon: <FaTools className="h-5 w-5 text-[color:var(--aircon-icon)]" />,
       points: [
         "Compressor service",
         "Condenser repair",
@@ -52,7 +51,7 @@ export default function AirConServices() {
     {
       title: "Preventive Maintenance",
       desc: "Regular maintenance to prevent costly air conditioning failures",
-      icon: <FaShieldAlt className="h-5 w-5" style={{ color: ICON_FG }} />,
+      icon: <FaShieldAlt className="h-5 w-5 text-[color:var(--aircon-icon)]" />,
       points: [
         "Filter replacement",
         "System cleaning",
@@ -63,14 +62,17 @@ export default function AirConServices() {
   ];
 
   return (
-    <section className="py-16" style={{ backgroundColor: SECTION_BG }}>
+    <section
+      className="py-16 transition-colors duration-300"
+      style={{ backgroundColor: "var(--aircon-section-bg)" }}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Heading */}
         <div className="text-center mb-12">
-          <h2 className="text-3xl lg:text-4xl font-heading font-bold text-gray-900 mb-4">
+          <h2 className="text-3xl lg:text-4xl font-heading font-bold mb-4 text-[color:var(--aircon-heading)]">
             Professional Air Conditioning Services
           </h2>
-          <p className="text-lg text-gray-600 font-body max-w-2xl mx-auto">
+          <p className="text-lg font-body max-w-2xl mx-auto text-[color:var(--aircon-muted)]">
             Comprehensive air conditioning solutions for optimal cabin comfort and system performance
           </p>
         </div>
@@ -82,32 +84,39 @@ export default function AirConServices() {
               key={i}
               className="flex flex-col gap-6 rounded-xl py-6 px-6 transition-all duration-300 shadow-sm 
                          hover:shadow-[0_8px_24px_rgba(47,125,51,0.35)] hover:ring-2 hover:ring-green-600 hover:ring-offset-2"
-              style={{ backgroundColor: CARD_BG, border: "1px solid #E5E7EB" }}
+              style={{
+                backgroundColor: "var(--aircon-card-bg)",
+                border: "1px solid var(--aircon-card-border)",
+              }}
             >
               <div className="grid auto-rows-min items-start gap-1.5">
                 <div className="flex items-center justify-between mb-2">
                   <div className="flex items-center space-x-3">
                     <div
                       className="w-10 h-10 rounded-lg flex items-center justify-center"
-                      style={{ backgroundColor: ICON_BOX_BG }}
+                      style={{ backgroundColor: "var(--aircon-icon-bg)" }}
                     >
                       {s.icon}
                     </div>
-                    <div className="text-xl font-heading font-bold text-gray-900">
+                    <div className="text-xl font-heading font-bold text-[color:var(--aircon-heading)]">
                       {s.title}
                     </div>
                   </div>
                 </div>
-                <div className="text-gray-600 font-body text-base">{s.desc}</div>
+                <div className="text-[color:var(--aircon-muted)] font-body text-base">
+                  {s.desc}
+                </div>
               </div>
 
               <div>
                 <ul className="space-y-2">
                   {s.points.map((p, j) => (
-                    <li key={j} className="flex items-center text-sm font-body">
+                    <li
+                      key={j}
+                      className="flex items-center text-sm font-body text-[color:var(--aircon-muted)]"
+                    >
                       <FaRegCheckCircle
-                        className="h-4 w-4 mr-2 flex-shrink-0"
-                        style={{ color: CHECK_FG }}
+                        className="h-4 w-4 mr-2 flex-shrink-0 text-[color:var(--aircon-check-icon)]"
                       />
                       {p}
                     </li>

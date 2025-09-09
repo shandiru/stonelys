@@ -1,47 +1,78 @@
 @import "tailwindcss";
 
-/* Enable `dark:` to respond to <html class="dark"> */
+/* Enable dark mode */
 @custom-variant dark (&:where(.dark, .dark *));
 
-/* Global layout */
+/* Base layout */
 html, body {
   width: 100%;
-  overflow-x: hidden;
   scroll-behavior: smooth;
-  background-color: var(--brand-bgSoft);
-  color: var(--brand-text);
   transition: background-color 0.3s ease, color 0.3s ease;
+  background-color: var(--aircon-bg);
+  color: var(--aircon-text);
 }
 
-/* === THEME VARIABLES === */
-
-/* LIGHT MODE */
+/* === THEME VARIABLES (LIGHT MODE) === */
 :root {
-  --brand-green: #2F7D33;                /* primary brand green */
-  --brand-greenSoft: #E7F3E9;            /* badge bg */
-  --brand-bgSoft: #F3F8F4;               /* page section background */
-  --brand-text: #111827;                 /* heading */
-  --brand-muted: #4B5563;                /* paragraph / muted text */
-  --brand-border: #E6EAE7;               /* light border */
-  --card-bg: #FFFFFF;                    /* card background */
-  --shadow-green: 0 8px 24px rgba(47,125,51,0.25);
-  --hover-shadow: 0 6px 18px rgba(47,125,51,0.35);
+  /* Brand & Primary */
+  --aircon-primary: #2F7D33;
+
+  /* Backgrounds */
+  --aircon-bg: #F9FAFB;
+  --aircon-section-bg: #FFFFFF;
+  --aircon-grad-top: #EAF5EA;
+  --aircon-grad-bottom: #FFFFFF;
+
+  /* Text Colors */
+  --aircon-heading: #111827;
+  --aircon-muted: #4B5563;
+  --aircon-text: #111827;
+
+  /* Buttons & Badges */
+  --aircon-button-bg: #FFFFFF;
+  --aircon-badge-bg: #A4BE6A;
+  --aircon-badge-text: #1F2A10;
+  --aircon-outline: rgba(17, 24, 39, 0.15);
+
+  /* Cards & Icons */
+  --aircon-card-bg: #F5F5F5;
+  --aircon-card-border: #E5E7EB;
+  --aircon-icon: #6AA874;
+  --aircon-icon-bg: #E8F3EC;
+  --aircon-check-icon: #2E7D32;
 }
 
-/* DARK MODE */
+/* === THEME VARIABLES (DARK MODE) === */
 html.dark {
-  --brand-green: #2F7D33;                              /* keep green the same */
-  --brand-greenSoft: rgba(47,125,51,0.12);             /* soft bg for icons */
-  --brand-bgSoft: #0B0F0C;                             /* section bg dark */
-  --brand-text: #E5E7EB;                               /* heading/text */
-  --brand-muted: #A3A3A3;                              /* muted */
-  --brand-border: rgba(255, 255, 255, 0.12);           /* low-opacity border */
-  --card-bg: #0F1115;                                  /* dark card background */
-  --shadow-green: 0 8px 24px rgba(0, 0, 0, 0.45);
-  --hover-shadow: 0 6px 18px rgba(0, 0, 0, 0.45);
+  /* Brand & Primary */
+  --aircon-primary: #2F7D33;
+
+  /* Backgrounds */
+  --aircon-bg: #0B0F0C;
+  --aircon-section-bg: #0B0F0C;
+  --aircon-grad-top-dark: #1A1F1A;
+  --aircon-grad-bottom-dark: #0C0F0C;
+
+  /* Text Colors */
+  --aircon-heading: #E5E7EB;
+  --aircon-muted: #A3A3A3;
+  --aircon-text: #E5E7EB;
+
+  /* Buttons & Badges */
+  --aircon-button-bg: #1F2937;
+  --aircon-badge-bg: rgba(164, 190, 106, 0.2);
+  --aircon-badge-text: #D1FAE5;
+  --aircon-outline: rgba(255, 255, 255, 0.15);
+
+  /* Cards & Icons */
+  --aircon-card-bg: #121212;
+  --aircon-card-border: rgba(255, 255, 255, 0.12);
+  --aircon-icon: #A4EBC5;
+  --aircon-icon-bg: rgba(106, 168, 116, 0.1);
+  --aircon-check-icon: #6EE7B7;
 }
 
-/* Optional – smoother transitions on theme change */
+/* Smooth transitions for theme switching */
 * {
   transition-property: background-color, border-color, color, fill, stroke, box-shadow;
   transition-duration: 300ms;
