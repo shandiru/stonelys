@@ -1,6 +1,7 @@
 // File: SiteFooter.jsx
 import React from "react";
 import { FaPhone, FaMapMarkerAlt } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 // ✅ Stoneley's Garage Services Palette
 const palette = {
@@ -18,7 +19,7 @@ export default function SiteFooter() {
   return (
     <footer style={{ backgroundColor: palette.black, color: palette.white }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
-        <div className="grid md:grid-cols-3 gap-10">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10">
           {/* Brand */}
           <div>
             <h3 className="text-xl font-bold tracking-wide text-white">
@@ -83,6 +84,19 @@ export default function SiteFooter() {
               ))}
             </ul>
           </div>
+          <div className="text-sm">
+            <h4 className="text-lg font-semibold text-white mb-3">
+              Company
+            </h4>
+            <ul>
+              <li>
+                <Link to="/privacy-policy" className="hover:text-gray-300">Privacy Policy</Link> {/* Updated link */}
+              </li>
+              <li>
+                <Link to="/terms-conditions" className="hover:text-gray-300">Terms & Conditions</Link> {/* Updated link */}
+              </li>
+            </ul>
+          </div>
         </div>
 
         {/* Divider */}
@@ -93,6 +107,21 @@ export default function SiteFooter() {
           <p className="text-sm" style={{ color: palette.dim }}>
             © {new Date().getFullYear()} Stoneley&apos;s Garage Services. All rights
             reserved. | Established 1973
+          </p>
+        </div>
+
+        {/* Bottom Bar */}
+        <div className="mt-2 text-center font-semibold">
+          <p>
+            Powered by{" "}
+            <a
+              href="https://www.ansely.co.uk/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[#27AE60] hover:underline"
+            >
+              Ansely
+            </a>
           </p>
         </div>
       </div>
