@@ -15,8 +15,9 @@ import "aos/dist/aos.css";
 const Card = ({ icon, title, desc, bullets = [], href = "#" }) => (
   <div
     data-aos="fade-up"
+    tabIndex={0}
     className="
-      group flex flex-col h-full rounded-2xl border
+      group flex flex-col h-full rounded-2xl border cursor-pointer
       border-[var(--brand-border)]
       bg-[var(--card-bg)]
       text-[var(--brand-text)]
@@ -25,7 +26,13 @@ const Card = ({ icon, title, desc, bullets = [], href = "#" }) => (
       hover:ring-2 hover:ring-[var(--brand-green)]
       hover:ring-offset-2 hover:ring-offset-[var(--brand-bgSoft)]
       hover:shadow-[var(--shadow-green)]
+      active:shadow-lg active:border-[var(--brand-green)]
+      active:ring-2 active:ring-[var(--brand-green)]
+      focus:shadow-lg focus:border-[var(--brand-green)]
+      focus:ring-2 focus:ring-[var(--brand-green)]
+      focus:ring-offset-2 focus:ring-offset-[var(--brand-bgSoft)]
     "
+    onClick={() => (window.location.href = href)}
   >
     {/* Header */}
     <div className="px-6 pt-6 text-center">
@@ -63,23 +70,22 @@ const Card = ({ icon, title, desc, bullets = [], href = "#" }) => (
 
     {/* Footer with button */}
     <div className="px-6 pt-6 pb-6 mt-auto">
-      <a href={href}>
-        <button
-          className="
-            inline-flex items-center justify-center w-full h-10 rounded-md gap-2 text-sm font-medium
-            border border-[var(--brand-border)]
-            bg-transparent text-[var(--brand-text)]
-            transition-all duration-300
-            hover:bg-[var(--brand-green)] hover:text-white hover:border-[var(--brand-green)]
-            hover:shadow-[var(--hover-shadow)]
-            focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-green)]
-            focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--brand-bgSoft)]
-          "
-        >
-          Learn More
-          <FaArrowRight className="h-4 w-4" />
-        </button>
-      </a>
+      <button
+        className="
+          inline-flex items-center justify-center w-full h-10 rounded-md gap-2 text-sm font-medium
+          border border-[var(--brand-border)]
+          bg-transparent text-[var(--brand-text)]
+          transition-all duration-300
+          hover:bg-[var(--brand-green)] hover:text-white hover:border-[var(--brand-green)]
+          hover:shadow-[var(--hover-shadow)]
+          active:bg-[var(--brand-green)] active:text-white
+          focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-green)]
+          focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--brand-bgSoft)]
+        "
+      >
+        Learn More
+        <FaArrowRight className="h-4 w-4" />
+      </button>
     </div>
   </div>
 );
