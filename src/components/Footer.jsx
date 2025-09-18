@@ -1,7 +1,10 @@
-// File: SiteFooter.jsx
-import React from "react";
+"use client";
+
+import React, { useEffect } from "react";
 import { FaPhone, FaMapMarkerAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 // ✅ Stoneley's Garage Services Palette
 const palette = {
@@ -16,12 +19,23 @@ const palette = {
 };
 
 export default function SiteFooter() {
+  useEffect(() => {
+    AOS.init({
+      duration: 800,
+      once: false,
+      easing: "ease-out-cubic",
+    });
+  }, []);
+
   return (
-    <footer style={{ backgroundColor: palette.black, color: palette.white }}>
+    <footer
+      style={{ backgroundColor: palette.black, color: palette.white }}
+      data-aos="fade-up"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10">
           {/* Brand */}
-          <div>
+          <div data-aos="fade-right">
             <h3 className="text-xl font-bold tracking-wide text-white">
               STONELEY&apos;S GARAGE SERVICES
             </h3>
@@ -32,7 +46,7 @@ export default function SiteFooter() {
           </div>
 
           {/* Contact Info */}
-          <div>
+          <div data-aos="fade-right" data-aos-delay="100">
             <h4 className="text-lg font-semibold text-white mb-3">
               Contact Information
             </h4>
@@ -59,7 +73,7 @@ export default function SiteFooter() {
           </div>
 
           {/* Services List */}
-          <div>
+          <div data-aos="fade-left" data-aos-delay="100">
             <h4 className="text-lg font-semibold text-white mb-3">
               Our Services
             </h4>
@@ -84,26 +98,36 @@ export default function SiteFooter() {
               ))}
             </ul>
           </div>
-          <div className="text-sm">
+
+          {/* Company */}
+          <div className="text-sm" data-aos="fade-left">
             <h4 className="text-lg font-semibold text-white mb-3">
               Company
             </h4>
             <ul>
               <li>
-                <Link to="/privacy-policy" className="hover:text-gray-300">Privacy Policy</Link> {/* Updated link */}
+                <Link to="/privacy-policy" className="hover:text-gray-300">
+                  Privacy Policy
+                </Link>
               </li>
               <li>
-                <Link to="/terms-conditions" className="hover:text-gray-300">Terms & Conditions</Link> {/* Updated link */}
+                <Link to="/terms-conditions" className="hover:text-gray-300">
+                  Terms & Conditions
+                </Link>
               </li>
             </ul>
           </div>
         </div>
 
         {/* Divider */}
-        <div className="mt-10" style={{ borderTop: `1px solid ${palette.border}` }} />
+        <div
+          className="mt-10"
+          style={{ borderTop: `1px solid ${palette.border}` }}
+          data-aos="fade-up"
+        />
 
         {/* Bottom note */}
-        <div className="pt-6 text-center">
+        <div className="pt-6 text-center" data-aos="fade-up" data-aos-delay="100">
           <p className="text-sm" style={{ color: palette.dim }}>
             © {new Date().getFullYear()} Stoneley&apos;s Garage Services. All rights
             reserved. | Established 1973
@@ -111,7 +135,7 @@ export default function SiteFooter() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="mt-2 text-center font-semibold">
+        <div className="mt-2 text-center font-semibold" data-aos="fade-up" data-aos-delay="150">
           <p>
             Powered by{" "}
             <a

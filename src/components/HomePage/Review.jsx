@@ -1,11 +1,22 @@
-// Review.jsx
-import React from "react";
+"use client";
+
+import React, { useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay, A11y } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 export default function Review() {
+  useEffect(() => {
+    AOS.init({
+      duration: 800,
+      once: false,
+      easing: "ease-out-cubic",
+    });
+  }, []);
+
   const testimonials = [
     {
       quote:
@@ -60,10 +71,14 @@ export default function Review() {
   ];
 
   return (
-    <section id="testimonials" className="py-20 bg-white dark:bg-neutral-900">
+    <section
+      id="testimonials"
+      className="py-20 bg-white dark:bg-neutral-900"
+      data-aos="fade-up"
+    >
       <div className="container mx-auto px-4 md:px-12">
         {/* Heading */}
-        <div className="text-center mb-12">
+        <div className="text-center mb-12" data-aos="fade-down">
           <h2 className="text-4xl md:text-5xl font-bold mb-4 text-black dark:text-white">
             What Our Customers Say
           </h2>
@@ -89,6 +104,7 @@ export default function Review() {
             1024: { slidesPerView: 3 },
           }}
           className="!pb-12"
+          data-aos="zoom-in"
         >
           {testimonials.map((t, i) => (
             <SwiperSlide key={i} className="!h-auto">

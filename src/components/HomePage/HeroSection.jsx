@@ -1,11 +1,22 @@
-import React from "react";
+"use client";
+
+import React, { useEffect } from "react";
 import { FaPhone, FaMapMarkerAlt, FaClock } from "react-icons/fa";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const HeroSection = () => {
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      once: false,
+    });
+  }, []);
+
   return (
     <section
       className="
-        relative
+        relative overflow-hidden
         bg-gradient-to-b from-green-50 to-white
         dark:from-neutral-900 dark:to-black
       "
@@ -13,7 +24,7 @@ const HeroSection = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-20">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* LEFT CONTENT */}
-          <div className="space-y-6">
+          <div className="space-y-6 text-left" data-aos="fade-right">
             {/* HEADLINE */}
             <div className="space-y-4">
               <h1
@@ -32,14 +43,14 @@ const HeroSection = () => {
             </div>
 
             {/* DESCRIPTION */}
-            <p className="text-lg leading-relaxed text-gray-900 dark:text-neutral-200">
+            <p className="text-lg leading-relaxed text-gray-900 dark:text-neutral-200 max-w-lg">
               Over 50 years of trusted automotive expertise in Mansfield. From
               routine servicing to complex repairs, our qualified technicians
               provide professional, reliable service for all makes and models.
             </p>
 
             {/* BUTTONS */}
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex flex-col sm:flex-row gap-4" data-aos="fade-up">
               <a
                 href="tel:+441623623759"
                 className="
@@ -72,7 +83,7 @@ const HeroSection = () => {
             </div>
 
             {/* LOCATION & ESTABLISHED */}
-            <div className="grid sm:grid-cols-2 gap-4 pt-6">
+            <div className="grid sm:grid-cols-2 gap-4 pt-6" data-aos="zoom-in">
               {/* Location */}
               <a
                 href="https://www.google.com/maps/place/Stoneley's+Garage+Services/data=!4m2!3m1!1s0x0:0x5a644c3262063baf?sa=X&ved=1t:2428&hl=en-GB&ictx=111"
@@ -110,18 +121,18 @@ const HeroSection = () => {
             </div>
           </div>
 
-          {/* RIGHT IMAGE / VIDEO */}
-          <div className="relative">
+          {/* RIGHT VIDEO */}
+          <div className="relative w-full" data-aos="fade-left">
             <div
               className="
-                aspect-[4/3] relative rounded-lg overflow-hidden shadow-2xl
+                aspect-video sm:aspect-[4/3] w-full relative rounded-lg overflow-hidden shadow-2xl
                 transition-all duration-300
                 hover:shadow-[0_12px_30px_rgba(47,125,51,0.4)]
                 dark:shadow-black/50
               "
             >
               <video
-                src="/stoneleysvideo.mp4"   // your video file here
+                src="/stoneleysvideo.mp4"
                 autoPlay
                 muted
                 loop

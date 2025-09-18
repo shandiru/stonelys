@@ -1,12 +1,24 @@
-import React from "react";
+"use client";
+
+import React, { useEffect } from "react";
 import { FaClock, FaUsers, FaAward, FaShieldAlt, FaCarSide } from "react-icons/fa";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 export default function WhyChooseSection() {
+  useEffect(() => {
+    AOS.init({
+      duration: 800,
+      once: false,
+      easing: "ease-out-cubic",
+    });
+  }, []);
+
   return (
     <section className="py-16 bg-[var(--brand-bgSoft)]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center mb-12">
+        <div className="text-center mb-12" data-aos="fade-down">
           <h2 className="text-3xl lg:text-4xl font-bold mb-4 text-[var(--brand-text)]">
             Why Choose Stoneley&apos;s Garage?
           </h2>
@@ -48,7 +60,10 @@ export default function WhyChooseSection() {
         </div>
 
         {/* Bottom Panel */}
-        <div className="bg-[var(--card-bg)] rounded-lg p-8 text-center border border-[var(--brand-border)]">
+        <div
+          className="bg-[var(--card-bg)] rounded-lg p-8 text-center border border-[var(--brand-border)]"
+          data-aos="fade-up"
+        >
           <h3 className="text-2xl font-bold mb-4 text-[var(--brand-text)]">
             Professional Service You Can Trust
           </h3>
@@ -67,6 +82,7 @@ export default function WhyChooseSection() {
 function Card({ icon, title, text }) {
   return (
     <div
+      data-aos="zoom-in"
       className="
         flex flex-col gap-6 rounded-xl border py-6 shadow-sm text-center
         border-[var(--brand-border)] bg-[var(--card-bg)] transition-all duration-300

@@ -1,4 +1,6 @@
-import React from "react";
+"use client";
+
+import React, { useEffect } from "react";
 import {
   FaTachometerAlt,
   FaCarSide,
@@ -7,9 +9,12 @@ import {
   FaArrowRight,
   FaSearch,
 } from "react-icons/fa";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const Card = ({ icon, title, desc, bullets = [], href = "#" }) => (
   <div
+    data-aos="fade-up"
     className="
       group flex flex-col h-full rounded-2xl border
       border-[var(--brand-border)]
@@ -44,7 +49,10 @@ const Card = ({ icon, title, desc, bullets = [], href = "#" }) => (
       {bullets.length > 0 && (
         <ul className="space-y-1">
           {bullets.map((b, i) => (
-            <li key={i} className="text-xs flex items-center text-[var(--brand-muted)]">
+            <li
+              key={i}
+              className="text-xs flex items-center text-[var(--brand-muted)]"
+            >
               <span className="w-1 h-1 rounded-full mr-2 flex-shrink-0 bg-[var(--brand-green)]" />
               {b}
             </li>
@@ -77,11 +85,19 @@ const Card = ({ icon, title, desc, bullets = [], href = "#" }) => (
 );
 
 export default function ServicesSection() {
+  useEffect(() => {
+    AOS.init({
+      duration: 800,
+      once: false,
+      easing: "ease-out-cubic",
+    });
+  }, []);
+
   return (
     <section className="py-16 bg-[var(--brand-bgSoft)]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center mb-12">
+        <div className="text-center mb-12" data-aos="fade-down">
           <h2 className="text-3xl lg:text-4xl font-bold text-[var(--brand-text)]">
             Our Professional Services
           </h2>
