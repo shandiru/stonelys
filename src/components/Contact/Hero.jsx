@@ -1,4 +1,8 @@
-import React from "react";
+"use client";
+
+import React, { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const palette = {
   primary: "#2F7D33",     // green accent
@@ -9,14 +13,24 @@ const palette = {
 };
 
 export default function ContactHero() {
+  useEffect(() => {
+    AOS.init({
+      duration: 800,
+      once: false,
+      easing: "ease-out-cubic",
+    });
+  }, []);
+
   return (
     <section
       className="py-16 transition-colors duration-300 bg-gradient-to-b 
-                 from-[var(--contact-grad-top)] to-[var(--contact-grad-bottom)] dark:from-[var(--contact-grad-top-dark)] dark:to-[var(--contact-grad-bottom-dark)]"
+                 from-[var(--contact-grad-top)] to-[var(--contact-grad-bottom)] 
+                 dark:from-[var(--contact-grad-top-dark)] dark:to-[var(--contact-grad-bottom-dark)]"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <span
+            data-aos="fade-down"
             className="inline-flex items-center justify-center rounded-md px-2 py-0.5 text-xs font-medium mb-4"
             style={{ backgroundColor: palette.badgeBg, color: palette.badgeText }}
           >
@@ -24,6 +38,7 @@ export default function ContactHero() {
           </span>
 
           <h1
+            data-aos="fade-up"
             className="text-4xl lg:text-5xl font-black mb-6 text-[var(--contact-heading)]"
           >
             Contact{" "}
@@ -32,7 +47,10 @@ export default function ContactHero() {
             </span>
           </h1>
 
-          <p className="text-xl max-w-3xl mx-auto leading-relaxed text-[var(--contact-muted)]">
+          <p
+            data-aos="zoom-in"
+            className="text-xl max-w-3xl mx-auto leading-relaxed text-[var(--contact-muted)]"
+          >
             Family-run garage established 1973. Contact our friendly team for
             professional automotive services, quotes, or to book your
             appointment. We&apos;re here to help with all your vehicle needs.

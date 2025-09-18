@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import emailjs from "emailjs-com";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -14,6 +14,8 @@ import {
   FaMapMarkerAlt,
   FaDirections,
 } from "react-icons/fa";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 // EmailJS credentials
 const SERVICE_ID = "service_2u9sb2c";
@@ -34,6 +36,14 @@ export default function ContactSection() {
     phone: "",
     email: "",
   });
+
+  useEffect(() => {
+    AOS.init({
+      duration: 800,
+      once: false,
+      easing: "ease-out-cubic",
+    });
+  }, []);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -79,11 +89,15 @@ export default function ContactSection() {
   };
 
   return (
-    <section className="py-16 bg-[#F3F6F4] dark:bg-[#0B0F0C]">
+    <section className="py-16 bg-[#F3F6F4] dark:bg-[#0B0F0C] overflow-x-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12">
           {/* FORM */}
-          <div className="flex flex-col gap-6 rounded-xl border border-brand-border dark:border-white/10 bg-white dark:bg-[#0F1115] py-6 shadow-sm">
+          <div
+            data-aos="fade-right"
+            className="flex flex-col gap-6 rounded-xl border border-brand-border dark:border-white/10 
+                       bg-white dark:bg-[#0F1115] py-6 shadow-sm box-border w-full"
+          >
             <div className="px-6">
               <div className="text-2xl font-bold flex items-center text-[#111827] dark:text-gray-100">
                 <FaCommentDots className="mr-2 h-5 w-5 text-[#2F7D33]" />
@@ -135,7 +149,6 @@ export default function ContactSection() {
                 onChange={handleChange}
               />
 
-              {/* ✅ UPDATED: SERVICE DROPDOWN WITH GREEN HOVER */}
               <div className="space-y-2">
                 <label htmlFor="service" className="text-sm font-medium dark:text-gray-200">
                   Service Required
@@ -156,9 +169,7 @@ export default function ContactSection() {
                   <option value="exhaust">Exhaust Repair</option>
                   <option value="aircon">Air Conditioning</option>
                   <option value="cleaning">Engine Cleaning</option>
-                   <option value="ECU">ECU Remapping and Diagnostics</option>
-
-              
+                  <option value="ECU">ECU Remapping and Diagnostics</option>
                   <option value="other">Other</option>
                 </select>
               </div>
@@ -194,7 +205,11 @@ export default function ContactSection() {
 
           {/* SIDEBAR */}
           <div className="space-y-8">
-            <SideCard title="Opening Hours" icon={<FaClock className="h-5 w-5" />}>
+            <SideCard
+              data-aos="fade-left"
+              title="Opening Hours"
+              icon={<FaClock className="h-5 w-5" />}
+            >
               <HoursRow day="Monday" time="8:00 AM – 5:30 PM" />
               <HoursRow day="Tuesday" time="8:00 AM – 5:30 PM" />
               <HoursRow day="Wednesday" time="8:00 AM – 5:30 PM" />
@@ -204,7 +219,7 @@ export default function ContactSection() {
               <HoursRow day="Sunday" time="Closed" muted />
             </SideCard>
 
-            <SideCard title="Find Us" icon={<FaMapMarkerAlt className="h-5 w-5" />}>
+            <SideCard data-aos="fade-left" title="Find Us" icon={<FaMapMarkerAlt className="h-5 w-5" />}>
               <div className="space-y-1 mb-4">
                 <p className="font-semibold">Stoneley's Garage Services</p>
                 <p className="text-sm text-muted dark:text-gray-400">
@@ -224,7 +239,7 @@ export default function ContactSection() {
               </a>
             </SideCard>
 
-            <SideCard title="About Stoneley's Garage">
+            <SideCard data-aos="fade-left" title="About Stoneley's Garage">
               <p className="text-sm text-muted dark:text-gray-400 leading-relaxed">
                 Family-run garage established in 1973, serving Mansfield and surrounding areas.
                 Our certified technicians provide reliable service for cars, commercial vehicles,
@@ -265,9 +280,12 @@ function FormInput({ id, label, placeholder, icon, value, onChange, type = "text
   );
 }
 
-function SideCard({ title, icon, children }) {
+function SideCard({ title, icon, children, ...props }) {
   return (
-    <div className="rounded-xl border border-brand-border dark:border-white/10 bg-white dark:bg-[#0F1115] py-6 shadow-sm">
+    <div
+      {...props}
+      className="rounded-xl border border-brand-border dark:border-white/10 bg-white dark:bg-[#0F1115] py-6 shadow-sm box-border w-full"
+    >
       <div className="px-6 mb-2">
         <div className="text-xl font-bold flex items-center text-[#111827] dark:text-white">
           {icon && <span className="mr-2 text-[#2F7D33]">{icon}</span>}

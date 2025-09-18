@@ -1,15 +1,26 @@
-import React from "react";
-import { FaPhone, FaMapMarkerAlt, FaClock } from "react-icons/fa";
+"use client";
 
-function InfoCard({ icon, title, subtitle, body, cta }) {
+import React, { useEffect } from "react";
+import { FaPhone, FaMapMarkerAlt, FaClock } from "react-icons/fa";
+import AOS from "aos";
+import "aos/dist/aos.css";
+
+function InfoCard({ icon, title, subtitle, body, cta, delay }) {
   return (
     <div
-      className="flex flex-col gap-6 rounded-xl border py-6 text-center 
-                 transition-all duration-300 
-                 bg-[#F7F7F7] dark:bg-neutral-900 
-                 border-[#E6EAE7] dark:border-neutral-700 
-                 hover:shadow-[0_8px_24px_rgba(47,125,51,0.35)] 
-                 hover:ring-2 hover:ring-green-600 hover:ring-offset-2"
+      data-aos="fade-up"
+      data-aos-delay={delay}
+      tabIndex={0}
+      className="
+        flex flex-col gap-6 rounded-xl border py-6 text-center cursor-pointer
+        transition-all duration-300 
+        bg-[#F7F7F7] dark:bg-neutral-900 
+        border-[#E6EAE7] dark:border-neutral-700 
+        hover:shadow-[0_8px_24px_rgba(47,125,51,0.35)] 
+        hover:ring-2 hover:ring-green-600 hover:ring-offset-2
+        active:shadow-[0_8px_24px_rgba(47,125,51,0.35)] active:ring-2 active:ring-green-600
+        focus:shadow-[0_8px_24px_rgba(47,125,51,0.35)] focus:ring-2 focus:ring-green-600
+      "
     >
       <div className="px-6">
         <div
@@ -40,12 +51,21 @@ function InfoCard({ icon, title, subtitle, body, cta }) {
 }
 
 export default function ContactCards() {
+  useEffect(() => {
+    AOS.init({
+      duration: 800,
+      once: false,
+      easing: "ease-out-cubic",
+    });
+  }, []);
+
   return (
     <section className="py-16 bg-white dark:bg-black">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid gap-8 md:grid-cols-3 mb-16">
           {/* Call Us */}
           <InfoCard
+            delay="0"
             icon={<FaPhone className="h-6 w-6" />}
             title="Call Us"
             subtitle="Speak directly with our team"
@@ -59,8 +79,10 @@ export default function ContactCards() {
                              text-[#111827] dark:text-white 
                              bg-transparent 
                              hover:border-green-600 hover:text-green-700 dark:hover:text-green-400 
-                             hover:shadow-[0_6px_18px_rgba(47,125,51,0.35)]"
-                >
+                             hover:shadow-[0_6px_18px_rgba(47,125,51,0.35)]
+                             active:border-green-600 active:text-green-700 active:shadow-[0_6px_18px_rgba(47,125,51,0.35)]
+                             focus:border-green-600 focus:text-green-700 focus:shadow-[0_6px_18px_rgba(47,125,51,0.35)]
+                ">
                   Call Now
                 </button>
               </a>
@@ -69,6 +91,7 @@ export default function ContactCards() {
 
           {/* Visit Us */}
           <InfoCard
+            delay="150"
             icon={<FaMapMarkerAlt className="h-6 w-6" />}
             title="Visit Us"
             subtitle="Find us in Mansfield"
@@ -86,8 +109,10 @@ export default function ContactCards() {
                              text-[#111827] dark:text-white 
                              bg-transparent 
                              hover:border-green-600 hover:text-green-700 dark:hover:text-green-400 
-                             hover:shadow-[0_6px_18px_rgba(47,125,51,0.35)]"
-                >
+                             hover:shadow-[0_6px_18px_rgba(47,125,51,0.35)]
+                             active:border-green-600 active:text-green-700 active:shadow-[0_6px_18px_rgba(47,125,51,0.35)]
+                             focus:border-green-600 focus:text-green-700 focus:shadow-[0_6px_18px_rgba(47,125,51,0.35)]
+                ">
                   Get Directions
                 </button>
               </a>
@@ -96,6 +121,7 @@ export default function ContactCards() {
 
           {/* Opening Hours */}
           <InfoCard
+            delay="300"
             icon={<FaClock className="h-6 w-6" />}
             title="Opening Hours"
             subtitle="We're here when you need us"
