@@ -83,11 +83,16 @@ function Card({ icon, title, text }) {
   return (
     <div
       data-aos="zoom-in"
+      tabIndex={0}
       className="
-        flex flex-col gap-6 rounded-xl border py-6 shadow-sm text-center
+        flex flex-col gap-6 rounded-xl border py-6 shadow-sm text-center cursor-pointer
         border-[var(--brand-border)] bg-[var(--card-bg)] transition-all duration-300
         hover:shadow-[var(--shadow-green)] hover:ring-2 hover:ring-[var(--brand-green)]
         hover:ring-offset-2 hover:ring-offset-[var(--brand-bgSoft)]
+        active:shadow-[var(--shadow-green)] active:ring-2 active:ring-[var(--brand-green)]
+        active:ring-offset-2 active:ring-offset-[var(--brand-bgSoft)]
+        focus:shadow-[var(--shadow-green)] focus:ring-2 focus:ring-[var(--brand-green)]
+        focus:ring-offset-2 focus:ring-offset-[var(--brand-bgSoft)]
       "
     >
       <div className="px-6 pt-6">
