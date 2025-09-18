@@ -83,19 +83,22 @@ const HeroSection = () => {
             </div>
 
             {/* LOCATION & ESTABLISHED */}
-            <div className="grid sm:grid-cols-2 gap-4 pt-6" data-aos="zoom-in">
+            <div
+              className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-6 items-start"
+              data-aos="zoom-in"
+            >
               {/* Location */}
               <a
                 href="https://www.google.com/maps/place/Stoneley's+Garage+Services/data=!4m2!3m1!1s0x0:0x5a644c3262063baf?sa=X&ved=1t:2428&hl=en-GB&ictx=111"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="
-                  flex items-center space-x-3 p-2 rounded transition
+                  flex items-start gap-3 p-2 rounded transition
                   hover:bg-green-50 hover:shadow-[0_4px_15px_rgba(47,125,51,0.25)]
                   dark:hover:bg-white/5
                 "
               >
-                <FaMapMarkerAlt className="h-5 w-5 text-green-600 flex-shrink-0" />
+                <FaMapMarkerAlt className="h-5 w-5 text-green-600 flex-shrink-0 mt-1" />
                 <div>
                   <p className="font-semibold text-gray-900 dark:text-neutral-100">
                     Location
@@ -107,8 +110,8 @@ const HeroSection = () => {
               </a>
 
               {/* Established */}
-              <div className="flex items-center space-x-3">
-                <FaClock className="h-5 w-5 text-green-600 flex-shrink-0" />
+              <div className="flex items-start gap-3 p-2">
+                <FaClock className="h-5 w-5 text-green-600 flex-shrink-0 mt-1" />
                 <div>
                   <p className="font-semibold text-gray-900 dark:text-neutral-100">
                     Established
