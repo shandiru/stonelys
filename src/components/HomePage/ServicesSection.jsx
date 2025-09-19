@@ -100,10 +100,10 @@ export default function ServicesSection() {
   }, []);
 
   return (
-    <section className="py-16 bg-[var(--brand-bgSoft)]" id="service">
+    <section className="py-16 bg-[var(--brand-bgSoft)]" >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center mb-12" data-aos="fade-down">
+        <div className="text-center mb-12" data-aos="fade-down" id="service">
           <h2 className="text-3xl lg:text-4xl font-bold text-[var(--brand-text)]">
             Our Professional Services
           </h2>
