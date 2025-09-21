@@ -6,7 +6,6 @@ import { Link } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
-// ✅ Stoneley's Garage Services Palette
 const palette = {
   black: "#000000",
   darkGrey: "#1C1C1C",
@@ -20,11 +19,22 @@ const palette = {
 
 export default function SiteFooter() {
   useEffect(() => {
+    // Animate every time element enters viewport (not just once).
+    // mirror: true -> animate when scrolling past in both directions
     AOS.init({
       duration: 800,
-      once: false,
+      once: false,      // allow repeat animations
+      mirror: true,     // animate elements both scrolling down AND up
       easing: "ease-out-cubic",
     });
+
+    // refresh AOS on resize (helps when content/layout changes)
+    const handleResize = () => AOS.refresh();
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
   }, []);
 
   return (
@@ -74,9 +84,7 @@ export default function SiteFooter() {
 
           {/* Services List */}
           <div data-aos="fade-up" data-aos-delay="300">
-            <h4 className="text-lg font-semibold text-white mb-3">
-              Our Services
-            </h4>
+            <h4 className="text-lg font-semibold text-white mb-3">Our Services</h4>
             <ul className="space-y-2 text-sm">
               {[
                 ["MOT Testing & Car Servicing", "/services/car-service"],
@@ -101,9 +109,7 @@ export default function SiteFooter() {
 
           {/* Company Links */}
           <div className="text-sm" data-aos="fade-up" data-aos-delay="450">
-            <h4 className="text-lg font-semibold text-white mb-3">
-              Company
-            </h4>
+            <h4 className="text-lg font-semibold text-white mb-3">Company</h4>
             <ul>
               <li>
                 <Link to="/privacy-policy" className="hover:text-gray-300">
@@ -122,17 +128,13 @@ export default function SiteFooter() {
         {/* Divider */}
         <div className="mt-10" style={{ borderTop: `1px solid ${palette.border}` }} />
 
-        {/* Bottom note */}
-        <div className="pt-6 text-center" data-aos="fade-up">
+        {/* Bottom note + Powered by */}
+        <div className="pt-6 text-center space-y-2" data-aos="fade-up">
           <p className="text-sm" style={{ color: palette.dim }}>
             © {new Date().getFullYear()} Stoneley&apos;s Garage Services. All rights
             reserved. | Established 1973
           </p>
-        </div>
-
-        {/* Bottom Bar */}
-        <div className="mt-2 text-center font-semibold" data-aos="fade-up">
-          <p>
+          <p className="text-sm font-semibold">
             Powered by{" "}
             <a
               href="https://www.ansely.co.uk/"
