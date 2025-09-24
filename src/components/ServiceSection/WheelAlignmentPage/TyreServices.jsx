@@ -61,24 +61,7 @@ export default function TyreServices() {
                 </p>
               </div>
 
-              <div className="mt-8">
-                {/* Use primary/check token for any price/accent text if needed later */}
-                <div className="text-xl font-semibold mb-5 text-center text-[var(--aircon-primary)]"></div>
-
-                <button
-                  className="
-                    w-full h-11 rounded-md text-sm font-semibold
-                    border bg-[var(--aircon-button-bg)] text-[var(--aircon-heading)] border-[var(--aircon-outline)]
-                    transition-all duration-300
-                    hover:bg-[var(--aircon-grad-bottom)] hover:shadow-[0_6px_18px_rgba(47,125,51,0.35)]
-                    hover:ring-1 hover:ring-[var(--aircon-primary)] hover:ring-offset-1
-                    focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--aircon-primary)]
-                    focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--aircon-section-bg)]
-                  "
-                >
-                  Learn More
-                </button>
-              </div>
+              
             </div>
           ))}
         </div>
