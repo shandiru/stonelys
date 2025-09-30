@@ -14,7 +14,7 @@ import DiagnosticsPage from "./Page/DiagnosticsPage.jsx";
 import ScrollToTop from "./components/ScrollToTop.jsx";
 import TermsConditions from "./components/Term.jsx";
 import PrivacyPolicy from "./components/PrivacyPolicy.jsx";
-
+import GDPRBanner from "../src/components/GDPRBanner.jsx"
 
 export default function App() {
   return (
@@ -35,6 +35,7 @@ export default function App() {
         </Routes>
       </main>
       <Footer />
+      <GDPRBanner />
     </div>
   );
 }
