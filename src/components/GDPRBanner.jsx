@@ -1,64 +1,97 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 
-export default function GDPRBanner() {
+export default function GDPRConsent() {
   const [visible, setVisible] = useState(false);
+  const [accepted, setAccepted] = useState(null);
+  const [showIcon, setShowIcon] = useState(false);
 
   useEffect(() => {
-    // Check if user has already accepted or rejected
     const consent = localStorage.getItem("gdprConsent");
-    if (!consent) setVisible(true);
+    if (consent === "true" || consent === "false") {
+      setAccepted(consent === "true");
+      setShowIcon(true);
+    } else {
+      setVisible(true);
+    }
   }, []);
 
   const handleAccept = () => {
     localStorage.setItem("gdprConsent", "true");
+    setAccepted(true);
     setVisible(false);
+    setShowIcon(true);
   };
 
   const handleReject = () => {
-    localStorage.setItem("gdprConsent", "false"); // optional
+    localStorage.setItem("gdprConsent", "false");
+    setAccepted(false);
     setVisible(false);
+    setShowIcon(true);
   };
 
-  if (!visible) return null; // Hide if already accepted/rejected
+  const handleIconClick = () => {
+    setVisible(true);
+    setShowIcon(false);
+  };
 
   return (
-    <div
-      className="fixed bottom-0 left-0 w-full 
-      bg-white text-black dark:bg-black dark:text-gray-200
-      p-6 text-center shadow-lg border-t border-gray-200 dark:border-gray-800
-      z-50 transition-colors"
-    >
-      <p className="mb-4 text-gray-700 dark:text-gray-400 leading-relaxed">
-        We use cookies to improve your experience.{" "}
-        <a
-          href="/privacy-policy"
-          className="underline font-semibold text-[#00B140] dark:text-[#27AE60] hover:opacity-80"
+    <>
+      {/* Cookie Banner */}
+      {visible && (
+        <div
+          className="fixed bottom-4 left-4 right-4 md:bottom-6 md:right-6 md:left-auto max-w-full md:max-w-xs 
+                     p-4 rounded-lg shadow-lg z-50 text-center transition-colors
+                     bg-white text-black dark:bg-black dark:text-white"
         >
-          Learn more
-        </a>
-      </p>
+          <p className="text-sm mb-2">
+            We use cookies to improve your experience.
+          </p>
+          <p className="mb-3">
+            <a
+              href="/privacy-policy"
+              className="underline text-[#27AE60] hover:text-[#1f8e50] dark:text-[#00FF40] dark:hover:text-[#27AE60]"
+            >
+              See our Privacy Policy
+            </a>
+          </p>
 
-      <div className="flex flex-col md:flex-row gap-4 justify-center">
-        {/* Accept Button - Bright Green */}
-        <button
-          onClick={handleAccept}
-          className="px-8 py-3 bg-[#00B140] text-white rounded-md font-semibold 
-          hover:bg-[#009432] dark:bg-[#27AE60] dark:hover:bg-[#219150] 
-          transition"
-        >
-          Accept Cookies
-        </button>
+          <div className="flex flex-col sm:flex-row justify-center gap-3">
+            <button
+              onClick={handleReject}
+              className="px-4 py-2 rounded text-sm font-medium transition
+                         bg-[#27AE60] text-white hover:opacity-90"
+            >
+              Reject
+            </button>
+            <button
+              onClick={handleAccept}
+              className="px-4 py-2 rounded text-sm font-medium transition
+                         bg-black text-white hover:opacity-90 
+                         dark:bg-white dark:text-black"
+            >
+              Accept
+            </button>
+          </div>
+        </div>
+      )}
 
-        {/* Reject Button - Neutral Gray */}
-        <button
-          onClick={handleReject}
-          className="px-8 py-3 bg-gray-200 text-black rounded-md font-semibold 
-          hover:bg-gray-300 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600 
-          transition"
-        >
-          Reject Cookies
-        </button>
-      </div>
-    </div>
+      {/* Cookie Icon */}
+      {showIcon && !visible && (
+        <div className="fixed bottom-4 right-4 md:bottom-6 md:right-6 z-40">
+          <button
+            onClick={handleIconClick}
+            className="w-10 h-10 sm:w-12 sm:h-12 rounded-full shadow-lg border flex items-center justify-center hover:scale-105 transition cursor-pointer
+                       bg-[#27AE60] border-black dark:bg-[#00FF40] dark:border-white"
+            title="Cookie Preferences"
+          >
+            <img
+              src="/revisit.svg"
+              alt="Cookie Icon"
+              className="w-5 h-5 sm:w-6 sm:h-6 object-contain invert-0 dark:invert"
+            />
+          </button>
+        </div>
+      )}
+    </>
   );
 }
