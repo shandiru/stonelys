@@ -15,10 +15,10 @@ export default function GarageNav() {
   const mapAddress =
     "https://www.google.com/maps/place/Stoneley's+Garage+Services/data=!4m2!3m1!1s0x0:0x5a644c3262063baf?sa=X&ved=1t:2428&hl=en-GB&ictx=111";
 
-  const NavLink = ({ href, children }) => (
+  const NavLink = ({ href, children, className = "" }) => (
     <a
       href={href}
-      className="font-medium tracking-wide transition-colors duration-200 px-2 py-2 sm:px-3 outline-none focus-visible:ring-2 focus-visible:ring-white/60 rounded whitespace-nowrap"
+      className={`font-medium tracking-wide text-center transition-colors duration-200 block py-2 rounded ${className}`}
       style={{ color: "#FFFFFF" }}
       onMouseEnter={(e) => (e.currentTarget.style.color = hoverLite)}
       onMouseLeave={(e) => (e.currentTarget.style.color = "#FFFFFF")}
@@ -27,7 +27,7 @@ export default function GarageNav() {
     </a>
   );
 
-  const ServiceLinks = ({ itemClass = "block px-3 py-2 text-sm" }) => (
+  const ServiceLinks = ({ itemClass = "block px-4 py-2 text-sm text-center" }) => (
     <>
       <a href="/services/wheel-alignment" className={`${itemClass} hover:bg-green-700/80`}>Wheel Alignment &amp; Tyres</a>
       <a href="/services/air-con" className={`${itemClass} hover:bg-green-700/80`}>Air Conditioning</a>
@@ -43,9 +43,9 @@ export default function GarageNav() {
       style={{ background: `linear-gradient(0deg, ${brandGreen}, ${brandGreen})`, color: "#FFFFFF" }}
     >
       <div className="mx-auto w-full max-w-7xl px-3 sm:px-4 lg:px-8">
-        {/* TOP BAR: one flexible row */}
+        {/* TOP BAR */}
         <div className="flex h-14 sm:h-16 md:h-20 items-center gap-2">
-          {/* Left: Brand */}
+          {/* Brand */}
           <a href="/" className="flex items-center gap-2 shrink-0">
             <img
               src="/logo.jpg"
@@ -54,8 +54,8 @@ export default function GarageNav() {
             />
           </a>
 
-          {/* Center: Desktop Nav (md+) */}
-          <div className="hidden md:flex flex-1 items-center justify-center gap-2 sm:gap-6">
+          {/* Desktop Nav (lg+) */}
+          <div className="hidden lg:flex flex-1 items-center justify-center gap-2 sm:gap-6">
             <NavLink href="/">Home</NavLink>
             <NavLink href="/contact">Contact</NavLink>
 
@@ -64,7 +64,7 @@ export default function GarageNav() {
               <button
                 type="button"
                 onClick={() => setSvcOpen((prev) => !prev)}
-                className="flex items-center gap-1 font-medium px-2 sm:px-3 py-2 rounded outline-none focus-visible:ring-2 focus-visible:ring-white/60"
+                className="flex items-center gap-1 font-medium px-3 py-2 rounded outline-none focus-visible:ring-2 focus-visible:ring-white/60"
                 style={{ color: "#FFFFFF" }}
                 aria-haspopup="menu"
                 aria-expanded={svcOpen}
@@ -87,73 +87,12 @@ export default function GarageNav() {
             </div>
           </div>
 
-          {/* Right: utilities (lg+). On md they hide to avoid crowding */}
+          {/* Utilities (lg+) */}
           <div className="hidden lg:flex items-center gap-2 sm:gap-4 ml-auto">
             <a
               href={`tel:${phoneNumber}`}
               className="flex items-center gap-2 text-xs sm:text-sm bg-white/10 hover:bg-white/15 px-3 py-1.5 rounded-full transition-colors outline-none focus-visible:ring-2 focus-visible:ring-white/60"
-              title="Call us"
             >
-              <FaPhoneAlt className="h-4 w-4" />
-              <span className="whitespace-nowrap">{phoneDisplay}</span>
-            </a>
-            <a
-              href={mapAddress}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 text-xs sm:text-sm bg-white/10 hover:bg-white/15 px-3 py-1.5 rounded-full transition-colors outline-none focus-visible:ring-2 focus-visible:ring-white/60"
-              title="Open location"
-            >
-              <FaMapMarkerAlt className="h-4 w-4" />
-              <span className="whitespace-nowrap">Stoneley&apos;s Garage, NG18 5BU</span>
-            </a>
-            {/* Theme toggle last */}
-            <ThemeToggle />
-          </div>
-
-          {/* Mobile toggle (md-) */}
-          <div className="md:hidden ml-auto">
-            <button
-              className="inline-flex items-center justify-center h-10 w-10 rounded-md text-white/95 hover:bg-white/10 outline-none focus-visible:ring-2 focus-visible:ring-white/70"
-              onClick={() => setOpen((v) => !v)}
-              aria-label="Toggle menu"
-              aria-expanded={open}
-            >
-              <FaBars className="h-6 w-6" />
-            </button>
-          </div>
-        </div>
-      </div>
-
-      {/* MOBILE PANEL */}
-      <div
-        className="md:hidden overflow-hidden transition-[max-height] duration-300 ease-in-out border-t border-white/10"
-        style={{ maxHeight: open ? "420px" : "0px", backgroundColor: brandGreen }}
-      >
-        <div className="px-4 py-3 flex flex-col gap-2">
-          <NavLink href="/">Home</NavLink>
-          <NavLink href="/contact">Contact</NavLink>
-
-          <button
-            className="flex items-center justify-between text-left font-medium pr-1 py-2 rounded outline-none focus-visible:ring-2 focus-visible:ring-white/60"
-            style={{ color: "#FFFFFF" }}
-            onClick={() => setSvcOpenMobile((v) => !v)}
-            aria-expanded={svcOpenMobile}
-          >
-            <span>Services</span>
-            <FaChevronDown className={`h-4 w-4 transition-transform ${svcOpenMobile ? "rotate-180" : ""}`} />
-          </button>
-          <div
-            className="overflow-hidden transition-[max-height] duration-300 ease-in-out pl-2"
-            style={{ maxHeight: svcOpenMobile ? "300px" : "0px" }}
-          >
-            <div className="flex flex-col py-1 text-white/95">
-              <ServiceLinks itemClass="py-2 px-3 text-sm hover:bg-green-700/80 rounded" />
-            </div>
-          </div>
-
-          <div className="mt-2 pt-3 border-t border-white/15 grid gap-2 text-sm">
-            <a href={`tel:${phoneNumber}`} className="flex items-center gap-2 bg-white/10 hover:bg-white/15 px-3 py-2 rounded-md transition-colors">
               <FaPhoneAlt className="h-4 w-4" />
               <span>{phoneDisplay}</span>
             </a>
@@ -161,13 +100,71 @@ export default function GarageNav() {
               href={mapAddress}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 bg-white/10 hover:bg-white/15 px-3 py-2 rounded-md transition-colors"
+              className="flex items-center gap-2 text-xs sm:text-sm bg-white/10 hover:bg-white/15 px-3 py-1.5 rounded-full transition-colors outline-none focus-visible:ring-2 focus-visible:ring-white/60"
             >
               <FaMapMarkerAlt className="h-4 w-4" />
               <span>Stoneley&apos;s Garage, NG18 5BU</span>
             </a>
-            <div className="pt-1">
-              <ThemeToggle className="w-full justify-center" />
+            <ThemeToggle />
+          </div>
+
+          {/* Mobile/Tablet Hamburger */}
+          <div className="lg:hidden ml-auto">
+            <button
+              className="inline-flex items-center justify-center h-10 w-10 rounded-md text-white/95 hover:bg-white/10 outline-none focus-visible:ring-2 focus-visible:ring-white/70"
+              onClick={() => setOpen((v) => !v)}
+            >
+              <FaBars className="h-6 w-6" />
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* MOBILE/TABLET PANEL */}
+      <div
+        className="lg:hidden overflow-hidden transition-[max-height] duration-300 ease-in-out border-t border-white/10"
+        style={{ maxHeight: open ? "480px" : "0px", backgroundColor: brandGreen }}
+      >
+        <div className="px-4 py-4 flex flex-col items-center gap-3 text-center">
+          <NavLink href="/" className="w-full">Home</NavLink>
+          <NavLink href="/contact" className="w-full">Contact</NavLink>
+
+          <button
+            className="flex items-center justify-center gap-2 w-full text-center font-medium py-2 rounded outline-none focus-visible:ring-2 focus-visible:ring-white/60"
+            style={{ color: "#FFFFFF" }}
+            onClick={() => setSvcOpenMobile((v) => !v)}
+          >
+            <span>Services</span>
+            <FaChevronDown className={`h-4 w-4 transition-transform ${svcOpenMobile ? "rotate-180" : ""}`} />
+          </button>
+
+          {/* Service Submenu */}
+          <div
+            className="overflow-hidden transition-[max-height] duration-300 ease-in-out w-full"
+            style={{ maxHeight: svcOpenMobile ? "280px" : "0px" }}
+          >
+            <div className="flex flex-col py-1 text-white/95 items-center">
+              <ServiceLinks itemClass="py-2 px-3 text-sm hover:bg-green-700/80 rounded text-center w-full" />
+            </div>
+          </div>
+
+          {/* Contact + ThemeToggle */}
+          <div className="mt-4 pt-3 border-t border-white/15 w-full grid gap-2 text-sm">
+            <a href={`tel:${phoneNumber}`} className="flex items-center justify-center gap-2 bg-white/10 hover:bg-white/15 px-3 py-2 rounded-md transition-colors">
+              <FaPhoneAlt className="h-4 w-4" />
+              <span>{phoneDisplay}</span>
+            </a>
+            <a
+              href={mapAddress}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center gap-2 bg-white/10 hover:bg-white/15 px-3 py-2 rounded-md transition-colors"
+            >
+              <FaMapMarkerAlt className="h-4 w-4" />
+              <span>Stoneley&apos;s Garage, NG18 5BU</span>
+            </a>
+            <div className="pt-1 flex justify-center">
+              <ThemeToggle />
             </div>
           </div>
         </div>
