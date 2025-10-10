@@ -28,15 +28,17 @@ const HeroSection = () => {
             {/* HEADLINE */}
             <div className="space-y-4">
               <h1
-                className="
-                  text-4xl lg:text-6xl font-black leading-tight
-                  text-gray-900 dark:text-neutral-100
-                "
-              >
-                STONELEY&apos;S
-                <br />
-                <span className="text-green-600">GARAGE SERVICES</span>
-              </h1>
+              className="
+                text-4xl md:text-5xl lg:text-[2.75rem] xl:text-6xl
+                font-black leading-tight
+                text-gray-900 dark:text-neutral-100
+              "
+            >
+              STONELEY&apos;S
+              <br />
+              <span className="text-green-600">GARAGE SERVICES</span>
+            </h1>
+
               <p className="text-xl text-gray-700 dark:text-neutral-300">
                 Family-run garage established 1973
               </p>
