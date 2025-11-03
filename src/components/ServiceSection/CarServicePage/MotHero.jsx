@@ -6,7 +6,7 @@ import { FaPhoneAlt } from "react-icons/fa";
 export default function MotHero() {
   return (
     <section
-      className="py-16 transition-colors duration-300 bg-gradient-to-b 
+      className="py-16 transition-colors duration-300 bg-linear-to-b 
                  from-[var(--mot-grad-top)] to-[var(--mot-grad-bottom)] 
                  dark:from-[var(--mot-grad-top-dark)] dark:to-[var(--mot-grad-bottom-dark)]"
     >

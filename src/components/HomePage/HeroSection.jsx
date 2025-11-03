@@ -17,7 +17,7 @@ const HeroSection = () => {
     <section
       className="
         relative overflow-hidden
-        bg-gradient-to-b from-green-50 to-white
+        bg-linear-to-b from-green-50 to-white
         dark:from-neutral-900 dark:to-black
       "
     >
