@@ -89,10 +89,10 @@ export default function SiteFooter() {
               {[
                 ["MOT Testing & Car Servicing", "/services/car-service"],
                 ["Wheel Alignment & Tyre Fitting", "/services/wheel-alignment"],
-                ["Brakes, Exhausts & Clutches", "/services/brakes-exhausts-clutches"],
+                ["Vehicle Diagnostics & ECU Remapping", "/services/diagnostics"],
                 ["Engine Cleaning Services", "/services/cleaning"],
                 ["Air Conditioning Service", "/services/air-con"],
-                ["Commercial Vehicle Repairs", "/services/commercial-repairs"],
+                
               ].map(([label, href], i) => (
                 <li key={i}>
                   <a
