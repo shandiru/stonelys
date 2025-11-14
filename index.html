@@ -4,22 +4,63 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image" href="/logo.jpg" />
-    <!-- Let the UA render either scheme for built-in controls -->
-    <meta name="color-scheme" content="dark light" />
-    <title>stonelys</title>
 
-    <!-- Set initial theme BEFORE the app mounts -->
+    <!-- Allow browser UI to follow dark/light -->
+    <meta name="color-scheme" content="dark light" />
+
+    <title>Stoneley's Garage Services</title>
+
+    <!-- ============================
+         ⭐ SEO DESCRIPTION
+    ============================= -->
+    <meta
+      name="description"
+      content="Stoneley's Garage provides professional diagnostics, MOT testing, wheel alignment, tyres, air-con servicing, DPF & carbon cleaning, and full car servicing."
+    />
+
+    <!-- ============================
+         ⭐ SOCIAL SHARE PREVIEW (OG TAGS)
+    ============================= -->
+    <meta property="og:title" content="Stoneley's Garage Services – Diagnostics, MOT, Tyres, Repairs" />
+    <meta
+      property="og:description"
+      content="Expert vehicle diagnostics, MOT testing, wheel alignment, air-con service, engine cleaning, and complete car care by certified technicians ."
+    />
+
+    <!-- 👇 Using your logo as the image shown in previews -->
+    <meta property="og:image" content="https://www.stoneleys.co.uk/logo.jpg" />
+    <meta property="og:image:alt" content="Stoneley's Garage Logo" />
+
+    <meta property="og:url" content="https://www.stoneleys.co.uk/" />
+    <meta property="og:type" content="website" />
+
+    <!-- ============================
+         ⭐ TWITTER CARD PREVIEW
+    ============================= -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Stoneley's Garage Services – Professional Vehicle Care" />
+    <meta
+      name="twitter:description"
+      content="Diagnostics, servicing, tyres, MOT, air-con, and engine cleaning — trusted garage ."
+    />
+    <meta name="twitter:image" content="https://www.stoneleys.co.uk/logo.jpg" />
+
+    <!-- ============================
+         ⭐ INITIAL DARK-MODE (NO FLASH)
+    ============================= -->
     <script>
       (() => {
-        const ls = localStorage.getItem("theme");           // "dark" | "light" | null
+        const ls = localStorage.getItem("theme");
         const prefersDark = matchMedia("(prefers-color-scheme: dark)").matches;
         const theme = ls ?? (prefersDark ? "dark" : "light");
         const root = document.documentElement;
+
         if (theme === "dark") root.classList.add("dark");
-        root.style.colorScheme = theme; // helps form controls
+        root.style.colorScheme = theme;
       })();
     </script>
   </head>
+
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
