@@ -200,6 +200,7 @@ export default function ContactSection() {
               <p className="text-xs text-muted dark:text-gray-400">
                 * Required fields. We'll get back to you within 24 hours.
               </p>
+              <p class="text-xs text-center mt-5 dark:text-gray-300">By submitting this form, you agree to us processing your details to respond to your enquiry. Your information is handled securely and in line with our Privacy Policy.</p>
             </div>
           </div>
 
